@@ -1,0 +1,2962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SMETHReadMessageController</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementController.html">SMETHAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementPreferencesController.html">SMETHAcknowledgementPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAdvancedPreferencesController.html">SMETHAdvancedPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAttachmentController.html">SMETHAttachmentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHBankPreferencesController.html">SMETHBankPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHComposeMessageController.html">SMETHComposeMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHControlFactory.html">SMETHControlFactory</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHHeaderController.html">SMETHHeaderController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMail.html">SMETHMail</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMailPreferencesController.html">SMETHMailPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageHandler.html">SMETHMessageHandler</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHOptionController.html">SMETHOptionController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHQXBANPreferencesController.html">SMETHQXBANPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReadMessageController.html">SMETHReadMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReportController.html">SMETHReportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRequestController.html">SMETHRequestController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHUtils.html">SMETHUtils</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/smeth.html">smeth</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>SMETHReadMessageController Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l87"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:87</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/smeth.html">smeth</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>SMETHReadMessageController is the class that is attached to SMETHReadMessageView, it helps in the setting up of the thunderbird main window interface for displaying of different type of SEPAmail messages.</p>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method">
+                                <a href="#method__getAccount">_getAccount</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_checkAttachmentsContentType">checkAttachmentsContentType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_checkBodyContainsTag">checkBodyContainsTag</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_composeRequestButtonClick">composeRequestButtonClick</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_composeTestRequestButtonClick">composeTestRequestButtonClick</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_disableSEPAmailUI">disableSEPAmailUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getDefaultSmethAccount">getDefaultSmethAccount</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getMailBody">getMailBody</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_getSEPAmailMessageType">getSEPAmailMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_handleExporttoEML">handleExporttoEML</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_handleReportButtonClick">handleReportButtonClick</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_handleSEPAmailInfo">handleSEPAmailInfo</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_init">init</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeMessagePaneUI">initializeMessagePaneUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeSEPAmailAttachmentUI">initializeSEPAmailAttachmentUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeSEPAmailBodyUI">initializeSEPAmailBodyUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeSEPAmailSMTPHeaderUI">initializeSEPAmailSMTPHeaderUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeSEPAmailUI">initializeSEPAmailUI</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_initializeSmethMailObject">initializeSmethMailObject</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_isSEPAmail">isSEPAmail</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_observe">observe</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onMessagePaneLoad">onMessagePaneLoad</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_saveToFile">saveToFile</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_toogleMessageHeaderButtons">toogleMessageHeaderButtons</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethConfigObject">_smethConfigObject</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethControlFactory">_smethControlFactory</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMail">_smethMail</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMessageHandler">_smethMessageHandler</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMessageType">_smethMessageType</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPreferences">_smethPreferences</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPrefIsBodyXML">_smethPrefIsBodyXML</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPrefMissiveMsgTypXpath">_smethPrefMissiveMsgTypXpath</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPrefMissiveRootTag">_smethPrefMissiveRootTag</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPrefSEPAmailXMLTag">_smethPrefSEPAmailXMLTag</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethUtils">_smethUtils</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__getAccount" class="method item">
+    <h3 class="name"><code>_getAccount</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aMsgHdr</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l913"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:913</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the account on which the email corresponding to the specified header was obtained</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aMsgHdr</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Message header</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    Account on which the header of the corresponding email was obtained
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_checkAttachmentsContentType" class="method item">
+    <h3 class="name"><code>checkAttachmentsContentType</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aMailContent</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>aContentType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l791"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:791</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>checkAttachmentsContentType function checks if the mail content
+contains an attachement of the parametred content type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aMailContent</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Object</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">aContentType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>String</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Boolean</span>:
+                    
+                    Whether the mail is of type xml
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_checkBodyContainsTag" class="method item">
+    <h3 class="name"><code>checkBodyContainsTag</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aBody</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>aTag</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l771"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:771</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>checkBodyContainsTag function checks if body conatains the parametered tag</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aBody</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>String</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">aTag</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>String</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Boolean</span>:
+                    
+                    Whether the mail body contains the parametered tag
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_composeRequestButtonClick" class="method item">
+    <h3 class="name"><code>composeRequestButtonClick</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l1025"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:1025</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>composeRequestButtonClick function handles the click event for the composeRequestButton</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_composeTestRequestButtonClick" class="method item">
+    <h3 class="name"><code>composeTestRequestButtonClick</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l1073"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:1073</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>composeTestRequestButtonClick function handles the click event for the composeTestRequestButton</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_disableSEPAmailUI" class="method item">
+    <h3 class="name"><code>disableSEPAmailUI</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l508"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:508</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>disableSEPAmailUI function disables the SEPAmail UI</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_getDefaultSmethAccount" class="method item">
+    <h3 class="name"><code>getDefaultSmethAccount</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l974"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:974</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>defaultSmethAccount function returns the default smeth account to send mail</p>
+    </div>
+
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    Default smeth account to send mail
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getMailBody" class="method item">
+    <h3 class="name"><code>getMailBody</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aMessageParts</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l658"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:658</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>getMailBody recursive function get the message body from the message content parts parametered</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aMessageParts</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Object</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                    Message body String
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_getSEPAmailMessageType" class="method item">
+    <h3 class="name"><code>getSEPAmailMessageType</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aSmethMail</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">String</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l736"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:736</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>getSEPAmailMessageType function return the SEPAmail message type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aSmethMail</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Smeth mail object</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">String</span>:
+                    
+                    The SEPAmail message type
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_handleExporttoEML" class="method item">
+    <h3 class="name"><code>handleExporttoEML</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l1165"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:1165</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>handleExporttoEML function handles the export to EML operation</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_handleReportButtonClick" class="method item">
+    <h3 class="name"><code>handleReportButtonClick</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>anXSLUrl</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l889"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:889</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>handleReportButtonClick function handles the click event for report buttons</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">anXSLUrl</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>XSL Url for report form</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_handleSEPAmailInfo" class="method item">
+    <h3 class="name"><code>handleSEPAmailInfo</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l1119"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:1119</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>handleSEPAmailInfo function handles SEPAmail logo click event</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_init" class="method item">
+    <h3 class="name"><code>init</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l193"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:193</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initiation of the Smeth plugin</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeMessagePaneUI" class="method item">
+    <h3 class="name"><code>initializeMessagePaneUI</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aSmethMail</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l349"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:349</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeMessagePaneUI initialises the messagepane user interface using the parametered SmethMail object</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aSmethMail</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Selected mail object</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeSEPAmailAttachmentUI" class="method item">
+    <h3 class="name"><code>initializeSEPAmailAttachmentUI</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l621"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:621</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeSEPAmailAttachmentUI function initialises the SEPAmail attachment user interface</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeSEPAmailBodyUI" class="method item">
+    <h3 class="name"><code>initializeSEPAmailBodyUI</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l587"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:587</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeSEPAmailBodyUI function initialises the SEPAmail body user interface</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeSEPAmailSMTPHeaderUI" class="method item">
+    <h3 class="name"><code>initializeSEPAmailSMTPHeaderUI</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l551"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:551</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeSEPAmailSMTPHeaderUI function initialises the SEPAmail SMTP header user interface</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeSEPAmailUI" class="method item">
+    <h3 class="name"><code>initializeSEPAmailUI</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l463"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:463</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeSEPAmailUI function initialises the SEPAmail UI</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_initializeSmethMailObject" class="method item">
+    <h3 class="name"><code>initializeSmethMailObject</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aSelectedMailHeader</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l299"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:299</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>initializeSmethMailObject function initialize a SmethMail Object using the mail selected header</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aSelectedMailHeader</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Selected mail header</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_isSEPAmail" class="method item">
+    <h3 class="name"><code>isSEPAmail</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aSmethMail</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l693"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:693</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>isSEPAmail function checks if a mail is a SEPAmail</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aSmethMail</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>object</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Boolean</span>:
+                    
+                    Whether the mail is a SEPAmail
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_observe" class="method item">
+    <h3 class="name"><code>observe</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aSubject</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>aTopic</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>aData</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l242"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:242</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>observe function Called when events occur on the preferences</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aSubject</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Event Subject</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">aTopic</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Event Topic</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">aData</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Event Data</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onMessagePaneLoad" class="method item">
+    <h3 class="name"><code>onMessagePaneLoad</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aEvent</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l273"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:273</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>onMessagePaneLoad listener to be triggered on each mail select</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aEvent</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Event data</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_saveToFile" class="method item">
+    <h3 class="name"><code>saveToFile</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>filename</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>content</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l1271"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:1271</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Save a file to local storage</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">filename</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Name of the file</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">content</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>File content</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_toogleMessageHeaderButtons" class="method item">
+    <h3 class="name"><code>toogleMessageHeaderButtons</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l824"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:824</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>toogleMessageHeaderButtons function toogle the message header buttons depending whether its a SEPAmail or not</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr__smethConfigObject" class="attr item private">
+    <a name="config__smethConfigObject"></a> 
+    <h3 class="name"><code>_smethConfigObject</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l175"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:175</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Smeth config object</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethControlFactory" class="attr item private">
+    <a name="config__smethControlFactory"></a> 
+    <h3 class="name"><code>_smethControlFactory</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l112"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:112</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the SMETHControlFactory class</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMail" class="attr item private">
+    <a name="config__smethMail"></a> 
+    <h3 class="name"><code>_smethMail</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l121"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:121</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the smeth mail object</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMessageHandler" class="attr item private">
+    <a name="config__smethMessageHandler"></a> 
+    <h3 class="name"><code>_smethMessageHandler</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l94"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:94</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the SMETHMessageHandler class</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMessageType" class="attr item private">
+    <a name="config__smethMessageType"></a> 
+    <h3 class="name"><code>_smethMessageType</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l184"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:184</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Smeth message type</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPreferences" class="attr item private">
+    <a name="config__smethPreferences"></a> 
+    <h3 class="name"><code>_smethPreferences</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l130"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:130</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Preferences object</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPrefIsBodyXML" class="attr item private">
+    <a name="config__smethPrefIsBodyXML"></a> 
+    <h3 class="name"><code>_smethPrefIsBodyXML</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l139"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:139</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Preference prefIsBodyXML</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPrefMissiveMsgTypXpath" class="attr item private">
+    <a name="config__smethPrefMissiveMsgTypXpath"></a> 
+    <h3 class="name"><code>_smethPrefMissiveMsgTypXpath</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l157"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:157</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Preference for missive message type XPath</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPrefMissiveRootTag" class="attr item private">
+    <a name="config__smethPrefMissiveRootTag"></a> 
+    <h3 class="name"><code>_smethPrefMissiveRootTag</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l166"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:166</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Preference for the missive root tag</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPrefSEPAmailXMLTag" class="attr item private">
+    <a name="config__smethPrefSEPAmailXMLTag"></a> 
+    <h3 class="name"><code>_smethPrefSEPAmailXMLTag</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l148"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:148</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Preference prefSEPAmailXMLTag</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethUtils" class="attr item private">
+    <a name="config__smethUtils"></a> 
+    <h3 class="name"><code>_smethUtils</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHReadMessageController.js.html#l103"><code>content&#x2F;controllers&#x2F;SMETHReadMessageController.js:103</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the utils class</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Translations for main toolbar -->
+<!ENTITY mailtoolbox.newmsgbutton.label "Write">
+<!ENTITY mailtoolbox.newmsgbutton.tooltip "Create a new message">
+
+<!-- Translations for payment.activation menu -->
+<!ENTITY mailtoolbox.paymentactivationmenu.label "payment.activation">
+<!ENTITY mailtoolbox.paymentactivationmenu.tooltip "Create a payment.activation message">
+<!ENTITY mailtoolbox.actrequestbutton.label "Request">
+<!ENTITY mailtoolbox.actrequestbutton.tooltip "Create an activation request">
+<!ENTITY mailtoolbox.actreportbutton.label "Report">
+<!ENTITY mailtoolbox.actreportbutton.tooltip "Create an activation report">
+<!ENTITY mailtoolbox.actenrollbutton.label "Enroll">
+<!ENTITY mailtoolbox.actenrollbutton.tooltip "Create an activation enroll">
+
+<!-- Translations for test menu -->
+<!ENTITY mailtoolbox.testmenu.label "test">
+<!ENTITY mailtoolbox.testmenu.tooltip "Create a test message">
+<!ENTITY mailtoolbox.acttestrequestbutton.label "Request">
+<!ENTITY mailtoolbox.acttestrequestbutton.tooltip "Create an activation test request">
+<!ENTITY mailtoolbox.acttestreportbutton.label "Report">
+<!ENTITY mailtoolbox.acttestreportbutton.tooltip "Create an activation test report">
+
+<!-- Translations for date -->
+<!ENTITY date.today.text "Today">
+
+<!-- Translations for the SEPAmail header view -->
+<!ENTITY missive.activation.request.messageType.label "Type of message">
+<!ENTITY missive.activation.request.sender.label "Sender">
+<!ENTITY missive.activation.request.receiver.label "Receiver">
+<!ENTITY missive.activation.request.priority.label "Priority">
+<!ENTITY missive.activation.request.sentDate.label "Sent">
+<!ENTITY missive.activation.request.receivedDate.label "Received">
+<!ENTITY missive.activation.request.semHdrSummaryAck.label "Acknowledgement">
+
+<!-- Translations for the SEPAmail body view -->
+<!ENTITY missive.activation.request.requestDate.label "Request date">
+<!ENTITY missive.activation.request.requestAmount.label "Requested amount">
+<!ENTITY missive.activation.request.requestPaymentMethod.label "Payment method">
+<!ENTITY missive.activation.request.requestPaymentMethodCheck.label "Check">
+<!ENTITY missive.activation.request.requestPaymentMethodTransfer.label "Transfer">
+<!ENTITY missive.activation.request.requestPaymentMethodDirectDebit.label "Direct Debit">
+<!ENTITY missive.activation.request.requestPaymentMethodPaymentCard.label "Payment Card">
+<!ENTITY missive.activation.request.requestSubject.label "Request subject">
+
+<!ENTITY missive.activation.request.refuseRequestButton.label "Refuse">
+<!ENTITY missive.activation.request.acceptRequestButton.label "Accept the payment request">
+
+<!-- Translations for the SEPAmail attachment view -->
+<!ENTITY missive.activation.request.openAllMissiveAttachmentListContextMenu.label "Open All...">
+<!ENTITY missive.activation.request.saveAllMissiveAttachmentListContextMenu.label "Save All...">
+<!ENTITY missive.activation.request.openMissiveAttachmentListItemContextMenu.label "Open">
+<!ENTITY missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label "Save As...">
+<!ENTITY missive.activation.request.missiveAttachmentBar.tooltip "Show the attachment pane">
+<!ENTITY missive.activation.request.missiveAttachmentBarShow.tooltip "Show the attachment pane">
+<!ENTITY missive.activation.request.missiveAttachmentBarHide.tooltip "Hide the attachment pane">
+<!ENTITY missive.activation.request.missiveAttachmentCount.label "Attachment">
+<!ENTITY missive.activation.request.missiveAttachmentName.tooltip "Open the attached file">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAll.label "Save As">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAllSingle.label "Save">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAllSingle.tooltip "Save all attachements">
+<!ENTITY missive.activation.request.openMissiveAttachment.label "Open">
+<!ENTITY missive.activation.request.saveMissiveAttachment.label "Save As...">
+
+<!-- Translations for the SEPAmail Export -->
+<!ENTITY mainmenu.export "Export">
+<!ENTITY mainmenu.export.sepamail.envelope "SEPAmail Envelope">
+<!ENTITY mainmenu.export.sepamail.missive "SEPAmail Missive">
+<!ENTITY mainmenu.export.sepamail.message "SEPAmail Message">
+<!ENTITY mainmenu.export.sepamail.all "All">
+
+<!-- Translations for main menu items -->
+<!ENTITY mainmenu.preference "SMETH Preferences">
+
+<!-- General translations -->
+<!ENTITY general.noSuitableAccounts "There are no suitably configured email accounts for sending SEPAmail messages.">

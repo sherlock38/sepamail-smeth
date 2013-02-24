@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://{appname}/skin/styles/prefPaneBindings.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHOption.dtd">
+
+<overlay id="{appname}-advanced_preferences"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+        // SMETHAdvancedPrefpaneLocale class defines locale texts from "SMETHOption.dtd" that may be used by the
+        // advance settings preference controller
+        var SMETHAdvancedPrefpaneLocale = {
+            confirmDialogTitle : '&prefPane.prefpaneAdvanced.general.removal_prompt.title;',
+            confirmDialogPrompt : '&prefPane.prefpaneAdvanced.general.removal_prompt.prompt;',
+            newEcosystemTitle : '&prefPane.prefpaneAdvanced.ecosystem.prompt.add.title;',
+            newEcosystemPrompt : '&prefPane.prefpaneAdvanced.ecosystem.prompt.add.label;',
+            modifyEcosystemTitle : '&prefPane.prefpaneAdvanced.ecosystem.prompt.modify.title;',
+            modifyEcosystemPrompt : '&prefPane.prefpaneAdvanced.ecosystem.prompt.modify.label;',
+            deleteEcosystemTitle : '&prefPane.prefpaneAdvanced.ecosystem.removal_prompt.title;',
+            deleteEcosystemPrompt : '&prefPane.prefpaneAdvanced.ecosystem.removal_prompt.prompt;',
+            nodefinedEcosystemMessage : '&prefPane.prefpaneAdvanced.compose.noecosystem;',
+            nodefinedMessageTypeMessage : '&prefPane.prefpaneAdvanced.compose.nomessagetype;',
+            nodefinedEcosystemAndMessageTypeMessage : '&prefPane.prefpaneAdvanced.compose.noecosystemandmessagetype;'
+        }
+    </script>
+    <script src="./controllers/SMETHAdvancedPreferencesController.js"/>
+
+    <prefpane id="prefpaneAdvanced" flex="1" label="&prefPane.label.advanced;">
+        <groupbox flex="1" id="groupboxQxBan">
+            <caption label="&prefPane.prefpaneAdvanced.grouptitle;"/>
+            <vbox flex="1">
+                <separator class="thin" orient="horizontal"/>
+                <tabbox id="settingsTabbox" flex="1">
+                    <tabs id="settingsTabs">
+                        <tab label="&prefPane.prefpaneAdvanced.tab.general;" value="generalSettings"/>
+                        <tab label="&prefPane.prefpaneAdvanced.tab.ecosystem;" value="ecosystemSettings"/>
+                        <tab label="&prefPane.prefpaneAdvanced.tab.compose;" oncommand="SMETHAdvancedPreferencesController.onComposeMessageTabSelected();" value="composeMessageSettings"/>
+                        <tab label="&prefPane.prefpaneAdvanced.tab.messageTypeSettings;" oncommand="SMETHAdvancedPreferencesController.onMessageTypeSettingsTabSelected();" value="messageSettings"/>
+                    </tabs>
+                    <tabpanels id="settingsTabpanels" flex="1">
+                        <tabpanel>
+                            <vbox flex="1">
+                                <separator class="thin" orient="horizontal"/>
+                                <grid>
+                                    <columns>
+                                        <column/>
+                                        <column flex="1"/>
+                                    </columns>
+                                    <rows>
+                                        <row align="center">
+                                            <label value="&prefPane.prefpaneAdvanced.general.rootTab.label;"/>
+                                            <textbox id="rootTagValue" align="stretch" multiline="false" placeholder="&prefPane.prefpaneAdvanced.general.rootTab.placeholder;"/>
+                                        </row>
+                                        <row>
+                                            <vbox align="start">
+                                                <separator class="thin" orient="horizontal"/>
+                                                <box align="center">
+                                                    <label value="&prefPane.prefpaneAdvanced.general.xpath.label;"/>
+                                                </box>
+                                            </vbox>
+                                            <textbox id="xPathValue" align="stretch" multiline="true" placeholder="&prefPane.prefpaneAdvanced.general.xpath.placeholder;"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                                <separator class="thin" orient="horizontal"/>
+                                <hbox flex="1">
+                                    <vbox flex="1">
+                                        <groupbox flex="1">
+                                            <caption label="&prefPane.prefpaneAdvanced.general.messagetypes.grouptitle;"/>
+                                            <vbox flex="1">
+                                                <separator class="thin" orient="horizontal"/>
+                                                <listbox id="sepamailMessageTypes" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectMessageTypeItem();" seltype="single" suppressOnSelect="false">
+                                                    <listhead>
+                                                        <listheader label="&prefPane.prefpaneAdvanced.general.listbox.header;"/>
+                                                    </listhead>
+                                                </listbox>
+                                                <separator class="thin" orient="horizontal"/>
+                                                <hbox align="stretch">
+                                                    <textbox id="messageTypeValue" flex="1" multiline="false" oninput="SMETHAdvancedPreferencesController.onMessageTypeInput();" placeholder="&prefPane.prefpaneAdvanced.general.messageType.placeholder;"/>
+                                                    <button id="addMessageType" class="image-button" disabled="true" icon="add" oncommand="SMETHAdvancedPreferencesController.addMessageType();" tooltiptext="&prefPane.prefpaneAdvanced.general.messageType.add;"/>
+                                                    <button id="removeMessageType" class="image-button" disabled="true" icon="remove" oncommand="SMETHAdvancedPreferencesController.removeMessageType();" tooltiptext="&prefPane.prefpaneAdvanced.general.messageType.remove;"/>
+                                                </hbox>
+                                            </vbox>
+                                        </groupbox>
+                                    </vbox>
+                                    <box align="center">
+                                        <button id="addAcknowledgementMessageType" disabled="true" class="image-button" icon="go-forward" oncommand="SMETHAdvancedPreferencesController.addAcknowledgementMessageType();" tooltiptext="&prefPane.prefpaneAdvanced.addAckMessageType.tooltip;"/>
+                                    </box>
+                                    <vbox flex="1">
+                                        <groupbox flex="1">
+                                            <caption label="&prefPane.prefpaneAdvanced.general.acknowledgement.grouptitle;"/>
+                                            <vbox flex="1">
+                                                <separator class="thin" orient="horizontal"/>
+                                                <listbox id="acknowledgementMessageTypes" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectAcknowledgementMessageTypeItem();" seltype="single" suppressOnSelect="false">
+                                                    <listhead>
+                                                        <listheader label="&prefPane.prefpaneAdvanced.general.listbox.header;"/>
+                                                    </listhead>
+                                                </listbox>
+                                                <separator class="thin" orient="horizontal"/>
+                                                <hbox align="stretch" pack="end">
+                                                    <button id="removeAckMessageType" class="image-button" disabled="true" icon="remove" oncommand="SMETHAdvancedPreferencesController.removeAckMessage();" tooltiptext="&prefPane.prefpaneAdvanced.general.ackMessageType.remove;"/>
+                                                </hbox>
+                                            </vbox>
+                                        </groupbox>
+                                    </vbox>
+                                </hbox>
+                            </vbox>
+                        </tabpanel>
+                        <tabpanel>
+                            <vbox flex="1">
+                                <separator class="thin" orient="horizontal"/>
+                                <listbox id="ecosystemsListbox" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectEcosystem();" seltype="single" suppressOnSelect="false">
+                                    <listhead>
+                                        <listheader label="&prefPane.prefpaneAdvanced.ecosystem.list.header;"/>
+                                    </listhead>
+                                </listbox>
+                                <separator class="thin" orient="horizontal"/>
+                                <hbox pack="end">
+                                    <button id="addEcosystem" disabled="false" label="&prefPane.prefpaneAdvanced.ecosystem.button.add;" oncommand="SMETHAdvancedPreferencesController.addEcosystem();"/>
+                                    <separator class="thin" orient="vertical"/>
+                                    <button id="modifyEcosystem" disabled="true" label="&prefPane.prefpaneAdvanced.ecosystem.button.modify;" oncommand="SMETHAdvancedPreferencesController.modifyEcosystem();"/>
+                                    <separator class="thin" orient="vertical"/>
+                                    <button id="deleteEcosystem" disabled="true" label="&prefPane.prefpaneAdvanced.ecosystem.button.delete;" oncommand="SMETHAdvancedPreferencesController.removeEcosystem();"/>
+                                </hbox>
+                            </vbox>
+                        </tabpanel>
+                        <tabpanel id="messageCompositionTabPanel">
+                            <vbox id="compositionSettingsContainer" flex="1">
+                                <separator class="thin" orient="horizontal"/>
+                                <label value="&prefPane.prefpaneAdvanced.compose.list.title;"/>
+                                <separator class="thin" orient="horizontal"/>
+                                <listbox id="composeMessageSettingsList" align="stretch" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectCompositionSetting();" seltype="single" suppressOnSelect="false">
+                                    <listhead>
+                                        <listheader label="&prefPane.prefpaneAdvanced.compose.list.header.ecosystem;"/>
+                                        <listheader label="&prefPane.prefpaneAdvanced.compose.list.header.message;"/>
+                                    </listhead>
+                                </listbox>
+                                <separator class="thin" orient="horizontal"/>
+                                <grid>
+                                    <columns>
+                                        <column/>
+                                        <column flex="1"/>
+                                    </columns>
+                                    <rows>
+                                        <row align="center">
+                                            <label value="&prefPane.prefpaneAdvanced.compose.combobox.ecosystem;"/>
+                                            <menulist id="ecosystemMenuList">
+                                                <menupopup/>
+                                            </menulist>
+                                        </row>
+                                        <row align="center">
+                                            <label value="&prefPane.prefpaneAdvanced.compose.combobox.message;"/>
+                                            <menulist id="messageTypeMenuList">
+                                                <menupopup/>
+                                            </menulist>
+                                        </row>
+                                        <row align="center">
+                                            <label value="&prefPane.prefpaneAdvanced.compose.xml.label;"/>
+                                            <textbox id="messageCompositionXml" align="stretch" oninput="SMETHAdvancedPreferencesController.onCompositionSettingTextboxesInput();" placeholder="&prefPane.prefpaneAdvanced.compose.xml.placeholder;"/>
+                                        </row>
+                                        <row align="center">
+                                            <label value="&prefPane.prefpaneAdvanced.compose.xsl.label;"/>
+                                            <textbox id="messageCompositionXsl" align="stretch" oninput="SMETHAdvancedPreferencesController.onCompositionSettingTextboxesInput();" placeholder="&prefPane.prefpaneAdvanced.compose.xsl.placeholder;"/>
+                                        </row>
+                                    </rows>
+                                </grid>
+                                <separator class="thin" orient="horizontal"/>
+                                <hbox align="stretch" pack="end">
+                                    <button id="saveMessageCompositionSetting" disabled="true" label="&prefPane.prefpaneAdvanced.compose.save;" oncommand="SMETHAdvancedPreferencesController.saveMessageCompositionSetting();"/>
+                                    <button id="deleteMessageCompositionSetting" disabled="true" label="&prefPane.prefpaneAdvanced.compose.delete;" oncommand="SMETHAdvancedPreferencesController.removeMessageCompositionSetting();"/>
+                                </hbox>
+                            </vbox>
+                        </tabpanel>
+                        <tabpanel>
+                            <vbox flex="1">
+                                <separator class="thin" orient="horizontal"/>
+                                <hbox flex="1">
+                                    <listbox id="sepamailMessageTypeSettings" align="stretch" onselect="SMETHAdvancedPreferencesController.onSelectMessageSettingType();" seltype="single" style="width:300px;" suppressOnSelect="false">
+                                        <listhead>
+                                            <listheader label="&prefPane.prefpaneAdvanced.messageTypeSettings.listbox.header;"/>
+                                        </listhead>
+                                    </listbox>
+                                    <separator class="thin" orient="vertical"/>
+                                    <deck id="sepamailMessageTypeSettingsContainer" flex="1">
+                                    </deck>
+                                </hbox>
+                            </vbox>
+                        </tabpanel>
+                    </tabpanels>
+                </tabbox>
+                <separator class="thin" orient="horizontal"/>
+                <hbox align="stretch" pack="end">
+                    <button id="save" label="&prefPane.prefpaneAdvanced.button.save;" oncommand="SMETHAdvancedPreferencesController.saveAdvancedSettings();"/>
+                </hbox>
+            </vbox>
+        </groupbox>
+    </prefpane>
+</overlay>

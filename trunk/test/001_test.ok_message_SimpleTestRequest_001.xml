@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sem:Request xmlns:sem="http://www.sepamail.eu/xsd/bleedingEdge"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sepamail.eu/xsd/bleedingEdge ../../../xsd/sepamail_message_test_SimpleTestRequest.xsd ">
+        <sem:TestId>sem:TestId001</sem:TestId>
+        <sem:Text>This is a test</sem:Text>
+        <sem:Data><![CDATA[iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAAXNSR0IArs4c6QAAAGZJREFUGNNV
+jzkOwDAIBB2JxtLO/P+5KWzjhAIJlj14xhhzTgBUSEAEEOpiENjtVO2zBNOgEEksgGy8SXHppdaI
+SI6uJkunxJaUY+5eVWwS2dhNV4Z2VfIzoe5HQgzfhNT/z6YBYl4JPA8kyiGbMAAAAABJRU5ErkJg
+gg==]]></sem:Data>
+</sem:Request>

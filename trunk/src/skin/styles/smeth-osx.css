@@ -1,0 +1,201 @@
+/* 
+    Document   : attachments
+    Created on : Oct 25, 2012, 12:21:01 PM
+    Author     : Bishan Kumar Madhoo <bishan.madhoo@idsoft.mu>
+    Description: Attachments section styles
+*/
+
+/*
+    General styles
+*/
+.semModeToggleParentContainer {
+    width: 2em;
+}
+
+.semModeToggleContainer {
+    height: 2em;
+    width: 2em;
+}
+
+.link-image {
+    cursor: pointer;
+}
+
+.grid-row {
+    height: 2em;
+}
+
+/*
+    Missive header styles
+*/
+#semHdrSummary, #semHdrDetails {
+    border-bottom: 1px solid threedshadow;
+}
+
+.left-align {
+    text-align: end;
+}
+
+/*
+    Missive attachment styles
+*/
+#missiveAttachmentSplitter {
+    min-height: 7px;
+    border-top: 1px solid #C8C8C8;
+    background-color: #E6E6E6;
+}
+
+#missiveAttachmentView {
+    border-top: 1px solid ThreeDShadow;
+}
+
+#missiveAttachmentToggle {
+    -moz-appearance: treetwisty;
+    -moz-user-focus: normal;
+}
+
+#missiveAttachmentToggle[checked=true] {
+    -moz-appearance: treetwistyopen;
+}
+
+#missiveAttachmentToggle:focus {
+    outline: 1px dotted Highlight;
+}
+
+#missiveAttachmentIcon {
+    list-style-image: url("chrome://messenger/skin/icons/attachment.png");
+    -moz-margin-start: 5px;
+}
+
+#missiveAttachmentCount {
+    margin: 0;
+    padding: 2px 0;
+    -moz-margin-start: 2px;
+    -moz-margin-end: 1px;
+}
+
+#missiveAttachmentName {
+    -moz-user-focus: normal;
+    margin: 0;
+    -moz-margin-end: -3px;
+    padding: 1px 2px;
+    border-radius: 2px;
+    border: 1px dotted transparent;
+}
+
+#missiveAttachmentName:hover, #missiveAttachmentName[selected="true"] {
+    cursor: pointer;
+    background: -moz-linear-gradient(top, #F9CE90, #F6A942);
+}
+
+#missiveAttachmentName:focus {
+    border-color: Highlight;
+}
+
+#missiveAttachmentSize {
+    margin: 0;
+    -moz-margin-start: 8px;
+    color: #888a85;
+}
+
+#missiveAttachmentSaveAllSingle, #missiveAttachmentSaveAllMultiple {
+    list-style-image: url("chrome://messenger/skin/icons/download.png");
+    -moz-image-region: rect(0px, 18px, 18px, 0px);
+}
+
+#missiveAttachmentSaveAllSingle:not([disabled="true"]):active, #missiveAttachmentSaveAllMultiple:not([disabled="true"]):active {
+    list-style-image: url("chrome://messenger/skin/icons/download.png");
+    -moz-image-region: rect(18px 18px 36px 0px);
+}
+
+#missiveAttachmentSaveAllSingle > .toolbarbutton-menubutton-button, #missiveAttachmentSaveAllMultiple > .toolbarbutton-menubutton-button {
+    padding-bottom: 0px !important;
+}
+
+missiveattachmentlist {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#missiveattachmentlist");
+}
+
+missiveattachmentitem {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#missiveattachmentitem");
+}
+
+missiveattachmentlist {
+    -moz-appearance: listbox;
+    -moz-user-focus: normal;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"][current="true"] {
+    outline: 1px dotted #F3D982;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[current="true"] {
+    outline: 1px dotted;
+    outline-offset: -1px;
+}
+
+missiveattachmentitem[selected="true"] {
+    background-color: -moz-CellHighlight;
+    color: -moz-CellHighlightText;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"] {
+    background-color: Highlight;
+    color: HighlightText;
+}
+
+missiveattachmentitem[selected="true"] .attachmentcell-size {
+    color: -moz-CellHighlightText;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"] .attachmentcell-size {
+    color: HighlightText;
+}
+
+#missiveAttachmentList {
+    margin: 0px;
+    background-color: -moz-Field;
+    color: -moz-FieldText;
+}
+
+/*
+    Body view styles
+*/
+
+#semBdySummary, #semBdyDetails {
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: threedshadow;
+}
+
+.semBdyModeToggleParentContainer {
+    width: 2em;
+}
+
+.semBdyModeToggleContainer {
+    height: 2em;
+    width: 2em;
+}
+
+.body-grid-row {
+    height: 2em;
+}
+
+.body-button {
+    margin-left: 2em;
+    margin-top: 0.5em;
+}
+
+#semBdyAcceptRequestButton {
+    width: 15em;
+}
+
+/*
+    SMETH logobox style
+*/
+
+#sepamailLogoBox {
+    margin-right:15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

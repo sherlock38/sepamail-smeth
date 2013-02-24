@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Translations Acknowledgement UI -->
+<!ENTITY acknowledgement.title "Acknowledgement details">
+<!ENTITY acknowledgement.status "Status">
+<!ENTITY acknowledgement.class "Class">
+<!ENTITY acknowledgement.subject "Subject">
+<!ENTITY acknowledgement.detail "Detail">
+<!ENTITY acknowledgement.description "Description">
+
+<!-- Translations Compose Activation Request UI -->
+<!ENTITY missive.activation.request.semBdyRequestDateLabel.label "Request Date">
+<!ENTITY missive.activation.request.semBdyRequestAmountLabel.label "Request Amount">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodLabel.label "Request Payment Method">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodCheck.label "Check">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodTransfer.label "Transfer">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodDirectDebit.label "Direct Debit">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodPaymentCard.label "Payment Card">
+<!ENTITY missive.activation.request.semBdyRequestSubjectLabel.label "Request Title">
+
+<!-- Translations Compose Activation Report UI -->
+<!ENTITY missive.activation.report.semBdyReportDateLabel.label "Request Date">
+<!ENTITY missive.activation.report.semBdyReportAmountLabel.label "Request Amount">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodLabel.label "Request Payment Method">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodCheck.label "Check">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodTransfer.label "Transfer">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodDirectDebit.label "Direct Debit">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodPaymentCard.label "Payment Card">

@@ -1,0 +1,64 @@
+/* ***** BEGIN LICENSE BLOCK *****
+ * This file is part of smeth (https://code.google.com/p/sepamail-smeth/)
+ *
+ * Version: MPL 2.0/GPL 3.0/LGPL 3.0
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/2.0/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initials Developers of the Original Code are :
+ *  Ammit Heeramun, idSoft
+ *  Bishan Kumar Madhoo, idSoft
+ *  Manfred Sherlock Olm, deciBI & vizGet
+ * Portions created by the Initials Developers are Copyright (C) 2012
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *  Ammit Heeramun
+ *  Bishan Kumar Madhoo 
+ *  Manfred Sherlock Olm, smeth@decibi.fr
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 3 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 3.0 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+ 
+ 
+ content description 
+dir controllers -> Controllers folder will contain all the controllers for the SMETH application SMETHAcknowledgementController, SMETHAttachmentController, SMETHComposeMessageController, SMETHOptionController, SMETHReadMessageController, SMETHReportController and SMETHRequestController will all be moved there.
+dir preferences -> Preferences contains XUL documents displayed in the Smeth Preference window.
+dir preferences subdur controllers -> Controllers for each of the panes displayed in the Smeth Preference window.
+dir xml -> XML folder contains all the XMl template that is use while composing a SEPAmail message.
+dir xsl -> XSL folder contains all the xsl that is use for transformations in Smeth.
+ SMETHAcknowledgementController.js -> SMETHAcknowledgementController is reponsible for the generation of acknowledgement missive, handles the sending of automatic and manual acknowledgements.
+ SMETHAttachmentController.js -> SMETHAcknowledgementController is reponsible for the displaying, handling the save and open for SEPAmail documents.
+ SMETHComposeMessageController.js -> SMETHComposeMessageController is the class that is attached to SMETHComposeMessageView, it helps in the setting up the composition windows for the composition of different type of SEPAmail messages.
+ SMETHComposeMessageView.xul -> SMETHComposeMessageView is the overlay of the thunderbird "messengercompose" view, it helps use to modify the compose window user interface and to attach custom javascript.
+ SMETHOptionController.js
+ SMETHOptionView.xul
+ SMETHReadMessageController.js -> SMETHReadMessageController is the class that is attached to SMETHReadMessageView, it helps in the setting up the readng pane for the different type of SEPAmail messages.
+ SMETHReadMessageView.xul
+ SMETHReportController.js -> SMETHReportController is the class that is responsible for the composition and sending of SEPAmail reports(Simple Test and Activation)
+ SMETHRequestController.js -> SMETHReportController is the class that is responsible for the composition and sending of SEPAmail requests(Simple Test and Activation)
+ smethWidgets.xml -> XBL components used in Smeth
+
+
+
+
+ 

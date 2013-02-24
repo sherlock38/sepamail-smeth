@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHInfo.dtd">
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://messenger/skin/smime/msgReadSecurityInfo.css" type="text/css"?>
+
+<dialog xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+	id="dlgSEPAmailInfo"
+        title="&sepmailInfo.title;"
+        buttons="accept"
+        onload="onLoad();"
+        style="width:40em;"
+        defaultButton="accept">
+            
+<script type="application/javascript">
+   function onLoad() {
+    document.getElementById("sendBy").value = window.arguments[0];
+    document.getElementById("qxban").value = window.arguments[1];
+   }
+</script>
+
+<vbox>
+  <label id="signatureLabel" value="&signature.label;"/>
+  
+  <description id="sepamailInfoDesc">&sepamailInfo.desc;</description>
+  <vbox>
+      <hbox>
+          <label id="sendByLabel" value="&sendBy.label;"/>
+          <label id="sendBy"/>
+      </hbox>
+      <hbox>
+          <label id="qxbanLabel" value="&qxban.label;"/>
+          <label id="qxban"/>
+      </hbox>
+  </vbox>
+  <spacer flex="1"/>
+</vbox>
+</dialog>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Translations for main toolbar -->
+<!ENTITY mailtoolbox.newmsgbutton.label "Écrire">
+<!ENTITY mailtoolbox.newmsgbutton.tooltip "Créer un nouveau message">
+
+<!-- Translations for payment.activation menu -->
+<!ENTITY mailtoolbox.paymentactivationmenu.label "payment.activation">
+<!ENTITY mailtoolbox.paymentactivationmenu.tooltip "Les actions de l\'écosystème payment.activation">
+<!ENTITY mailtoolbox.actrequestbutton.label "Demande de règlement">
+<!ENTITY mailtoolbox.actrequestbutton.tooltip "Rédiger une demande de règlement">
+<!ENTITY mailtoolbox.actreportbutton.label "Confirmation de règlement">
+<!ENTITY mailtoolbox.actreportbutton.tooltip "Rédiger une confirmation de règlement">
+<!ENTITY mailtoolbox.actenrollbutton.label "Inscription au service RUBIS">
+<!ENTITY mailtoolbox.actenrollbutton.tooltip "Rédiger une inscription au service RUBIS">
+
+<!-- Translations for test menu -->
+<!ENTITY mailtoolbox.testmenu.label "test">
+<!ENTITY mailtoolbox.testmenu.tooltip "Les actions de l\'écosystème test">
+<!ENTITY mailtoolbox.acttestrequestbutton.label "Requête test">
+<!ENTITY mailtoolbox.acttestrequestbutton.tooltip "Rédiger une requête test">
+<!ENTITY mailtoolbox.acttestreportbutton.label "Réponse test">
+<!ENTITY mailtoolbox.acttestreportbutton.tooltip "Rédiger une réponse test">
+
+<!-- Translations for date -->
+<!ENTITY date.today.text "Aujourd\'hui">
+
+<!-- Translations for the SEPAmail header view -->
+<!ENTITY missive.activation.request.messageType.label "Type de message">
+<!ENTITY missive.activation.request.sender.label "Expéditeur">
+<!ENTITY missive.activation.request.receiver.label "Destinataire">
+<!ENTITY missive.activation.request.priority.label "Priorité">
+<!ENTITY missive.activation.request.sentDate.label "Envoyé">
+<!ENTITY missive.activation.request.receivedDate.label "Reçu">
+<!ENTITY missive.activation.request.semHdrSummaryAck.label "Acquittement">
+
+<!-- Translations for the SEPAmail body view -->
+<!ENTITY missive.activation.request.requestDate.label "Date de la demande">
+<!ENTITY missive.activation.request.requestAmount.label "Montant demandé">
+<!ENTITY missive.activation.request.requestPaymentMethod.label "Moyen de paiement">
+<!ENTITY missive.activation.request.requestPaymentMethodCheck.label "Chèque">
+<!ENTITY missive.activation.request.requestPaymentMethodTransfer.label "Virement">
+<!ENTITY missive.activation.request.requestPaymentMethodDirectDebit.label "Prélèvement automatique">
+<!ENTITY missive.activation.request.requestPaymentMethodPaymentCard.label "Carte de paiement">
+<!ENTITY missive.activation.request.requestSubject.label "Intitulé">
+
+<!ENTITY missive.activation.request.refuseRequestButton.label "Refuser">
+<!ENTITY missive.activation.request.acceptRequestButton.label "Accepter le règlement">
+
+<!-- Translations for the SEPAmail attachment view -->
+<!ENTITY missive.activation.request.openAllMissiveAttachmentListContextMenu.label "Tout ouvrir...">
+<!ENTITY missive.activation.request.saveAllMissiveAttachmentListContextMenu.label "Tout enregistrer...">
+<!ENTITY missive.activation.request.openMissiveAttachmentListItemContextMenu.label "Ouvrir">
+<!ENTITY missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label "Enregistrer sous...">
+<!ENTITY missive.activation.request.missiveAttachmentBar.tooltip "Afficher le panneau des pièces jointes">
+<!ENTITY missive.activation.request.missiveAttachmentBarShow.tooltip "Afficher le panneau des pièces jointes">
+<!ENTITY missive.activation.request.missiveAttachmentBarHide.tooltip "Masquer le panneau des pièces jointes">
+<!ENTITY missive.activation.request.missiveAttachmentCount.label "Pièces jointe(s)">
+<!ENTITY missive.activation.request.missiveAttachmentName.tooltip "Ouvrir la pièce jointe">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAll.label "Enregistrer sous">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAllSingle.label "Enregistrer">
+<!ENTITY missive.activation.request.missiveAttachmentSaveAllSingle.tooltip "Tout enregistrer">
+<!ENTITY missive.activation.request.openMissiveAttachment.label "Ouvrir">
+<!ENTITY missive.activation.request.saveMissiveAttachment.label "Enregistrer sous...">
+
+<!-- Translations for the SEPAmail Export -->
+<!ENTITY mainmenu.export "Exporter">
+<!ENTITY mainmenu.export.sepamail.envelope "Enveloppe SEPAmail">
+<!ENTITY mainmenu.export.sepamail.missive "Missive SEPAmail">
+<!ENTITY mainmenu.export.sepamail.message "Message SEPAmail">
+<!ENTITY mainmenu.export.sepamail.all "Tous">
+
+<!-- Translations for main menu items -->
+<!ENTITY mainmenu.preference "Préférences SMETH">
+
+<!-- General translations -->
+<!ENTITY general.noSuitableAccounts "Il n\'y a pas comptes de messagerie configurés correctement pour envoyer des messages SEPAmail.">
