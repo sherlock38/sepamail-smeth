@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE window [
+  <!ENTITY % composeWindowDTD SYSTEM "chrome://{appname}/locale/SMETHComposeMessage.dtd">
+  %composeWindowDTD;
+  <!ENTITY % mainwindowDTD SYSTEM "chrome://{appname}/locale/SMETHReadMessage.dtd">
+  %mainwindowDTD;
+]>
+
+<overlay id="{appname}-SMETHComposeMessageView"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+       /**
+        * SMETHAcknowledgementTranslations class defines all the translations used in the Acknowledgement UI
+        */
+        var SMETHAcknowledgementTranslations = {
+
+            semAcknowledgementTitle: '&acknowledgement.title;',
+            semAcknowledgementStatus: '&acknowledgement.status;',
+            semAcknowledgementClass: '&acknowledgement.class;',
+            semAcknowledgementSub: '&acknowledgement.subject;',
+            semAcknowledgementDet: '&acknowledgement.detail;',
+            semAcknowledgementDescription: '&acknowledgement.description;'
+
+        };
+
+        var SMETHRequestComposeWindowTranslations = {
+            semBdyRequestDateLabel: '&missive.activation.request.semBdyRequestDateLabel.label;',
+            semBdyRequestAmountLabel: '&missive.activation.request.semBdyRequestAmountLabel.label;',
+            semBdyRequestPaymentMethodLabel: '&missive.activation.request.semBdyRequestPaymentMethodLabel.label;',
+            semBdyRequestPaymentMethodCheck: '&missive.activation.request.semBdyRequestPaymentMethodCheck.label;',
+            semBdyRequestPaymentMethodTransfer: '&missive.activation.request.semBdyRequestPaymentMethodTransfer.label;',
+            semBdyRequestPaymentMethodDirectDebit: '&missive.activation.request.semBdyRequestPaymentMethodDirectDebit.label;',
+            semBdyRequestPaymentMethodPaymentCard: '&missive.activation.request.semBdyRequestPaymentMethodPaymentCard.label;',
+            semBdyRequestSubjectLabel: '&missive.activation.request.semBdyRequestSubjectLabel.label;'
+        };
+
+        var SEMTHReportComposeWindowTranslations = {
+            semBdyReportDateLabel: '&missive.activation.report.semBdyReportDateLabel.label;',
+            semBdyReportAmountLabel: '&missive.activation.report.semBdyReportAmountLabel.label;',
+            semBdyReportPaymentMethodLabel: '&missive.activation.report.semBdyReportPaymentMethodLabel.label;',
+            semBdyReportPaymentMethodCheck: '&missive.activation.report.semBdyReportPaymentMethodCheck.label;',
+            semBdyReportPaymentMethodTransfer:'&missive.activation.report.semBdyReportPaymentMethodTransfer.label;',
+            semBdyReportPaymentMethodDirectDebit: '&missive.activation.report.semBdyReportPaymentMethodDirectDebit.label;',
+            semBdyReportPaymentMethodPaymentCard: '&missive.activation.report.semBdyReportPaymentMethodPaymentCard.label;'
+        };
+
+       /**
+        * SMETHTranslations class defines all the translations to be used in "SMETHReadMessageController.js"
+        */
+        var SMETHTranslations = {
+
+            // Translation for date today text
+            dateTodayText: '&date.today.text;',
+
+           /**
+            * Translation for the SEPAmail Header View
+            *
+            */
+            // Translations for the summary view labels (All the keys matches a label id in a SEPAmail document)
+            semHdrSummaryMessageTypeLabel: '&missive.activation.request.messageType.label;',
+            semHdrSummarySenderLabel: '&missive.activation.request.sender.label;',
+            semHdrSummarySentLabel:'&missive.activation.request.sentDate.label;',
+
+            // Translations for the detail view labels (All the keys matches a label id in a SEPAmail document)
+            semHdrDetailsMessageTypeLabel: '&missive.activation.request.messageType.label;',
+            semHdrDetailsSenderLabel: '&missive.activation.request.sender.label;',
+            semHdrDetailsReceiverLabel: '&missive.activation.request.receiver.label;',
+            semHdrDetailsPriorityLabel: '&missive.activation.request.priority.label;',
+            semHdrDetailsSentLabel: '&missive.activation.request.sentDate.label;',
+            semHdrDetailsDistributedLabel:'&missive.activation.request.receivedDate.label;',
+
+            // Translation for Acknowledgement button
+            semHdrSummaryAck: '&missive.activation.request.semHdrSummaryAck.label;',
+            semHdrDetailsAck: '&missive.activation.request.semHdrSummaryAck.label;',
+
+            /**
+             * Translation for the SEPAmail Body View
+             */
+             semBdyRequestDateLabel: '&missive.activation.request.requestDate.label;',
+             semBdyRequestAmountLabel: '&missive.activation.request.requestAmount.label;',
+             semBdyRequestPaymentMethodLabel: '&missive.activation.request.requestPaymentMethod.label;',
+             semBdyRequestPaymentMethodCheck: '&missive.activation.request.requestPaymentMethodCheck.label;',
+             semBdyRequestPaymentMethodTransfer: '&missive.activation.request.requestPaymentMethodTransfer.label;',
+             semBdyRequestPaymentMethodDirectDebit: '&missive.activation.request.requestPaymentMethodDirectDebit.label;',
+             semBdyRequestPaymentMethidPaymentCard: '&missive.activation.request.requestPaymentMethodPaymentCard.label;',
+             semBdyRequestSubjectLabel: '&missive.activation.request.requestSubject.label;',
+             semBdyRefuseRequestButton: '&missive.activation.request.refuseRequestButton.label;',
+             semBdyAcceptRequestButton: '&missive.activation.request.acceptRequestButton.label;',
+
+            /**
+             * Translation for the SEPAmail Attachment View
+             */
+             openAllMissiveAttachmentListContextMenu: '&missive.activation.request.openAllMissiveAttachmentListContextMenu.label;',
+             saveAllMissiveAttachmentListContextMenu: '&missive.activation.request.saveAllMissiveAttachmentListContextMenu.label;',
+             openMissiveAttachmentListItemContextMenu: '&missive.activation.request.openMissiveAttachmentListItemContextMenu.label;',
+             saveAsMissiveAttachmentListItemContextMenu: '&missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label;',
+             missiveAttachmentBarTooltip: '&missive.activation.request.missiveAttachmentBar.tooltip;',
+             missiveAttachmentBarShowTooltip: '&missive.activation.request.missiveAttachmentBarShow.tooltip;',
+             missiveAttachmentBarHideTooltip: '&missive.activation.request.missiveAttachmentBarHide.tooltip;',
+             missiveAttachmentCount: '&missive.activation.request.missiveAttachmentCount.label;',
+             missiveAttachmentNameTooltip: '&missive.activation.request.missiveAttachmentName.tooltip;',
+             missiveAttachmentSaveAll: '&missive.activation.request.missiveAttachmentSaveAll.label;',
+             missiveAttachmentSaveAllSingle: '&missive.activation.request.missiveAttachmentSaveAllSingle.label;',
+             missiveAttachmentSaveAllSingleTooltip: '&missive.activation.request.missiveAttachmentSaveAllSingle.tooltip;',
+             openMissiveAttachment: '&missive.activation.request.openMissiveAttachment.label;',
+             saveMissiveAttachment: '&missive.activation.request.saveMissiveAttachment.label;',
+
+            /**
+             * General translations
+             */
+             noSuitableAccounts: '&general.noSuitableAccounts;'
+        };
+
+    </script>
+    <script src="./controllers/SMETHRequestController.js"/>
+    <script src="./controllers/SMETHReportController.js"/>
+    <script src="./controllers/SMETHAcknowledgementController.js"/>
+    <script src="./controllers/SMETHComposeMessageController.js"/>
+    <script src="./controllers/SMETHAttachmentController.js"/>
+</overlay>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHOption.dtd">
+
+<overlay id="{appname}-bank_preferences"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script src="./controllers/SMETHBankPreferencesController.js"/>
+
+    <prefpane id="prefpaneBankDetails" label="&prefPane.label.bank;">
+        <groupbox flex="1" id="groupBoxBankDetails">
+            <caption label="&prefPane.prefpaneBankDetails.grouptitle;"/>
+            <vbox flex="1">
+                <separator class="thin" orient="horizontal"/>
+                <listbox id="listboxMyQxban" flex="1" onselect="SMETHBankPreferencesController.onSelectListItem();" seltype="single" suppressOnSelect="false">
+                    <listhead>
+                        <listheader label="&prefPane.prefpaneBankDetails.list.header.email;"/>
+                        <listheader label="&prefPane.prefpaneBankDetails.list.header.qxban;"/>
+                        <listheader label="&prefPane.prefpaneBankDetails.list.header.status;"/>
+                    </listhead>
+                </listbox>
+                <separator class="thin" orient="horizontal"/>
+                <grid align="stretch">
+                    <columns>
+                        <column/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row align="center">
+                            <label value="&prefPane.prefpaneBankDetails.label.email;"/>
+                            <textbox id="textboxMyEmail" align="stretch" flex="1" placeholder="&prefPane.prefpaneBankDetails.textbox.email;" readonly="true"/>
+                        </row>
+                        <row align="center">
+                            <label value="&prefPane.prefpaneBankDetails.label.qxban;"/>
+                            <textbox id="textboxMyQxban" align="stretch" flex="1" oninput="" placeholder="&prefPane.prefpaneBankDetails.textbox.qxban;"/>
+                        </row>
+                        <row align="center">
+                            <label value="&prefPane.prefpaneBankDetails.label.status;"/>
+                            <menulist id="menulistMyEmailStatus">
+                                <menupopup>
+                                    <menuitem label="&prefPane.prefpaneBankDetails.menulist.defaultactive;" value="DEFAULT_ACTIVE"/>
+                                    <menuitem label="&prefPane.prefpaneBankDetails.menulist.active;" value="ACTIVE"/>
+                                    <menuitem label="&prefPane.prefpaneBankDetails.menulist.inactive;" value="INACTIVE" selected="true"/>
+                                </menupopup>
+                            </menulist>
+                        </row>
+                    </rows>
+                </grid>
+                <separator class="thin" orient="horizontal"/>
+                <hbox align="stretch" pack="end">
+                    <button id="buttonAddMyEmailQxbanTuple" disabled="true" label="&prefPane.prefpaneBankDetails.button.save;" oncommand="SMETHBankPreferencesController.save();"/>
+                </hbox>
+            </vbox>
+        </groupbox>
+    </prefpane>
+</overlay>

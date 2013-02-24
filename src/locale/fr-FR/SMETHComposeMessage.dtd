@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Translations Acknowledgement UI -->
+<!ENTITY acknowledgement.title "Détails de l\'acquittement">
+<!ENTITY acknowledgement.status "Statut">
+<!ENTITY acknowledgement.class "Classe">
+<!ENTITY acknowledgement.subject "Sujet">
+<!ENTITY acknowledgement.detail "Détail">
+<!ENTITY acknowledgement.description "Description">
+
+<!-- Translations Compose Activation Request UI -->
+<!ENTITY missive.activation.request.semBdyRequestDateLabel.label "Date du demande">
+<!ENTITY missive.activation.request.semBdyRequestAmountLabel.label "Montant demandé">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodLabel.label "Moyen de paiement">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodCheck.label "Chèque">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodTransfer.label "Virement">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodDirectDebit.label "Prélèvement automatique">
+<!ENTITY missive.activation.request.semBdyRequestPaymentMethodPaymentCard.label "Carte de paiement">
+<!ENTITY missive.activation.request.semBdyRequestSubjectLabel.label "Intitulé">
+
+<!-- Translations Compose Activation Report UI -->
+<!ENTITY missive.activation.report.semBdyReportDateLabel.label "Date de la demande">
+<!ENTITY missive.activation.report.semBdyReportAmountLabel.label "Montant demandé">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodLabel.label "Moyen de paiement">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodCheck.label "Chèque">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodTransfer.label "Virement">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodDirectDebit.label "Prélèvement automatique">
+<!ENTITY missive.activation.report.semBdyReportPaymentMethodPaymentCard.label "Carte de paiement">

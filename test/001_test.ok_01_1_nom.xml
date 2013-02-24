@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sem:Missive version="1206"
+        xmlns:pain013="urn:iso:std:iso:20022:tech:xsd:pain.013.001.01"
+        xmlns:sem="http://www.sepamail.eu/xsd/bleedingEdge" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sepamail.eu/xsd/bleedingEdge ../../xsd/sepamail_missive.xsd">
+        <sem:sepamail_missive_001>
+                <sem:MsvId>sem:MsvId</sem:MsvId>
+                <sem:MsvTyp>Nominal</sem:MsvTyp>
+                <sem:MsvOrd>1</sem:MsvOrd>
+                <sem:MsvPri>NORMAL</sem:MsvPri>
+                <sem:MsvHdr>
+                        <sem:Snd>
+                                <sem:IBAN>QX62TESTBLEUXXX2345678923456789234</sem:IBAN>
+                        </sem:Snd>
+                        <sem:SndDtTm>2012-09-21T12:00:00</sem:SndDtTm>
+                        <sem:Rcv>
+                                <sem:IBAN>QX46TESTVERTXXXABCDEFGHJKLMNPQRSTU</sem:IBAN>
+                        </sem:Rcv>
+                </sem:MsvHdr>
+                <sem:MsvBdy version="1206">
+                        <sem:sepamail_message_001>
+                                <sem:MsgHdr>
+                                        <sem:MsgId>sem:MsgId</sem:MsgId>
+                                        <sem:MsgTyp>simple.request@test</sem:MsgTyp>
+                                        <sem:MsgExpiry>2012-09-22T10:00:00</sem:MsgExpiry>
+                                </sem:MsgHdr>
+                                <sem:MsgBdy>
+                                        <sem:SimpleTestRequest>
+                                                <sem:TestId>sem:TestId001</sem:TestId>
+                                                <sem:Text>This is a test</sem:Text>
+                                                <sem:Data>
+<![CDATA[iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAAXNSR0IArs4c6QAAAGZJREFUGNNV
+jzkOwDAIBB2JxtLO/P+5KWzjhAIJlj14xhhzTgBUSEAEEOpiENjtVO2zBNOgEEksgGy8SXHppdaI
+SI6uJkunxJaUY+5eVWwS2dhNV4Z2VfIzoe5HQgzfhNT/z6YBYl4JPA8kyiGbMAAAAABJRU5ErkJg
+gg==]]>
+                                                </sem:Data>
+                                        </sem:SimpleTestRequest>
+                                </sem:MsgBdy>
+                        </sem:sepamail_message_001>
+                </sem:MsvBdy>
+        </sem:sepamail_missive_001>
+</sem:Missive>

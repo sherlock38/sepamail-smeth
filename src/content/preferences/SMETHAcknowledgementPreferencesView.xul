@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://{appname}/skin/styles/prefPaneBindings.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHOption.dtd">
+
+<overlay id="{appname}-acknowledgement_preferences"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+        // SMETHAcknowledgementLocaleTexts class defines locale texts from "SMETHOption.dtd" that may be used by the
+        // associated controller
+        var SMETHAcknowledgementLocaleTexts = {
+            noAccountsAvailable : '&prefPane.prefpaneAcknowledgement.noAccount;'
+        }
+    </script>
+    <script src="./controllers/SMETHAcknowledgementPreferencesController.js"/>
+
+    <prefpane id="prefpaneAcknowledgement" flex="1" label="&prefPane.label.acknowledgement;">
+        <groupbox flex="1" id="groupBoxAcknowledgementConfigurations">
+            <caption label="&prefPane.prefpaneAcknowledgement.grouptitle;"/>
+            <vbox flex="1">
+                <separator class="thin" orient="horizontal"/>
+                <hbox flex="1">
+                    <listbox id="listboxEmail" align="stretch" onfocus="SMETHAcknowledgementPreferencesController.onEmailListGotFocus();" onselect="SMETHAcknowledgementPreferencesController.onSelectEmailItem();" seltype="single" suppressOnSelect="false" tabindex="1">
+                        <listhead>
+                            <listheader label="&prefPane.prefpaneAcknowledgement.list.header.email;"/>
+                        </listhead>
+                    </listbox>
+                    <separator class="thin" orient="vertical"/>
+                    <tabbox flex="1">
+                        <tabs id="ackConfigTabs"/>
+                        <tabpanels id="ackConfigTabpanels" flex="1"/>
+                    </tabbox>
+                </hbox>
+                <separator class="thin" orient="horizontal"/>
+                <hbox align="stretch" pack="end">
+                    <button id="buttonSaveAckConfig" label="&prefPane.prefpaneAcknowledgement.button.save;" oncommand="SMETHAcknowledgementPreferencesController.saveSettings();"/>
+                </hbox>
+            </vbox>
+        </groupbox>
+    </prefpane>
+</overlay>
