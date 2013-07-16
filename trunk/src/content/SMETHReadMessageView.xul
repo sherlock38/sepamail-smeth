@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHReadMessage.dtd">
-
 <overlay id="{appname}-SEMTHReadMessageView"
          xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <script type="application/x-javascript">
@@ -68,9 +67,9 @@
             /**
              * General translations
              */
-             noSuitableAccounts: '&general.noSuitableAccounts;'
+             noSuitableAccounts: '&general.noSuitableAccounts;',
+             mailSubject: '&mail.subject;'
         };
-
     </script>
     <script src="./controllers/SMETHHeaderController.js"/>
     <script src="./controllers/SMETHAcknowledgementController.js"/>
@@ -79,17 +78,30 @@
     <script src="./controllers/SMETHReadMessageController.js"/>
     <script src="./controllers/SMETHAttachmentController.js"/>
     <script src="./controllers/SMETHExportController.js"/>
+    <script src="./controllers/SMETHMessageListController.js"/>
+    <script src="./controllers/SMETHAutomaticAcknowledgementController.js"/>
+    <script src="./controllers/SMETHRawContentController.js"/>
 
     <!-- The popup id must follow the covention of the
     get new mail popup id "button-getMsgPopup" and thus
     "button-newMsgPopup". -->
-    <toolbarbutton id="button-newmsg"
-                 type="menu-button">
+    <toolbarbutton id="button-newmsg" type="menu-button">
         <menupopup id="button-newMsgPopup">
+            <menu id="menu-writeAgate" label="generic" tooltiptext="generic">
+                <menupopup>
+                    <menuitem id="button-writeGeneric" label="send.request" oncommand="SMETHReadMessageController.composeGenericButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
+            <menu id="menu-writeDirectDebit" label="direct.debit" tooltiptext="direct.debit">
+                <menupopup>
+                    <menuitem id="button-writeMandateInitiationRequest" label="mandat" oncommand="SMETHReadMessageController.composeMandateInitiationRequestButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writePrenotification" label="notification" oncommand="SMETHReadMessageController.composePrenotificationButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writeRequestForCopy" label="request.copy" oncommand="SMETHReadMessageController.composeRequestForCopyButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
             <menu id="menu-writePaymentActivation" label='&mailtoolbox.paymentactivationmenu.label;' tooltiptext='&mailtoolbox.paymentactivationmenu.tooltip;'>
                 <menupopup>
                     <menuitem id="button-writeActRequest" label='&mailtoolbox.actrequestbutton.label;' tooltiptext='&mailtoolbox.actrequestbutton.tooltip;' oncommand="SMETHReadMessageController.composeRequestButtonClick(); event.stopPropagation();"/>
-                    <menuitem id="button-writeActReport" disabled="true" label='&mailtoolbox.actreportbutton.label;' tooltiptext='&mailtoolbox.actreportbutton.tooltip;' oncommand="SMETHReadMessageController.composeReportButtonClick(); event.stopPropagation();"/>
                     <menuitem id="button-writeActEnroll" disabled="true" label='&mailtoolbox.actenrollbutton.label;' tooltiptext='&mailtoolbox.actenrollbutton.tooltip;' oncommand="SMETHReadMessageController.composeEnrollButtonClick(); event.stopPropagation();"/>
                 </menupopup>
             </menu>
@@ -102,6 +114,7 @@
         </menupopup>
     </toolbarbutton>
     <menupopup id="taskPopup">
+        <menuseparator/>
         <menuitem id="mnu_{appname}" label="&mainmenu.preference;" oncommand="window.open('chrome://{appname}/content/SMETHOptionView.xul', '', 'chrome,titlebar,toolbar,centerscreen');"/>
     </menupopup>
     <menupopup id="menu_FilePopup">

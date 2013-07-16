@@ -31,12 +31,6 @@
                         SMETHAcknowledgementPreferencesController.onPaneShown();
                         break;
 
-                    case 'prefpaneBankDetails':
-                        break;
-
-                    case 'prefpaneMailDetails':
-                        break;
-
                     default:
                         break;
                 }

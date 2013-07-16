@@ -179,3 +179,54 @@ missiveattachmentlist:focus > missiveattachmentitem[selected="true"] .attachment
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+/*
+    SMETH Message Type Styles
+*/
+.acknowledgement {
+    background-color: #dff2bf;
+}
+
+.report {
+    background-color: #bde5f8;
+}
+
+.request {
+    background-color: #ffeaa3;
+}
+
+.sepa-header {
+    background-color: white;
+}
+
+.form-status {
+    font-weight: bold;
+}
+
+.agate {
+    background-image: url("chrome://smeth/skin/images/bandeau_agate.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.gemme {
+    background-image: url("chrome://smeth/skin/images/bandeau_gemme.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.rubis {
+    background-image: url("chrome://smeth/skin/images/bandeau_rubis.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.test {
+    background-image: url("chrome://smeth/skin/images/bandeau_test.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}

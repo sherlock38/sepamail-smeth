@@ -32,7 +32,7 @@
                 <tabbox id="settingsTabbox" flex="1">
                     <tabs id="settingsTabs">
                         <tab label="&prefPane.prefpaneAdvanced.tab.general;" value="generalSettings"/>
-                        <tab label="&prefPane.prefpaneAdvanced.tab.ecosystem;" value="ecosystemSettings"/>
+                        <tab label="&prefPane.prefpaneAdvanced.tab.ecosystem;" oncommand="SMETHAdvancedPreferencesController.onEcosystemTabSelected();" value="ecosystemSettings"/>
                         <tab label="&prefPane.prefpaneAdvanced.tab.compose;" oncommand="SMETHAdvancedPreferencesController.onComposeMessageTabSelected();" value="composeMessageSettings"/>
                         <tab label="&prefPane.prefpaneAdvanced.tab.messageTypeSettings;" oncommand="SMETHAdvancedPreferencesController.onMessageTypeSettingsTabSelected();" value="messageSettings"/>
                     </tabs>
@@ -108,11 +108,45 @@
                         <tabpanel>
                             <vbox flex="1">
                                 <separator class="thin" orient="horizontal"/>
-                                <listbox id="ecosystemsListbox" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectEcosystem();" seltype="single" suppressOnSelect="false">
-                                    <listhead>
-                                        <listheader label="&prefPane.prefpaneAdvanced.ecosystem.list.header;"/>
-                                    </listhead>
-                                </listbox>
+                                <hbox flex="1">
+                                    <vbox flex="1">
+                                        <listbox id="ecosystemsListbox" flex="1" onselect="SMETHAdvancedPreferencesController.onSelectEcosystem();" seltype="single" suppressOnSelect="false">
+                                            <listhead>
+                                                <listheader label="&prefPane.prefpaneAdvanced.ecosystem.list.header;"/>
+                                            </listhead>
+                                        </listbox>
+                                        <separator class="thin" orient="horizontal"/>
+                                        <groupbox>
+                                            <caption label="&prefPane.prefpaneAdvanced.ecosystem.mode;"/>
+                                            <vbox>
+                                                <separator class="thin" orient="horizontal"/>
+                                                <radiogroup id="ecosystem_mode" orient="horizontal">
+                                                    <radio id="production_mode" label="&prefPane.prefpaneAdvanced.ecosystem.mode.production;" value="production" oncommand="SMETHAdvancedPreferencesController.setEcosystemMode('production');"/>
+                                                    <radio id="test_mode" label="&prefPane.prefpaneAdvanced.ecosystem.mode.test;" value="test" oncommand="SMETHAdvancedPreferencesController.setEcosystemMode('test');"/>
+                                                </radiogroup>
+                                            </vbox>
+                                        </groupbox>
+                                    </vbox>
+                                    <separator class="thin" orient="vertical"/>
+                                    <vbox flex="1">
+                                        <listbox id="ecoAssignedSepamailMessages" flex="1" seltype="single" onselect="SMETHAdvancedPreferencesController.onSelectEcosystemAssignedMessage();" suppressOnSelect="false">
+                                            <listhead>
+                                                <listheader label="&prefPane.prefpaneAdvanced.ecosystem.assigned.list.header;"/>
+                                            </listhead>
+                                        </listbox>
+                                        <separator class="thin" orient="horizontal"/>
+                                        <hbox pack="end">
+                                            <button id="addEcoMessageType" class="image-button" disabled="true" image="chrome://smeth/skin/images/up_dis.png" oncommand="SMETHAdvancedPreferencesController.addEcoSepamailMessageType();"/>
+                                            <button id="removeEcoMessageType" class="image-button" disabled="true" image="chrome://smeth/skin/images/down_dis.png" oncommand="SMETHAdvancedPreferencesController.removeEcoSepamailMessageType();"/>
+                                        </hbox>
+                                        <separator class="thin" orient="horizontal"/>
+                                        <listbox id="ecoUnassginedSepamailMessages" flex="1" seltype="single" onselect="SMETHAdvancedPreferencesController.onSelectEcosystemUnassignedMessage();" suppressOnSelect="false">
+                                            <listhead>
+                                                <listheader label="&prefPane.prefpaneAdvanced.ecosystem.unassigned.list.header;"/>
+                                            </listhead>
+                                        </listbox>
+                                    </vbox>
+                                </hbox>
                                 <separator class="thin" orient="horizontal"/>
                                 <hbox pack="end">
                                     <button id="addEcosystem" disabled="false" label="&prefPane.prefpaneAdvanced.ecosystem.button.add;" oncommand="SMETHAdvancedPreferencesController.addEcosystem();"/>
@@ -143,7 +177,7 @@
                                     <rows>
                                         <row align="center">
                                             <label value="&prefPane.prefpaneAdvanced.compose.combobox.ecosystem;"/>
-                                            <menulist id="ecosystemMenuList">
+                                            <menulist id="ecosystemMenuList" oncommand="SMETHAdvancedPreferencesController.onEcosystemMenuListCommand();">
                                                 <menupopup/>
                                             </menulist>
                                         </row>

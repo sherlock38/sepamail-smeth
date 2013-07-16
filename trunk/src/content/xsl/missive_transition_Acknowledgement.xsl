@@ -6,17 +6,12 @@
     Version     : based on standard version 1206
     Author      : Bishan Kumar Madhoo <bishan.madhoo@idsoft.mu>
     Description : Transforming a nominal missive to a aknowledgment missive
-    TODO MSO    : see if pain013 is necessary
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
     xmlns:sem="http://www.sepamail.eu/xsd/bleedingEdge"
-    xmlns:pain013="urn:iso:std:iso:20022:tech:xsd:pain.013.001.01"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sepamail.eu/xsd/bleedingEdge ../../../../xsd/sepamail_missive.xsd"
-    xmlns:ex="http://exslt.org/dates-and-times"
-    extension-element-prefixes="ex"
-    exclude-result-prefixes="ex pain013">
+    xsi:schemaLocation="http://www.sepamail.eu/xsd/bleedingEdge ../../../../xsd/sepamail_missive.xsd">
 
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
@@ -37,11 +32,11 @@
                 </sem:MsvPri>
                 <sem:MsvHdr>
                     <sem:Snd>
-                        <xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:Rcv/sem:IBAN"/>
+                        <sem:IBAN/>
                     </sem:Snd>
-                    <sem:SndDtTm><xsl:value-of select="ex:date-time()"/></sem:SndDtTm>
+                    <sem:SndDtTm></sem:SndDtTm>
                     <sem:Rcv>
-                        <xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:Snd/sem:IBAN"/>
+                        <sem:IBAN/>
                     </sem:Rcv>
                 </sem:MsvHdr>
                 <sem:MsvAcq>

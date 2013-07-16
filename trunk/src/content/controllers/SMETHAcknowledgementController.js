@@ -53,6 +53,7 @@
  * SMETHMessageHandler class contain functions to handle info, error, warning and exceptions messages
  *
  * @include SMETHMessageHandler.js
+ * @type Object
  */
 Components.utils.import("resource://smeth/smethlib/SMETHMessageHandler.js");
 
@@ -60,6 +61,7 @@ Components.utils.import("resource://smeth/smethlib/SMETHMessageHandler.js");
  * SMETHUtils class contains all the useful functions that will be used in SMETH
  *
  * @include SMETHUtils.js
+ * @type Object
  */
 Components.utils.import("resource://smeth/smethlib/SMETHUtils.js");
 
@@ -206,7 +208,7 @@ var SMETHAcknowledgementController = {
         try {
 
             // Get the account that will be used to send the acknowledgement missive XML
-            var account = this._getAccount(this.missiveMailObject.header);
+            var account = SMETHAcknowledgementController._smethUtils.getAccountByMsgHeader(this.missiveMailObject.header);
 
             // Compose service fields instance
             // @see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/NsIMsgCompFields
@@ -218,7 +220,14 @@ var SMETHAcknowledgementController = {
             composeFields.from = account.defaultIdentity.email;
             composeFields.messageId = this.missiveMailObject.header.messageId;
             composeFields.replyTo = account.defaultIdentity.replyTo;
-            composeFields.subject = this.missiveMailObject.header.subject;
+
+            // Check if the subject is the default SEPAmail subject
+            if (this.missiveMailObject.header.subject == SMETHTranslations.mailSubject) {
+                composeFields.subject = '';
+            } else {
+                composeFields.subject = this.missiveMailObject.header.subject;
+            }
+
             composeFields.to = this.missiveMailObject.header.mime2DecodedAuthor;
 
             // Message compose parameters instance
@@ -300,151 +309,75 @@ var SMETHAcknowledgementController = {
     },
 
     /**
-     * Function called when a new message is received
+     * Send automatic acknowledgement for a given mail header and content
      *
-     * @method msgAdded
-     * @param {Object} aMsgHdr Message header details
+     * @method sendAutomaticAcknowledgement
+     * @param {Object} aMailHeader Mail header object
+     * @param {String} content Mail content
      */
-    msgAdded : function(aMsgHdr) {
+    sendAutomaticAcknowledgement : function(aMailHeader, content) {
 
-        // Initialise SMETH preferences
-        this._initSmethPreferences();
+        try {
 
-        // Check that new message was not read
-        if (!aMsgHdr.isRead) {
+            // Get message body
+            SMETHAcknowledgementController._content = content;
 
-            // Define the options for the MsgHdrToMimeMessage function
-            var options = { examineEncryptedParts: true, partsOnDemand: false };
+            // Message header
+            SMETHAcknowledgementController._header = aMailHeader;
 
-            // Get the mail content
-            MsgHdrToMimeMessage(aMsgHdr, null, function (aMailHeader, aMailContent) {
+            // Get the account that will be used to send the acknowledgement missive XML
+            var account = SMETHAcknowledgementController._smethUtils.getAccountByMsgHeader(aMailHeader);
 
-                try {
+            // Check if new email is a SEPAmail email
+            if (SMETHAcknowledgementController._smethUtils.isSEPAmail(SMETHAcknowledgementController._content)) {
 
-                    // Get message body
-                    SMETHAcknowledgementController._content =
-                        SMETHAcknowledgementController._smethUtils.getMailBody(aMailContent.parts[0], "");
+                // Parse content to XML document object model
+                var sepaMailXmlDom = new DOMParser().parseFromString(SMETHAcknowledgementController._content,
+                    "text/xml");
 
-                    // Message header
-                    SMETHAcknowledgementController._header = aMailHeader;
+                // SEPAmail message type
+                var sepaMailMessageType = SMETHAcknowledgementController._smethUtils.getSEPAmailMessageType(sepaMailXmlDom);
 
-                    // Get the account that will be used to send the acknowledgement missive XML
-                    var account = SMETHAcknowledgementController._getAccount(aMailHeader);
+                // Message types string
+                var rawMessageTypes = this._smethPreferences.getCharPref('acknowledgement.types').split(',');
 
-                    // Check if new email is a SEPAmail email
-                    if (SMETHAcknowledgementController._smethUtils.isSEPAmail(SMETHAcknowledgementController._content)) {
+                // Array of message types for which acknowledgements are sent
+                var messageTypes = new Array();
 
-                        // Parse content to XML document object model
-                        var sepaMailXmlDom = new DOMParser().parseFromString(SMETHAcknowledgementController._content,
-                            "text/xml");
-
-                        // SEPAmail message type
-                        var sepaMailMessageType = SMETHAcknowledgementController._smethUtils.getSEPAmailMessageType(sepaMailXmlDom);
-
-                        // Message types string
-                        var rawMessageTypes = this._smethPreferences.getCharPref('acknowledgement.types').split(',');
-
-                        // Array of message types for which acknowledgements are sent
-                        var messageTypes = new Array();
-
-                        // Fill in the values for message types
-                        for (var i = 0; i < rawMessageTypes.length; i++) {
-                            messageTypes.push(rawMessageTypes[i].trim());
-                        }
-
-                        // Check if acknowledgements are sent for the current message type
-                        if (messageTypes.indexOf(sepaMailMessageType) > -1) {
-
-                            // Get settings for the account and message type
-                            var acknowledgementSettings = this._getAccountDefaults(account.key, this.missiveMessageType);
-
-                            // Check if settings were obtained
-                            if (acknowledgementSettings != null) {
-
-                                // Check if we are sending acknowledgements automatically
-                                if (acknowledgementSettings.automatic == '1') {
-
-                                    // Send acknowledgement missive XML
-                                    SMETHAcknowledgementController._handleAutomaticAcknowledgement(
-                                        SMETHAcknowledgementController._smethPreferences.getCharPref("acknowledgement.XSLUrl"),
-                                        acknowledgementSettings.defaults, sepaMailXmlDom, aMailHeader, account);
-
-                                }
-                            }
-                        }
-
-                    } else {
-
-                        // We do not handle any other kinds of emails
-                    }
-
-                } catch (e) {
-                    SMETHAcknowledgementController._smethMessageHandler.exception(e);
+                // Fill in the values for message types
+                for (var i = 0; i < rawMessageTypes.length; i++) {
+                    messageTypes.push(rawMessageTypes[i].trim());
                 }
 
-            }, true, options);
-        }
-    },
+                // Check if acknowledgements are sent for the current message type
+                if (messageTypes.indexOf(sepaMailMessageType) > -1) {
 
-    /**
-     * Get the account on which the email corresponding to the specified header was obtained
-     *
-     * @method _getAccount
-     * @private
-     * @param {Object} aMsgHdr Message header
-     * @return Get account on which the header of the corresponding email was obtained
-     * @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_interfaces
-     * @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_examples
-     */
-    _getAccount : function(aMsgHdr) {
+                    // Get settings for the account and message type
+                    var acknowledgementSettings = this._getAccountDefaults(account.key, sepaMailMessageType);
 
-        var account;
+                    // Check if settings were obtained
+                    if (acknowledgementSettings != null) {
 
-        // Account manager interface instance
-        // @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_interfaces
-        // @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_examples
-        var accountManager = Components.classes["@mozilla.org/messenger/account-manager;1"]
-                                       .getService(Components.interfaces.nsIMsgAccountManager);
+                        // Check if we are sending acknowledgements automatically
+                        if (acknowledgementSettings.automatic == '1') {
 
-        // List of registered accounts
-        var accounts = accountManager.accounts;
+                            // Send acknowledgement missive XML
+                            SMETHAcknowledgementController._handleAutomaticAcknowledgement(
+                                SMETHAcknowledgementController._smethPreferences.getCharPref("acknowledgement.XSLUrl"),
+                                acknowledgementSettings.defaults, sepaMailXmlDom, aMailHeader, account);
 
-        // Scan the list of accounts and get the account for sending the acknowledgement
-        for (var i = 0; i < accounts.Count(); i++) {
-
-            // Current account
-            var currentAccount = accounts.QueryElementAt(i, Components.interfaces.nsIMsgAccount);
-
-            // Check if we have an account key for the message header
-            if (aMsgHdr.accountKey == "") {
-
-                // Check if the defaultIdentity property has been defined the current account
-                if (currentAccount.defaultIdentity != undefined) {
-
-                    // Check the email address
-                    if (currentAccount.defaultIdentity.email == aMsgHdr.mime2DecodedRecipients) {
-                        account = currentAccount;
-                        break;
-                    }
-
-                    // Check the identity name
-                    if (currentAccount.defaultIdentity.identityName == aMsgHdr.mime2DecodedRecipients) {
-                        account = currentAccount;
-                        break;
+                        }
                     }
                 }
 
             } else {
 
-                // Check the account key
-                if (currentAccount.key == aMsgHdr.accountKey) {
-                    account = currentAccount;
-                    break;
-                }
+                // We do not handle any other kinds of emails
             }
-        }
 
-        return account;
+        } catch (e) {
+            SMETHAcknowledgementController._smethMessageHandler.exception(e);
+        }
     },
 
     /**
@@ -537,6 +470,9 @@ var SMETHAcknowledgementController = {
 
             // Check if the container was found
             if (ackDetailsContainer != null) {
+
+                // Set the date and time at which the message is being sent
+                SMETHAcknowledgementController._smethUtils.setSendDateTime(acknowledgementDoc);
 
                 // Set the default status of the acknowledgement missive document
                 SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
@@ -634,54 +570,102 @@ var SMETHAcknowledgementController = {
             var ackMissiveXmlDom = SMETHAcknowledgementController._getAckMissiveXml(ackTransformerUrl, defaults,
                 sepaMailXmlDom);
 
-            // Serialized SEPAmail missive acknowledgement
-            var serializedAckMissiveXml = '<?xml version="1.0" encoding="UTF-8"?>' +
-                    (new XMLSerializer()).serializeToString(ackMissiveXmlDom);
+            // Get the SEPAmail IDs of the sender and receiver of the acknowledgement
+            var myQXBAN = SMETHAcknowledgementController._smethUtils.getQxbanByEmailAddressAccount(account.key);
+            var receiverAccount = SMETHAcknowledgementController._smethUtils.getMailAccountByAlias(aMsgHdr.author);
+            var receiverQXBAN = receiverAccount == null ?
+                SMETHAcknowledgementController._smethUtils.getReceiverQxbanByEmailAddress(aMsgHdr.author) :
+                SMETHAcknowledgementController._smethUtils.getQxbanByEmailAddressAccount(receiverAccount.key);
 
-            // Compose service fields instance
-            // @see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/NsIMsgCompFields
-            var composeFields = Components.classes["@mozilla.org/messengercompose/composefields;1"]
-                                          .createInstance(Components.interfaces.nsIMsgCompFields);
+            // Check that the SEPAmail IDs have been obtained
+            if ((myQXBAN != null) && (receiverQXBAN != null)) {
 
-            // Define the properties of the compose service fields
-            composeFields.body = serializedAckMissiveXml + "\n";
-            composeFields.characterSet = "UTF-8";
-            composeFields.defaultCharacterSet = "UTF-8";
-            composeFields.from = account.defaultIdentity.email;
-            composeFields.messageId = aMsgHdr.messageId;
-            composeFields.subject = aMsgHdr.subject;
-            composeFields.to = aMsgHdr.author;
+                // Automatically generated and set missive ID
+                SMETHAcknowledgementController._smethUtils.setMissiveId(ackMissiveXmlDom);
 
-            // Message compose parameters instance
-            // @see http://doxygen.db48x.net/mozilla-full/html/da/d05/interfacensIMsgComposeParams.html
-            var msgComposeParams = Components.classes["@mozilla.org/messengercompose/composeparams;1"]
-                                             .createInstance(Components.interfaces.nsIMsgComposeParams);
+                // Set the sender IBAN value
+                SMETHAcknowledgementController._smethUtils.setNodeValue(ackMissiveXmlDom,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:Snd/sem:IBAN", myQXBAN.qxban);
 
-            // Define the message composition parameters
-            msgComposeParams.composeFields = composeFields;
-            msgComposeParams.identity = account.defaultIdentity;
-            msgComposeParams.format = Components.interfaces.nsIMsgCompFormat.PlainText
-            msgComposeParams.type = Components.interfaces.nsIMsgCompType.New;
+                // Set the receiver IBAN value
+                SMETHAcknowledgementController._smethUtils.setNodeValue(ackMissiveXmlDom,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:Rcv/sem:IBAN", receiverQXBAN.qxban);
 
-            // Compose service instance
-            // @see https://developer.mozilla.org/en-US/docs/Extensions/Thunderbird/HowTos/Common_Thunderbird_Use_Cases/Compose_New_Message
-            var composeService = Components.classes["@mozilla.org/messengercompose;1"]
-                                           .getService(Components.interfaces.nsIMsgComposeService);
+                // Serialized SEPAmail missive acknowledgement
+                var serializedAckMissiveXml = '<?xml version="1.0" encoding="UTF-8"?>' +
+                        (new XMLSerializer()).serializeToString(ackMissiveXmlDom);
 
-            // Message compose instance using message composition parameters
-            var msgCompose = composeService.initCompose(msgComposeParams);
+                // Compose service fields instance
+                // @see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/NsIMsgCompFields
+                var composeFields = Components.classes["@mozilla.org/messengercompose/composefields;1"]
+                                              .createInstance(Components.interfaces.nsIMsgCompFields);
 
-            // Remove vCards and signatures from missive email
-            SMETHAcknowledgementController._smethUtils.removeEmailExtras(msgCompose);
+                // Define the properties of the compose service fields
+                composeFields.body = serializedAckMissiveXml + "\n";
+                composeFields.characterSet = "UTF-8";
+                composeFields.defaultCharacterSet = "UTF-8";
+                composeFields.from = account.defaultIdentity.email;
+                composeFields.messageId = aMsgHdr.messageId;
+                composeFields.to = aMsgHdr.author;
 
+                // Set the mail subject
+                if (aMsgHdr.subject == SMETHTranslations.mailSubject) {
+                    composeFields.subject = '';
+                } else {
+                    composeFields.subject = aMsgHdr.subject;
+                }
 
-            // Message send interface instance
-            // @see http://doxygen.db48x.net/mozilla/html/interfacensIMsgSend.html
-            var msgSend = Components.classes["@mozilla.org/messengercompose/send;1"]
-                                    .createInstance(Components.interfaces.nsIMsgSend);
+                // Check if we have a certificate for encryption and signing
+                if (account.defaultIdentity.getUnicharAttribute("encryption_cert_name") &&
+                        account.defaultIdentity.getUnicharAttribute("signing_cert_name")) {
 
-            // Send the acknowledgement missive XML
-            msgCompose.SendMsg(msgSend.nsMsgDeliverNow, account.defaultIdentity, account, null, null);
+                    // SMIME message compose fields
+                    var smimeCompFields = Components.classes["@mozilla.org/messenger-smime/composefields;1"]
+                                                    .createInstance(Components.interfaces.nsIMsgSMIMECompFields);
+
+                    // Sign and encrypt message
+                    smimeCompFields.requireEncryptMessage = true;
+                    smimeCompFields.signMessage = true;
+
+                    // Set the security info of the message
+                    composeFields.securityInfo = smimeCompFields;
+                }
+
+                // Message compose parameters instance
+                // @see http://doxygen.db48x.net/mozilla-full/html/da/d05/interfacensIMsgComposeParams.html
+                var msgComposeParams = Components.classes["@mozilla.org/messengercompose/composeparams;1"]
+                                                 .createInstance(Components.interfaces.nsIMsgComposeParams);
+
+                // Define the message composition parameters
+                msgComposeParams.composeFields = composeFields;
+                msgComposeParams.identity = account.defaultIdentity;
+                msgComposeParams.format = Components.interfaces.nsIMsgCompFormat.PlainText
+                msgComposeParams.type = Components.interfaces.nsIMsgCompType.New;
+
+                // Compose service instance
+                // @see https://developer.mozilla.org/en-US/docs/Extensions/Thunderbird/HowTos/Common_Thunderbird_Use_Cases/Compose_New_Message
+                var composeService = Components.classes["@mozilla.org/messengercompose;1"]
+                                               .getService(Components.interfaces.nsIMsgComposeService);
+
+                // Message compose instance using message composition parameters
+                var msgCompose = composeService.initCompose(msgComposeParams);
+
+                // Remove vCards and signatures from missive email
+                SMETHAcknowledgementController._smethUtils.removeEmailExtras(msgCompose);
+
+                // Message send interface instance
+                // @see http://doxygen.db48x.net/mozilla/html/interfacensIMsgSend.html
+                var msgSend = Components.classes["@mozilla.org/messengercompose/send;1"]
+                                        .createInstance(Components.interfaces.nsIMsgSend);
+
+                // Send the acknowledgement missive XML
+                msgCompose.SendMsg(msgSend.nsMsgDeliverNow, account.defaultIdentity, account, null, null);
+
+            } else {
+
+                // Required SEPAmail IDs could not be found
+                throw new Error("The required SEPAmail IDs could not be found.");
+            }
 
         } catch (e) {
             throw e;
@@ -864,8 +848,10 @@ var SMETHAcknowledgementController = {
         // Alter the body of the acknowledgement to reflect the options chosen by the user
         try {
 
-            // Current editor
-            var editor = GetCurrentEditor();
+            // Get acknowledgement header details
+            var missiveId = document.getElementById("missiveIdTextbox").value;
+            var missiveOrd = document.getElementById("orderMissiveTextbox").value;
+            var missivePriority = document.getElementById("priorityTextbox").value;
 
             // Get user selected values
             var userStatus = document.getElementById("semAcknowledgementStatusValueList").value;
@@ -874,36 +860,72 @@ var SMETHAcknowledgementController = {
             var userDetail = document.getElementById("semAcknowledgementDetValue").value;
             var userDescription = document.getElementById("semAcknowledgementDescriptionValue").value;
 
-            // Get the container for acknowledgement missive details elements
-            var ackDetailsContainer = SMETHAcknowledgementController._ackMissiveXmlDom.evaluate(
-                SMETHAcknowledgementController._ackContainerPath, SMETHAcknowledgementController._ackMissiveXmlDom,
-                SMETHAcknowledgementController._smethUtils.nsResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+            // Populate sender and receiver SEPAmail IDs
+            if (SMETHAcknowledgementController._smethUtils.populateQXBAN(gMsgCompose, document,
+                SMETHAcknowledgementController._ackMissiveXmlDom)) {
 
-            // Replace user values in acknowledgement missive
-            SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
-                ackDetailsContainer.singleNodeValue, "AcqSta", userStatus);
-            SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
-                ackDetailsContainer.singleNodeValue, "AcqCla", userClass);
-            SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
-                ackDetailsContainer.singleNodeValue, "AcqSub", userSubject);
-            SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
-                ackDetailsContainer.singleNodeValue, "AcqDet", userDetail);
+                // Current editor
+                var editor = GetCurrentEditor();
 
-            // Check if user has specified details for acknowledgement
-            if (userDescription.trim().length > 0) {
+                // Set the date and time at which the acknowledgement is being sent
+                SMETHAcknowledgementController._smethUtils.setSendDateTime(SMETHAcknowledgementController._ackMissiveXmlDom);
+
+                // Get the container for acknowledgement missive details elements
+                var ackDetailsContainer = SMETHAcknowledgementController._ackMissiveXmlDom.evaluate(
+                    SMETHAcknowledgementController._ackContainerPath, SMETHAcknowledgementController._ackMissiveXmlDom,
+                    SMETHAcknowledgementController._smethUtils.nsResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+                // Set the missive ID
+                if (missiveId.length > 0) {
+
+                    // Set the user generated missive ID
+                    SMETHAcknowledgementController._smethUtils.setNodeValue(
+                        SMETHAcknowledgementController._ackMissiveXmlDom,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvId", missiveId);
+
+                } else {
+
+                    // Automatically generated and set missive ID
+                    SMETHAcknowledgementController._smethUtils.setMissiveId(SMETHAcknowledgementController._ackMissiveXmlDom);
+                }
+
+                // Set the missive order and priority
+                SMETHAcknowledgementController._smethUtils.setNodeValue(
+                    SMETHAcknowledgementController._ackMissiveXmlDom,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvOrd", missiveOrd);
+                SMETHAcknowledgementController._smethUtils.setNodeValue(
+                    SMETHAcknowledgementController._ackMissiveXmlDom,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvPri", missivePriority);
+
+                // Replace user values in acknowledgement missive
                 SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
-                    ackDetailsContainer.singleNodeValue, "AcqDes", userDescription);
+                    ackDetailsContainer.singleNodeValue, "AcqSta", userStatus);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, "AcqCla", userClass);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, "AcqSub", userSubject);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, "AcqDet", userDetail);
+
+                // Check if user has specified details for acknowledgement
+                if (userDescription.trim().length > 0) {
+                    SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                        ackDetailsContainer.singleNodeValue, "AcqDes", userDescription);
+                }
+
+                // Start changing editor content
+                editor.beginTransaction();
+
+                // Set the editor content
+                editor.document.body.textContent = '<?xml version="1.0" encoding="UTF-8"?>' +
+                    (new XMLSerializer()).serializeToString(SMETHAcknowledgementController._ackMissiveXmlDom);
+
+                // End changing editor content
+                editor.endTransaction();
+
+            } else {
+                event.preventDefault();
             }
-
-            // Start changing editor content
-            editor.beginTransaction();
-
-            // Set the editor content
-            editor.document.body.textContent = '<?xml version="1.0" encoding="UTF-8"?>' +
-                (new XMLSerializer()).serializeToString(SMETHAcknowledgementController._ackMissiveXmlDom);
-
-            // End changing editor content
-            editor.endTransaction();
 
         } catch (e) {
             SMETHAcknowledgementController._smethMessageHandler.exception(e);

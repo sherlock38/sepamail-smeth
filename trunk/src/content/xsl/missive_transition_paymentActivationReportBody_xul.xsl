@@ -20,7 +20,7 @@
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-        <vbox id="missiveBodyView" flex="1" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        <vbox class="report rubis" id="missiveBodyView" flex="1" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
             <separator class="thin" orient="horizontal"/>
             <xsl:variable name="reportExecutionDate" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt"/>
             <xsl:variable name="reportAmount" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:Amt/pain014:InstdAmt"/>
@@ -89,7 +89,7 @@
                             </row>
                             <row align="center" class="grid-row">
                                 <label id="semBdyReportDateLabel" value="Date de demande"/>
-                                <datepicker type="popup" id="semBdyReportDataValue" readonly="true">
+                                <datepicker class="report" type="popup" id="semBdyReportDataValue" readonly="true">
                                     <xsl:attribute name="value">
                                         <xsl:value-of disable-output-escaping="yes" select="str:tokenize($reportExecutionDate, 'T')"/>
                                     </xsl:attribute>

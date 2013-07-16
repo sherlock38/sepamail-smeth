@@ -18,7 +18,7 @@
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-        <vbox id="missiveBodyViewWithAttachments" flex="1">
+        <vbox class="report test" id="missiveBodyViewWithAttachments" flex="1">
             <vbox id="missiveBodyView" flex="1">
                 <label id="semTestRequestTitle" value="Test report details"/>
                 <separator class="thin" orient="horizontal"/>
@@ -141,36 +141,48 @@
                                         </xsl:attribute>
                                     </button>
                                 </row>
-                                <row align="center" class="grid-row">
-                                    <label id="semBdyTestIdLabel" value="Test ID"/>
-                                    <separator class="thin" orient="vertical"/>
-                                    <textbox id="requestTestIdTextbox" flex="1" readonly="true">
-                                        <xsl:attribute name="value">
-                                            <xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport/sem:TestId"/>
-                                        </xsl:attribute>
-                                    </textbox>
-                                    <separator class="thin" orient="vertical"/>
-                                    <button id="semTestIdButton" label="Generate">
-                                        <xsl:attribute name="onclick">
-                                            <xsl:text disable-output-escaping="yes">
-
-                                                // UUID generator instance
-                                                var uuidGenerator = Components.classes["@mozilla.org/uuid-generator;1"]
-                                                                              .getService(Components.interfaces.nsIUUIDGenerator);
-
-                                                // Get a new UUID and assign it to the Test ID textbox
-                                                var testId = ((uuidGenerator.generateUUID().toString().replace(/-/g, "")).substring(1, 17)).toUpperCase();
-                                                document.getElementById('requestTestIdTextbox').setAttribute('value', testId);
-
-                                            </xsl:text>
-                                        </xsl:attribute>
-                                    </button>
-                                </row>
                             </rows>
                         </grid>
                         <separator class="thin" collapsed="true" orient="horizontal"/>
                         <groupbox flex="1" id="groupboxTestRequestContent">
                             <caption id="groupboxTestRequestContentCaption" label="Test report content"/>
+                            <separator class="thin" orient="horizontal"/>
+                            <grid align="stretch" collapsed="true" id="gridTestIdElements">
+                                <columns>
+                                    <column/>
+                                    <column/>
+                                    <column flex="1"/>
+                                    <column/>
+                                    <column/>
+                                </columns>
+                                <rows>
+                                    <row align="center" class="grid-row">
+                                        <label id="semBdyTestIdLabel" value="Test ID"/>
+                                        <separator class="thin" orient="vertical"/>
+                                        <textbox id="requestTestIdTextbox" flex="1" readonly="true">
+                                            <xsl:attribute name="value">
+                                                <xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport/sem:TestId"/>
+                                            </xsl:attribute>
+                                        </textbox>
+                                        <separator class="thin" orient="vertical"/>
+                                        <button id="semTestIdButton" label="Generate">
+                                            <xsl:attribute name="onclick">
+                                                <xsl:text disable-output-escaping="yes">
+
+                                                    // UUID generator instance
+                                                    var uuidGenerator = Components.classes["@mozilla.org/uuid-generator;1"]
+                                                                                  .getService(Components.interfaces.nsIUUIDGenerator);
+
+                                                    // Get a new UUID and assign it to the Test ID textbox
+                                                    var testId = ((uuidGenerator.generateUUID().toString().replace(/-/g, "")).substring(1, 17)).toUpperCase();
+                                                    document.getElementById('requestTestIdTextbox').setAttribute('value', testId);
+
+                                                </xsl:text>
+                                            </xsl:attribute>
+                                        </button>
+                                    </row>
+                                </rows>
+                            </grid>
                             <separator class="thin" orient="horizontal"/>
                             <listbox id="listboxTestRequestText" flex="1" seltype="single" suppressOnSelect="false">
                                 <listhead>

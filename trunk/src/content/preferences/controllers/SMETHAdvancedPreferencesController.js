@@ -22,7 +22,7 @@
  *
  * Contributor(s):
  *  Ammit Heeramun
- *  Bishan Kumar Madhoo 
+ *  Bishan Kumar Madhoo
  *  Manfred Sherlock Olm, smeth@decibi.fr
  *
  * Alternatively, the contents of this file may be used under the terms of
@@ -51,7 +51,7 @@
 
 /**
  * SMETHMessageHandler class contain functions to handle info, error, warning and exceptions messages
- * 
+ *
  * @include SMETHMessageHandler.js
  */
 Components.utils.import("resource://smeth/smethlib/SMETHMessageHandler.js");
@@ -65,14 +65,14 @@ Components.utils.import("resource://smeth/smethlib/SMETHMessageHandler.js");
 
 /**
  * SMETHAdvancedPreferencesController manages the SMETH advanced preferences pane
- * 
+ *
  * @class SMETHAdvancedPreferencesController
  */
 var SMETHAdvancedPreferencesController = {
 
     /**
      * Array of message types for which acknowledgement missive XML documents are sent
-     * 
+     *
      * @attribute _smethAcknowledgementMessageTypes
      * @private
      * @default null
@@ -81,7 +81,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Message composition settings
-     * 
+     *
      * @attribute _smethCompositionSettings
      * @private
      * @default null
@@ -90,7 +90,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Settings for SMETH controller
-     * 
+     *
      * @attribute _smethControllerConfigSettings
      * @private
      * @default null
@@ -99,7 +99,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * List of ecosystems
-     * 
+     *
      * @attribute _smethEcosystems
      * @private
      * @default null
@@ -108,7 +108,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Declare the SMETHMessageHandler class
-     * 
+     *
      * @attribute _smethMessageHandler
      * @private
      */
@@ -116,7 +116,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Array of SEPAmail message types
-     * 
+     *
      * @attribute _smethMessageTypes
      * @private
      * @default null
@@ -125,7 +125,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * SMETH preferences initialisation flag
-     * 
+     *
      * @attribute _smethPreferencesHasBeenInitialised
      * @private
      * @default false
@@ -134,7 +134,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Declare the smeth preferences class
-     * 
+     *
      * @attribute _smethPreferences
      * @private
      * @see https://developer.mozilla.org/en-US/docs/Code_snippets/Preferences#XPCOM_interfaces_for_preferences_system
@@ -145,7 +145,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Add a SEPAmail message type to the list of acknowledgement message types
-     * 
+     *
      * @method addAcknowledgementMessageType
      */
     addAcknowledgementMessageType : function() {
@@ -173,8 +173,30 @@ var SMETHAdvancedPreferencesController = {
     },
 
     /**
+     * Add an unassigned SEPAmail message type to the list of assigned messages for the current ecosystem
+     *
+     * @method addEcoSepamailMessageType
+     */
+    addEcoSepamailMessageType : function() {
+
+        // Preference UI elements
+        var ecosystemListbox = document.getElementById('ecosystemsListbox');
+        var unassignedMessagesListbox = document.getElementById('ecoUnassginedSepamailMessages');
+
+        // Add the selected message type to the current ecosystem
+        this._smethEcosystems[ecosystemListbox.selectedIndex].messages.push(unassignedMessagesListbox.value);
+
+        // Update the list of assigned and unassigned messate types
+        this.fillEcosystemMessages();
+        this.fillUnassignedEcosystemMessages();
+
+        // Set focus to the list of ecosystems
+        ecosystemListbox.focus();
+    },
+
+    /**
      * Add a new ecosystem to SMETH
-     * 
+     *
      * @method addEcosystem
      */
     addEcosystem : function() {
@@ -201,7 +223,8 @@ var SMETHAdvancedPreferencesController = {
                                           .getService(Components.interfaces.nsIUUIDGenerator);
 
             // Add new ecosystem object
-            this._smethEcosystems.push({id : uuidGenerator.generateUUID().toString(), name: name.value.trim()});
+            this._smethEcosystems.push({id : uuidGenerator.generateUUID().toString(), name: name.value.trim(),
+                mode: 'test', messages:[]});
 
             // Refresh the list of ecosystems
             this._populateEcosystems();
@@ -213,7 +236,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Add a SEPAmail message type
-     * 
+     *
      * @method addMessageType
      */
     addMessageType : function() {
@@ -250,8 +273,66 @@ var SMETHAdvancedPreferencesController = {
     },
 
     /**
+     * Populate the list of SEPAmail messages assigned to the selected ecosystem
+     *
+     * @method fillEcosystemMessages
+     */
+    fillEcosystemMessages : function() {
+
+        // Preference UI elements
+        var ecosystemListbox = document.getElementById('ecosystemsListbox');
+        var ecosystemMessageListbox = document.getElementById('ecoAssignedSepamailMessages');
+
+        // Clear the list of messages
+        this._clearListbox("ecoAssignedSepamailMessages");
+
+        // Get the ecosystem object for the selected ecosystem
+        var ecosystem = this._smethEcosystems[ecosystemListbox.selectedIndex];
+
+        // Fill in the list of SEPAmail messages
+        for (var i = 0; i < ecosystem.messages.length; i++) {
+            ecosystemMessageListbox.appendItem(ecosystem.messages[i], ecosystem.messages[i]);
+        }
+    },
+
+    /**
+     * Fill the listbox of SEPAmail messages that have not been assigned to ecosystems
+     *
+     * @method fillUnassignedEcosystemMessages
+     */
+    fillUnassignedEcosystemMessages : function() {
+
+        // Preference UI elements
+        var unassignedEcosystemMessagesListbox = document.getElementById('ecoUnassginedSepamailMessages');
+
+        // Clear the list of unassigned SEPAmail messages
+        this._clearListbox("ecoUnassginedSepamailMessages");
+
+        // Build the list of assigned messages
+        var assignedMessages = [];
+        for (var i = 0; i < this._smethEcosystems.length; i++) {
+            for (var j = 0; j < this._smethEcosystems[i].messages.length; j++) {
+                assignedMessages.push(this._smethEcosystems[i].messages[j]);
+            }
+        }
+
+        // Get unassigned message types
+        var unassignedMessages = [];
+        for (var k = 0; k < this._smethMessageTypes.length; k++) {
+            if (assignedMessages.indexOf(this._smethMessageTypes[k]) < 0) {
+                unassignedMessages.push(this._smethMessageTypes[k]);
+            }
+        }
+
+        // Fill in the listbox of unassigned message types
+        for (var l = 0; l < unassignedMessages.length; l++) {
+            unassignedEcosystemMessagesListbox.appendItem(unassignedMessages[l], unassignedMessages[l]);
+        }
+    },
+
+    /**
      * Modify an existing ecosystem
-     * 
+     *
      * @method modifyEcosystem
      * @see https://developer.mozilla.org/en-US/docs/XPCOM_Interface_Reference/nsIPromptService
      */
@@ -298,7 +379,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered message composition tab is selected
-     * 
+     *
      * @method onComposeMessageTabSelected
      */
     onComposeMessageTabSelected : function() {
@@ -312,7 +393,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when a user changes the value in the message composition settings UI
-     * 
+     *
      * @method onCompositionSettingTextboxesInput
      */
     onCompositionSettingTextboxesInput : function() {
@@ -330,8 +411,35 @@ var SMETHAdvancedPreferencesController = {
     },
 
     /**
+     * onEcosystemMenuListCommand handles the command event of the ecosystem menu list
+     *
+     * @method onEcosystemMenuListCommand
+     */
+    onEcosystemMenuListCommand : function() {
+
+        // Update the list of message types for the selected ecosystem
+        this._fillMessageTypes();
+    },
+
+    /**
+     * Handle the event triggered when the ecosystem settings tab is selected
+     *
+     * @method onEcosystemTabSelected
+     */
+    onEcosystemTabSelected : function() {
+
+        // Message types listbox
+        var listbox = document.getElementById('ecosystemsListbox');
+
+        // Check if the listbox has items and no item is selected
+        if (listbox.itemCount > 0 && listbox.selectedIndex < 0) {
+            listbox.selectedIndex = 0;
+        }
+    },
+
+    /**
      * Handle the event called when the SEPAmail message settings tab is selected
-     * 
+     *
      * @method onMessageTypeSettingsTabSelected
      */
     onMessageTypeSettingsTabSelected : function() {
@@ -347,7 +455,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when user inputs text in the SEPAmail message type textbox
-     * 
+     *
      * @method onMessageTypeInput
      */
     onMessageTypeInput : function() {
@@ -382,7 +490,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Initialise the SMETH QXBAN preference pane
-     * 
+     *
      * @method onPaneLoad
      */
     onPaneLoad : function() {
@@ -449,7 +557,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when an item in the list of SEPAmail acknowledgement message types is selected
-     * 
+     *
      * @method onSelectAcknowledgementMessageTypeItem
      */
     onSelectAcknowledgementMessageTypeItem : function() {
@@ -460,7 +568,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when an item in the ecosystem listbox is selected
-     * 
+     *
      * @method onSelectEcosystem
      */
     onSelectEcosystem : function() {
@@ -475,6 +583,15 @@ var SMETHAdvancedPreferencesController = {
             document.getElementById('modifyEcosystem').disabled = false;
             document.getElementById('deleteEcosystem').disabled = false;
 
+            // Populate the list of SEPAmail messages assigned to the selected ecosystem
+            this.fillEcosystemMessages();
+
+            // Show the ecosystem mode
+            this.showEcosystemMode();
+
+            // Populate the list of SEPAmail messages that have not been assigned to ecosystems
+            this.fillUnassignedEcosystemMessages();
+
         } else {
 
             // Disable ecosystem action buttons
@@ -484,8 +601,60 @@ var SMETHAdvancedPreferencesController = {
     },
 
     /**
+     * onSelectEcosystemAssignedMessage handles the onSelect event of the list of assigned SEPAmail messages
+     *
+     * @method onSelectEcosystemAssignedMessage
+     */
+    onSelectEcosystemAssignedMessage : function() {
+
+        // Preference UI elements
+        var ecosystemMessageListbox = document.getElementById('ecoAssignedSepamailMessages');
+        var removeEcoMessageTypeButton = document.getElementById('removeEcoMessageType');
+
+        // Check if a message has been selected
+        if (ecosystemMessageListbox.selectedIndex > -1) {
+
+            // Enable the button which allows to remove an assigned SEPAmail message
+            removeEcoMessageTypeButton.disabled = false;
+            removeEcoMessageTypeButton.image="chrome://smeth/skin/images/down.png";
+
+        } else {
+
+            // Disable the button which allows to remove an assigned SEPAmail message
+            removeEcoMessageTypeButton.disabled = true;
+            removeEcoMessageTypeButton.image="chrome://smeth/skin/images/down_dis.png";
+        }
+    },
+
+    /**
+     * onSelectEcosystemUnassignedMessage handles the onSelect event of the list of unassigned SEPAmail messages
+     *
+     * @method onSelectEcosystemUnassignedMessage
+     */
+    onSelectEcosystemUnassignedMessage : function() {
+
+        // Preference UI elements
+        var unassignedEcosystemMessagesListbox = document.getElementById('ecoUnassginedSepamailMessages');
+        var addEcoMessageTypeButton = document.getElementById('addEcoMessageType');
+
+        // Check if a message has been selected
+        if (unassignedEcosystemMessagesListbox.selectedIndex > -1) {
+
+            // Enable the button which allows to add an unassigned SEPAmail message
+            addEcoMessageTypeButton.disabled = false;
+            addEcoMessageTypeButton.image="chrome://smeth/skin/images/up.png";
+
+        } else {
+
+            // Disable the button which allows to add an unassigned SEPAmail message
+            addEcoMessageTypeButton.disabled = true;
+            addEcoMessageTypeButton.image="chrome://smeth/skin/images/up_dis.png";
+        }
+    },
+
+    /**
      * Handle the event triggered when an item in the list of message composition settings is selected
-     * 
+     *
      * @method onSelectCompositionSetting
      */
     onSelectCompositionSetting : function() {
@@ -518,7 +687,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when a message type is selected in the message settings list
-     * 
+     *
      * @method onSelectMessageSettingType
      */
     onSelectMessageSettingType : function() {
@@ -530,7 +699,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Handle the event triggered when an item in the list of SEPAmail message types is selected
-     * 
+     *
      * @method onSelectMessageTypeItem
      */
     onSelectMessageTypeItem : function() {
@@ -569,7 +738,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Remove the selected message type from the acknowledgement message type list
-     * 
+     *
      * @method removeAckMessage
      */
     removeAckMessage : function() {
@@ -601,8 +770,40 @@ var SMETHAdvancedPreferencesController = {
     },
 
     /**
+     * Remove an assigned SEPAmail message type from the list of assigned messages
+     *
+     * @method removeEcoSepamailMessageType
+     */
+    removeEcoSepamailMessageType : function() {
+
+        // Preference UI elements
+        var ecosystemListbox = document.getElementById('ecosystemsListbox');
+        var ecosystemMessageListbox = document.getElementById('ecoAssignedSepamailMessages');
+
+        // Get the index of the message type that needs to be removed from the ecosystem
+        for (var i = 0; i < this._smethEcosystems[ecosystemListbox.selectedIndex].messages.length; i++) {
+
+            // Check if we are the required message type
+            if (this._smethEcosystems[ecosystemListbox.selectedIndex].messages[i] == ecosystemMessageListbox.value) {
+
+                // Remove the message type
+                this._smethEcosystems[ecosystemListbox.selectedIndex].messages.splice(i, 1);
+
+                break;
+            }
+        }
+
+        // Update the list of assigned and unassigned messate types
+        this.fillEcosystemMessages();
+        this.fillUnassignedEcosystemMessages();
+
+        // Set focus to the list of ecosystems
+        ecosystemListbox.focus();
+    },
+
+    /**
      * Delete an existing ecosystem and related compose message settings
-     * 
+     *
      * @method removeEcosystem
      */
     removeEcosystem : function() {
@@ -646,7 +847,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Remove message composition setting
-     * 
+     *
      * @method removeMessageCompositionSetting
      */
     removeMessageCompositionSetting : function() {
@@ -669,7 +870,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Remove the selected SEPAmail message type from the list of SEPAmail message types
-     * 
+     *
      * @method removeMessageType
      */
     removeMessageType : function() {
@@ -767,7 +968,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Persist advanced settings
-     * 
+     *
      * @method saveAdvancedSettings
      */
     saveAdvancedSettings : function() {
@@ -814,7 +1015,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Save message composition settings
-     * 
+     *
      * @method saveMessageCompositionSetting
      */
     saveMessageCompositionSetting : function() {
@@ -845,6 +1046,36 @@ var SMETHAdvancedPreferencesController = {
 
         // Repopulate the list of message composition settings
         this._populateCompositionSettings();
+    },
+
+    /**
+     * Set the mode of the currently selected ecosystem
+     *
+     * @method setEcosystemMode
+     * @param {String} mode Ecosystem mode
+     */
+    setEcosystemMode : function(mode) {
+
+        // Preference UI elements
+        var ecosystemListbox = document.getElementById('ecosystemsListbox');
+
+        // Set the ecosystem mode
+        this._smethEcosystems[ecosystemListbox.selectedIndex].mode = mode;
+    },
+
+    /**
+     * Show the mode of the selected ecosystem
+     *
+     * @method showEcosystemMode
+     */
+    showEcosystemMode : function() {
+
+        // Preference UI elements
+        var ecosystemListbox = document.getElementById('ecosystemsListbox');
+        var ecosystemModeRadioGroup = document.getElementById('ecosystem_mode');
+
+        // Set the ecosystem mode value
+        ecosystemModeRadioGroup.value = this._smethEcosystems[ecosystemListbox.selectedIndex].mode;
     },
 
     /**
@@ -899,7 +1130,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Clear the children of the message type settings deck
-     * 
+     *
      * @method _clearMessageTypeSettingsDeck
      */
     _clearMessageTypeSettingsDeck : function() {
@@ -915,7 +1146,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Create settings UI for SEPAmail message types
-     * 
+     *
      * @method _createMessageTypeSettingsUi
      */
     _createMessageTypeSettingsUi : function() {
@@ -940,7 +1171,10 @@ var SMETHAdvancedPreferencesController = {
             // Check if we have settings for the given message type
             if (messageTypeSettings != null) {
                 messageTypeSettingsUi.setAttribute('bodyXSL', messageTypeSettings.body);
+                messageTypeSettingsUi.setAttribute('compositionXSL', messageTypeSettings.composition);
+                messageTypeSettingsUi.setAttribute('templateXML', messageTypeSettings.template);
                 messageTypeSettingsUi.setAttribute('hasAttachment', messageTypeSettings.hasAttachments);
+                messageTypeSettingsUi.setAttribute('attachmentXSL', messageTypeSettings.attachment);
             }
 
             // Append the panel to the panels container
@@ -950,7 +1184,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill the ecosystem combobox on the composition menu tab
-     * 
+     *
      * @method _fillEcosystems
      */
     _fillEcosystems : function() {
@@ -978,7 +1212,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill the SEPAmail message types combobox on the composition menu tab
-     * 
+     *
      * @method _fillMessageTypes
      */
     _fillMessageTypes : function() {
@@ -986,14 +1220,22 @@ var SMETHAdvancedPreferencesController = {
         // Clear items in the combobox
         this._clearCombobox('messageTypeMenuList');
 
+        // Ecosystem combobox
+        var ecoCombobox = document.getElementById('ecosystemMenuList');
+
         // Message types combobox
         var combobox = document.getElementById('messageTypeMenuList');
 
-        // Scan the array of SEPAmail message types
-        for (var i = 0; i < this._smethMessageTypes.length; i++) {
+        // Check if an ecosystem has been selected
+        if (ecoCombobox.selectedIndex > -1) {
 
-            // Add message type to the combobox
-            combobox.appendItem(this._smethMessageTypes[i], this._smethMessageTypes[i], '');
+            // Scan the array of SEPAmail message types
+            for (var i = 0; i < this._smethEcosystems[ecoCombobox.selectedIndex].messages.length; i++) {
+
+                // Add message type to the combobox
+                combobox.appendItem(this._smethEcosystems[ecoCombobox.selectedIndex].messages[i],
+                    this._smethEcosystems[ecoCombobox.selectedIndex].messages[i], '');
+            }
         }
 
         // Select the first item in the combobox if it contains items
@@ -1030,7 +1272,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Build the array of SEPAmail message types for which acknowledgement missive documents are sent
-     * 
+     *
      * @method _getAcknowledgementMessageTypes
      */
     _getAcknowledgementMessageTypes : function() {
@@ -1125,7 +1367,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Build the array of SEPAmail message types
-     * 
+     *
      * @method _getMessageTypes
      */
     _getMessageTypes : function() {
@@ -1170,7 +1412,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Initialise SMETH preferences class
-     * 
+     *
      * @method _initSmethPreferences
      */
     _initSmethPreferences : function() {
@@ -1186,7 +1428,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill in the list of SEPAmail acknowledgement message types
-     * 
+     *
      * @method _populateAcknowledgementMessageTypes
      */
     _populateAcknowledgementMessageTypes : function() {
@@ -1202,7 +1444,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill in the list of message composition settings
-     * 
+     *
      * @method _populateCompositionSettings
      */
     _populateCompositionSettings : function() {
@@ -1242,7 +1484,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill in the list of ecosystems handled by SMETH
-     * 
+     *
      * @method _populateEcosystems
      */
     _populateEcosystems : function() {
@@ -1261,7 +1503,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill in the list of SEPAmail message types
-     * 
+     *
      * @method _populateMessageTypes
      */
     _populateMessageTypes : function() {
@@ -1277,7 +1519,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Fill in the list of SEPAmail message types for settings configuration
-     * 
+     *
      * @method _populateMessageSettingTypes
      */
     _populateMessageSettingTypes : function() {
@@ -1319,7 +1561,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Remove message composition settings for a specific type of message
-     * 
+     *
      * @method _removeCompositionSettingsByMessageType
      * @param {String} messageType Type of SEPAmail message for which message composition settings need to be removed
      */
@@ -1345,7 +1587,7 @@ var SMETHAdvancedPreferencesController = {
 
     /**
      * Show UI elements which indicate that message composition menus cannot be added to SMETH
-     * 
+     *
      * @method _showNoComposeMenuUi
      * @param {String} message Message that needs to be displayed to the user
      */

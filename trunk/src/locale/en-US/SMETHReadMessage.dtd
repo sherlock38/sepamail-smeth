@@ -74,3 +74,4 @@
 
 <!-- General translations -->
 <!ENTITY general.noSuitableAccounts "There are no suitably configured email accounts for sending SEPAmail messages.">
+<!ENTITY mail.subject "This is a SEPAmail message.">

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>SMETH - mode brute</title>
+        <script type="text/javascript" src="../js/codemirror.js"></script>
+        <script type="text/javascript" src="../js/xml.js"></script>
+        <link rel="stylesheet" href="../css/codemirror.css"/>
+        <style type="text/css">
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                width: 100%;
+            }
+
+            #code {
+                display: none;
+            }
+
+            #content {
+                display: none;
+            }
+
+            #content-loader {
+                display: none;
+            }
+
+            .CodeMirror {
+                font-size: 14px;
+                height: 100%;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <textarea id="editor" name="editor"></textarea>
+        <textarea id="content" name="content"></textarea>
+        <iframe id="content-loader" src=""></iframe>
+        <script type="text/javascript">
+
+            // External content iFrame
+            var iFrame = document.getElementById('content-loader');
+
+            // Content textbox
+            var contentTextbox = document.getElementById('content');
+
+            // Initialise the CodeMirror component
+            var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+                indentUnit: 4,
+                lineNumbers: true,
+                lineWrapping: true,
+                mode: {
+                    alignCDATA: true,
+                    htmlMode: false,
+                    name: 'xml'
+                },
+                readOnly: true
+            });
+
+            /**
+             * Add line breaks to a given XML document string stream
+             *
+             * @method addLineBreaks
+             * @param {String} source XML document string stream
+             * @return XML document string stream with line breaks
+             */
+            function addLineBreaks(source) {
+
+                var formattedString = '';
+
+                // Scan the characters in the given source and add line breaks after the > character
+                for (var i = 0; i < source.length; i++) {
+
+                    // Check that we are at the starting character of an XML tag
+                    if (source.charAt(i) == '<') {
+
+                        // Check that we are not processing the XML declaration tag and that we do not have any token
+                        if (i != 0) {
+
+                            // Check that we are not at a closing tag or that the previous element was an ending tag
+                            if (source.charAt(i + 1) != '/' || source.charAt(i - 1) == '>') {
+
+                                // Add a line break to the formatted string
+                                formattedString = formattedString.trim() + '\n';
+                            }
+                        }
+
+                        // Append XML string stream character to the formatted string
+                        formattedString += '<';
+
+                    } else {
+
+                        // Append XML string stream character to the formatted string
+                        formattedString += source.charAt(i);
+                    }
+                }
+
+                return formattedString;
+            }
+
+            /**
+             * Display the given content in the CodeMirror editor
+             *
+             * @method showContent
+             * @param {String} content Content that needs to be displayed
+             */
+            function showContent(content) {
+
+                // Display content in the editor
+                editor.setValue(addLineBreaks(content));
+
+                // Refresh the editor
+                editor.refresh();
+
+                // Indent the content of the editor
+                for (var i = 0; i < editor.lineCount(); i++) {
+                    editor.indentLine(i, 'smart');
+                }
+            }
+
+            // Load event for external content iFrame
+            iFrame.onload = function(e) {
+
+                // Get the body of the iFrame
+                var iFrameBody = this.contentDocument.getElementsByTagName('body')[0];
+
+                // Check if we got content from the given URL
+                if (iFrameBody.innerHTML.length > 0) {
+
+                    // Display sanitized the content in the CodeMirror editor
+                    showContent(contentTextbox.value);
+
+                    // Remove the current onload event handler when content has been obtained
+                    this.onload = null;
+                }
+            }
+
+        </script>
+    </body>
+</html>
