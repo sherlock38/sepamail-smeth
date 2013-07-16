@@ -11,7 +11,7 @@
             <caption label="&prefPane.prefpaneBankDetails.grouptitle;"/>
             <vbox flex="1">
                 <separator class="thin" orient="horizontal"/>
-                <listbox id="listboxMyQxban" flex="1" onselect="SMETHBankPreferencesController.onSelectListItem();" seltype="single" suppressOnSelect="false">
+                <listbox id="listboxMyQxban" flex="1" onclick="SMETHBankPreferencesController.onSelectListItem();" onselect="SMETHBankPreferencesController.onSelectListItem();" seltype="single" suppressOnSelect="false">
                     <listhead>
                         <listheader label="&prefPane.prefpaneBankDetails.list.header.email;"/>
                         <listheader label="&prefPane.prefpaneBankDetails.list.header.qxban;"/>

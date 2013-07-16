@@ -7,9 +7,10 @@
     Description: Pretty print all content of SEPAmail message and preserve CDATA for sem:Data elements
 -->
 
-<xsl:stylesheet version="1.0" xmlns:sem="http://www.sepamail.eu/xsd/bleedingEdge"
+<xsl:stylesheet version="1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:sem="http://www.sepamail.eu/xsd/bleedingEdge">
 
     <xsl:output method="xml" encoding="UTF-8" indent="yes" omit-xml-declaration="yes" cdata-section-elements="sem:Data"/>
 

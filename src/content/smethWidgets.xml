@@ -689,13 +689,26 @@
                 if (this.hasAttribute('bodyXSL')) {
                     document.getAnonymousElementByAttribute(this, "anonid", "bodyXSLvalue").value = this.getAttribute('bodyXSL');
                 }
+                if (this.hasAttribute('compositionXSL')) {
+                    document.getAnonymousElementByAttribute(this, "anonid", "compositionXSLvalue").value = this.getAttribute('compositionXSL');
+                }
+                if (this.hasAttribute('templateXML')) {
+                    document.getAnonymousElementByAttribute(this, "anonid", "templateXMLvalue").value = this.getAttribute('templateXML');
+                }
                 if (this.hasAttribute('hasAttachment')) {
                     let isTrue = (this.getAttribute('hasAttachment') === 'true');
                     if (isTrue) {
                         document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked = true;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLlabel").disabled = false;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").disabled = false;
                     } else {
                         document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked = false;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLlabel").disabled = true;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").disabled = true;
                     }
+                }
+                if (this.hasAttribute('attachmentXSL')) {
+                    document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").value = this.getAttribute('attachmentXSL').trim()
                 }
             ]]></constructor>
             <property name="bodyXSL">
@@ -709,6 +722,28 @@
                     }
                 ]]></setter>
             </property>
+            <property name="compositionXSL">
+                <getter><![CDATA[
+                    return document.getAnonymousElementByAttribute(this, "anonid", "compositionXSLvalue").value.trim();
+                ]]></getter>
+                <setter><![CDATA[
+                    if (val) {
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionXSLvalue").value = val.trim();
+                        this.setAttribute('compositionXSL', val.trim());
+                    }
+                ]]></setter>
+            </property>
+            <property name="templateXML">
+                <getter><![CDATA[
+                    return document.getAnonymousElementByAttribute(this, "anonid", "templateXMLvalue").value.trim();
+                ]]></getter>
+                <setter><![CDATA[
+                    if (val) {
+                        document.getAnonymousElementByAttribute(this, "anonid", "templateXMLvalue").value = val.trim();
+                        this.setAttribute('templateXML', val.trim());
+                    }
+                ]]></setter>
+            </property>
             <property name="hasAttachments">
                 <getter><![CDATA[
                     return document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked;
@@ -717,8 +752,23 @@
                     let isTrue = (val === 'true');
                     if (isTrue) {
                         document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked = true;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLlabel").disabled = false;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").disabled = false;
                     } else {
                         document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked = false;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLlabel").disabled = true;
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").disabled = true;
+                    }
+                ]]></setter>
+            </property>
+            <property name="attachmentXSL">
+                <getter><![CDATA[
+                    return document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").value.trim();
+                ]]></getter>
+                <setter><![CDATA[
+                    if (val) {
+                        document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").value = val.trim();
+                        this.setAttribute('attachmentXSL', val.trim());
                     }
                 ]]></setter>
             </property>
@@ -726,10 +776,20 @@
                 <getter><![CDATA[
                     return {
                         "body": document.getAnonymousElementByAttribute(this, "anonid", "bodyXSLvalue").value.trim(),
-                        "hasAttachments": document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked
+                        "composition": document.getAnonymousElementByAttribute(this, "anonid", "compositionXSLvalue").value.trim(),
+                        "template": document.getAnonymousElementByAttribute(this, "anonid", "templateXMLvalue").value.trim(),
+                        "hasAttachments": document.getAnonymousElementByAttribute(this, "anonid", "hasAttachments").checked,
+                        "attachment": document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").value.trim()
                     }
                 ]]></getter>
             </property>
+            <method name="_setAttachmentSettingsState">
+                <parameter name="enable"/>
+                <body><![CDATA[
+                    document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLlabel").disabled = enable;
+                    document.getAnonymousElementByAttribute(this, "anonid", "compositionAttachmentsXSLvalue").disabled = enable;
+                ]]></body>
+            </method>
         </implementation>
         <content>
             <xul:groupbox flex="1">
@@ -747,8 +807,26 @@
                             <xul:row flex="1">
                                 <xul:textbox align="stretch" anonid="bodyXSLvalue" flex="1" multiline="true" placeholder="&prefPane.prefpaneAdvanced.tab.messageType.body.placeholder;"/>
                             </xul:row>
+                            <xul:row>
+                                <xul:label value="&prefPane.prefpaneAdvanced.tab.messageType.composition.label;"/>
+                            </xul:row>
+                            <xul:row flex="1">
+                                <xul:textbox align="stretch" anonid="compositionXSLvalue" flex="1" multiline="true" placeholder="&prefPane.prefpaneAdvanced.tab.messageType.composition.placeholder;"/>
+                            </xul:row>
+                            <xul:row>
+                                <xul:label value="&prefPane.prefpaneAdvanced.tab.messageType.template.label;"/>
+                            </xul:row>
+                            <xul:row flex="1">
+                                <xul:textbox align="stretch" anonid="templateXMLvalue" flex="1" multiline="true" placeholder="&prefPane.prefpaneAdvanced.tab.messageType.template.placeholder;"/>
+                            </xul:row>
                             <xul:row align="center">
-                                <xul:checkbox anonid="hasAttachments" label="&prefPane.prefpaneAdvanced.tab.messageType.attachments.label;"/>
+                                <xul:checkbox anonid="hasAttachments" label="&prefPane.prefpaneAdvanced.tab.messageType.attachments.label;" onclick="_setAttachmentSettingsState(this.checked);"/>
+                            </xul:row>
+                            <xul:row>
+                                <xul:label anonid="compositionAttachmentsXSLlabel" value="&prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.label;"/>
+                            </xul:row>
+                            <xul:row flex="1">
+                                <xul:textbox align="stretch" anonid="compositionAttachmentsXSLvalue" flex="1" multiline="true" placeholder="&prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.placeholder;"/>
                             </xul:row>
                         </xul:rows>
                     </xul:grid>

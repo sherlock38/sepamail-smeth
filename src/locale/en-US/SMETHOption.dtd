@@ -63,18 +63,6 @@
 <!ENTITY prefPane.prefpaneBankDetails.menulist.inactive "Inactive">
 <!ENTITY prefPane.prefpaneBankDetails.button.save "Save">
 
-<!-- Translations for QXBAN preference pane -->
-<!ENTITY prefPane.prefpaneQxBans.grouptitle "SEPAmail accounts of my correspondants">
-<!ENTITY prefPane.prefpaneQxBans.list.header.email "Email address">
-<!ENTITY prefPane.prefpaneQxBans.list.header.qxban "SEPAmail account">
-<!ENTITY prefPane.prefpaneQxBans.label.email "Email address">
-<!ENTITY prefPane.prefpaneQxBans.label.qxban "SEPAmail account">
-<!ENTITY prefPane.prefpaneQxBans.textbox.email "Email address of your correspondant">
-<!ENTITY prefPane.prefpaneQxBans.textbox.qxban "SEPAmail account of your correspondant">
-<!ENTITY prefPane.prefpaneQxBans.button.save "Save">
-<!ENTITY prefPane.prefpaneQxBans.button.edit "Edit">
-<!ENTITY prefPane.prefpaneQxBans.button.remove "Remove">
-
 <!-- Translations for Advanced settings pane -->
 <!ENTITY prefPane.prefpaneAdvanced.grouptitle "Advanced settings">
 <!ENTITY prefPane.prefpaneAdvanced.button.save "Save">
@@ -95,6 +83,11 @@
 <!ENTITY prefPane.prefpaneAdvanced.general.removal_prompt.prompt "Do you want to delete the SEPAmail message type?\n\nPlease note that all settings associated to the message type will also be deleted.">
 <!ENTITY prefPane.prefpaneAdvanced.tab.ecosystem "Ecosystem settings">
 <!ENTITY prefPane.prefpaneAdvanced.ecosystem.list.header "Ecosystems">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.assigned.list.header "Assigned SEPAmail messages">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.unassigned.list.header "SEPAmail messages">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode "Ecosystem mode">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode.production "Production mode">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode.test "Test mode">
 <!ENTITY prefPane.prefpaneAdvanced.ecosystem.button.add "Add new ecosystem">
 <!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.add.title "Add new ecosystem">
 <!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.add.label "New ecosystem name">
@@ -123,4 +116,10 @@
 <!ENTITY prefPane.prefpaneAdvanced.messageTypeSettings.listbox.header "SEPAmail message types">
 <!ENTITY prefPane.prefpaneAdvanced.tab.messageType.body.label "Message body XSL file">
 <!ENTITY prefPane.prefpaneAdvanced.tab.messageType.body.placeholder "Name of XSL file which allows to display the SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.composition.label "Message composition XSL file">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.composition.placeholder "Name of XSL file which allows to compose the SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.template.label "Message XML template">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.template.placeholder "Name of the XML template file for the current SEPAmail message type">
 <!ENTITY prefPane.prefpaneAdvanced.tab.messageType.attachments.label "SEPAmail message type can contain attachments">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.label "Message composition attachment XSL file">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.placeholder "Name of XSL file which allows to manage attachments when composing the SEPAmail message type">

@@ -74,3 +74,4 @@
 
 <!-- General translations -->
 <!ENTITY general.noSuitableAccounts "Il n\'y a pas comptes de messagerie configurés correctement pour envoyer des messages SEPAmail.">
+<!ENTITY mail.subject "Ce message est un SEPAmail.">

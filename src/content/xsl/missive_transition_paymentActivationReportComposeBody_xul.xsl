@@ -22,7 +22,7 @@
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-        <vbox id="missiveBodyView" flex="1">
+        <vbox class="report rubis" id="missiveBodyView" flex="1">
             <label id="semTestRequestTitle" value="Payment activation report details"/>
             <separator class="thin" orient="horizontal"/>
             <xsl:variable name="reportExecutionDate" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt"/>

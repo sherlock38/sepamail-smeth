@@ -18,7 +18,7 @@
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-        <vbox id="missiveBodyView" flex="1" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+        <vbox class="report test" id="missiveBodyView" flex="1" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
             <separator class="thin" orient="horizontal"/>
             <hbox id="semBdy">
                 <box align="start" class="semModeToggleParentContainer" pack="center">

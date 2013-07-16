@@ -90,6 +90,25 @@ SMETHControlFactory.prototype = {
     _document : null,
 
     /**
+     * createBrowserXULElement creates a XUL browser element
+     *
+     * @return {Object} Generated XUL control object
+     */
+    createBrowserXULElement : function() {
+
+        try {
+
+            // Create the XUL browser
+            var item = this._document.createElementNS(this._xul_ns, "browser");
+
+            return item;
+
+        } catch(e) {
+            throw e;
+        }
+    },
+
+    /**
      * createButtonXULElement creates a XUL button control having the given title
      *
      * @method createButtonXULElement

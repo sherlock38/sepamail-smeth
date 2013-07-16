@@ -42,7 +42,7 @@
 /**
  * @module smeth
  * @file SMETHUtils.js
- * @version 1212
+ * @version 1212ou
  * @since 1210
  * @author Ammit Heeramun
  * @description some tools for all smeth classes
@@ -53,6 +53,7 @@
  *
  * @include FileUtils.jsm
  * @see https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/FileUtils.jsm
+ * @type {Object}
  */
 Components.utils.import("resource://gre/modules/FileUtils.jsm");
 
@@ -61,6 +62,7 @@ Components.utils.import("resource://gre/modules/FileUtils.jsm");
  *
  * @include NetUtil.jsm
  * @see https://developer.mozilla.org/en-US/docs/Mozilla/JavaScript_code_modules/NetUtil.jsm
+ * @type {Object}
  */
 Components.utils.import("resource://gre/modules/NetUtil.jsm");
 
@@ -68,12 +70,14 @@ Components.utils.import("resource://gre/modules/NetUtil.jsm");
  * SMETHMessageHandler class contain functions to handle info, error, warning and exceptions messages
  *
  * @include SMETHMessageHandler.js
+ * @type {Object}
  */
 Components.utils.import("resource://smeth/smethlib/SMETHMessageHandler.js");
 
 /**
  * items exported from the module
  * @see https://developer.mozilla.org/en-US/docs/JavaScript_code_modules/Using
+ * @type {Array}
  */
 var EXPORTED_SYMBOLS = ["SMETHUtils"];
 
@@ -89,7 +93,29 @@ var EXPORTED_SYMBOLS = ["SMETHUtils"];
  * @class SMETHUtils
  */
 SMETHUtils = function(aWindow) {
+
     this._window = aWindow;
+
+    /**
+     * Message bundle for localised messages
+     *
+     * @attribute messageBundle
+     * @private
+     * @default Object
+     */
+    this.messageBundle = {
+
+        // Initialise internationalisation component
+        _bundle: Components.classes["@mozilla.org/intl/stringbundle;1"]
+                           .getService(Components.interfaces.nsIStringBundleService)
+                           .createBundle("chrome://smeth/locale/smeth.properties"),
+
+        // Get the localised message for the specified key
+        getLocalisedMessage: function(key) {
+            return this._bundle.GetStringFromName(key);
+        }
+    };
+
     this._smethMessageHandler = new SMETHMessageHandler(aWindow);
 
 };
@@ -111,6 +137,29 @@ SMETHUtils.prototype = {
     _smethPreferences : Components.classes["@mozilla.org/preferences-service;1"]
                                   .getService(Components.interfaces.nsIPrefService)
                                   .getBranch("extensions.smeth."),
+
+    /**
+     * Check if user is allowed to carry out EBICS upload for a given message type
+     *
+     * @method allowEbicsUpload
+     * @param {String} messageType SEPAmail message type
+     * @return Whether the user is allowed to upload file via EBICS
+     */
+    allowEbicsUpload : function(messageType) {
+
+        // Get list of message types for which EBICS file upload is allowed
+        var ebicsUpload = JSON.parse(this._smethPreferences.getCharPref('ebics.uploads'));
+
+        // Scan the list of message types
+        for (var i = 0; i < ebicsUpload.length; i++) {
+            var currentMessageType = ebicsUpload[i];
+            if (currentMessageType.type == messageType) {
+                return true;
+            }
+        }
+
+        return false;
+    },
 
     /**
      * checkTodayDate function checks if a date is today's date
@@ -162,6 +211,57 @@ SMETHUtils.prototype = {
             (date.getHours() > 9 ? date.getHours() : ('0' + date.getHours())) + ':' +
             (date.getMinutes() > 9 ? date.getMinutes() : ('0' + date.getMinutes())) + ':' +
             (date.getSeconds() > 9 ? date.getSeconds() : ('0' + date.getSeconds()));
+    },
+
+    /**
+     * Freeze the given SEPAmail UI form to disable user interaction
+     *
+     * @method freezeContent
+     * @param {XML} content XUL fragment which contains the SMETH UI
+     */
+    freezeContent : function(content) {
+
+        // Make all textboxes read-only
+        var textboxes = content.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+            "textbox");
+        for (var i = 0; i < textboxes.length; i++) {
+            textboxes[i].readOnly = true;
+        }
+
+        // Disable all buttons
+        var buttons = content.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+            "button");
+        for (var j = 0; j < buttons.length; j++) {
+            buttons[j].disabled = true;
+        }
+
+        // Make all list boxes read-only
+        var listboxes = content.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+            "listbox");
+        for (var k = 0; k < listboxes.length; k++) {
+            listboxes[k].readOnly = true;
+        }
+
+        // Make all date pickers read-only
+        var datepickers = content.getElementsByTagNameNS("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul",
+            "datepicker");
+        for (var l = 0; l < datepickers.length; l++) {
+            datepickers[l].readOnly = true;
+        }
+    },
+
+    /**
+     * generateMessageId generates a unique message ID
+     *
+     * @method generateMessageId
+     */
+    generateMessageId : function() {
+
+        // UUID generator instance
+        var uuidGenerator = Components.classes["@mozilla.org/uuid-generator;1"]
+                                      .getService(Components.interfaces.nsIUUIDGenerator);
+
+        return (uuidGenerator.generateUUID().toString().replace(/-/g, "")).substring(1, 33).toUpperCase();
     },
 
     /**
@@ -231,6 +331,77 @@ SMETHUtils.prototype = {
     },
 
     /**
+     * Get the account on which the email corresponding to the specified header was obtained
+     *
+     * @method getAccountByMsgHeader
+     * @param {Object} aMsgHdr Message header
+     * @return Get account on which the header of the corresponding email was obtained
+     * @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_interfaces
+     * @see https://developer.mozilla.org/en-US/docs/Thunderbird/Account_examples
+     */
+    getAccountByMsgHeader : function(aMsgHdr) {
+
+        // Obtain the accounted related to the message by using the folder in which the current message resides
+        return this.getAccountByFolder(aMsgHdr.folder);
+    },
+
+    /**
+     * Get the XSL file name for managing attachments when composing a given message type
+     *
+     * @method getCompositionAttachmentTransformationForMessageType
+     * @param {String} messageType Message type
+     * @return {String} XSL file name for managing attachments when composing given message type
+     */
+    getCompositionAttachmentTransformationForMessageType : function(messageType) {
+
+        // Controller configuration
+        var config = JSON.parse(this._smethPreferences.getCharPref('controller.config'));
+
+        // Scan the list of settings
+        for (var i = 0; i < config.length; i++) {
+
+            // Check if we are at the required message type
+            if (config[i].type == messageType) {
+                if (config[i].settings.attachment.trim().length > 0) {
+                    return "chrome://{appname}/content/xsl/" + config[i].settings.attachment.trim();
+                } else {
+                    return null;
+                }
+            }
+        }
+
+        return null;
+    },
+
+    /**
+     * Get the XSL file name for composing a given message type
+     *
+     * @method getCompositionTransformationForMessageType
+     * @param {String} messageType Message type
+     * @return {String} XSL file name for composing given message type
+     */
+    getCompositionTransformationForMessageType : function(messageType) {
+
+        // Controller configuration
+        var config = JSON.parse(this._smethPreferences.getCharPref('controller.config'));
+
+        // Scan the list of settings
+        for (var i = 0; i < config.length; i++) {
+
+            // Check if we are at the required message type
+            if (config[i].type == messageType) {
+                if (config[i].settings.composition.trim().length > 0) {
+                    return "chrome://{appname}/content/xsl/" + config[i].settings.composition.trim();
+                } else {
+                    return null;
+                }
+            }
+        }
+
+        return null;
+    },
+
+    /**
      * getControllerConfigObject function get the controllers config object as per the message type
      *
      * @method getControllerConfigObject
@@ -266,6 +437,29 @@ SMETHUtils.prototype = {
         {
             throw ex;
         }
+    },
+
+    /**
+     * Get the EBICS file format associated with a given SEPAmail message type
+     *
+     * @method getEBICSFileFormat
+     * @param {String} messageType SEPAmail message type
+     * @return EBICS file format
+     */
+    getEBICSFileFormat : function(messageType) {
+
+        // Get list of message types for which EBICS file upload is allowed
+        var ebicsUpload = JSON.parse(this._smethPreferences.getCharPref('ebics.uploads'));
+
+        // Scan the list of message types
+        for (var i = 0; i < ebicsUpload.length; i++) {
+            var currentMessageType = ebicsUpload[i];
+            if (currentMessageType.type == messageType) {
+                return currentMessageType.format;
+            }
+        }
+
+        return null;
     },
 
     /**
@@ -310,29 +504,18 @@ SMETHUtils.prototype = {
     },
 
     /**
-     * Get the email account key to QXBAN association object
+     * Get the type of a given message folder
      *
-     * @method getQxbanByEmailAddressAccount
-     * @param {Object} account Account for which association object is required
-     * @return {String} Email address account to QXBAN association object
+     * @method getFolderType
+     * @param {Object} folder Current message folder
+     * @return Message folder type
      */
-    getQxbanByEmailAddressAccount : function(account) {
+    getFolderType : function(folder) {
 
-        var qxbanConfig = JSON.parse(this._smethPreferences.getCharPref("myqxbans"));
+        // Get the base message URI parts
+        var baseMessageUriParts = folder.displayedFolder.baseMessageURI.split("/");
 
-        // Scan the array of email address account to QXBAN association objects
-        for (var i = 0; i < qxbanConfig.length; i++) {
-
-            // Current association object
-            var currentItem = qxbanConfig[i];
-
-            // Check if we have the required object
-            if (currentItem.account == account) {
-                return currentItem;
-            }
-        }
-
-        return null;
+        return baseMessageUriParts[baseMessageUriParts.length - 1].toUpperCase();
     },
 
     /**
@@ -385,7 +568,7 @@ SMETHUtils.prototype = {
 
         try {
 
-            if(!aMessageParts) {
+            if (!aMessageParts) {
 
                 // If the part contains a body
                 if(aMessageParts.body) {
@@ -401,6 +584,62 @@ SMETHUtils.prototype = {
 
             } else {
                 return displayedMessage;
+            }
+
+        } catch(ex) {
+            throw ex;
+        }
+    },
+
+    /**
+     * getMailContentFromParts recursively gets the message body from the given message content parts
+     *
+     * @method getMailContentFromParts
+     * @param {Object} aMessagePart Message content parts
+     * @param {String} defaultMessage Message string that is returned when mail content could not be determined from the given parts
+     * @return {String} Message body String
+     */
+    getMailContentFromParts : function(aMessagePart, defaultMessage) {
+
+        try {
+
+            // Check if message part has been defined
+            if (aMessagePart != undefined) {
+
+                // Check if we have a body at the current message part node
+                if (aMessagePart.body != undefined) {
+
+                    // Return the body of the message
+                    return aMessagePart.body;
+
+                } else {
+
+                    // Check if there are more parts in the current part
+                    if (aMessagePart.parts != undefined) {
+
+                        // Check the length of the message parts
+                        if (aMessagePart.parts.length > 0) {
+
+                            // Call the function again with the new sub-part
+                            return this.getMailContentFromParts(aMessagePart.parts[0], defaultMessage);
+
+                        } else {
+
+                            // Return default message since message part is defined but does not contain any element
+                            return defaultMessage;
+                        }
+
+                    } else {
+
+                        // Return default message since message part and body is not defined
+                        return defaultMessage;
+                    }
+                }
+
+            } else {
+
+                // Return default message since message part does not exist
+                return defaultMessage;
             }
 
         } catch(ex) {
@@ -483,6 +722,93 @@ SMETHUtils.prototype = {
 
         // Default message expiry duration
         return {years: 0, months: 1, days: 0};
+    },
+
+    /**
+     * Check if a given message type has attachments
+     *
+     * @method getMessageTypeHasAttachments
+     * @param {String} messageType Message type
+     * @return {boolean} Whether the given message type has attachments
+     */
+    getMessageTypeHasAttachments : function(messageType) {
+
+        // Controller configuration
+        var config = JSON.parse(this._smethPreferences.getCharPref('controller.config'));
+
+        // Scan the list of settings
+        for (var i = 0; i < config.length; i++) {
+
+            // Check if we are at the required message type
+            if (config[i].type == messageType) {
+                return config[i].settings.hasAttachments;
+            }
+        }
+
+        return false;
+    },
+
+    /**
+     * Get the mode associated to a given message type - defaults to test is message type cannot be found in the
+     * configuration settings for ecosystems
+     *
+     * @method getMessageTypeMode
+     * @param {String} messageType SEPAmail message type for which mode needs to be determined
+     * @return Mode for given message type
+     */
+    getMessageTypeMode : function(messageType) {
+
+        // Ecosystem settings
+        var ecosystemSettings = JSON.parse(this._smethPreferences.getCharPref('ecosystems'));
+
+        // Traverse the list of ecosystem settings objects and find the required message type
+        for (var i = 0; i < ecosystemSettings.length; i++) {
+
+            // Traverse the list of messages for the current ecosystem settings
+            for (var j = 0; j < ecosystemSettings[i].messages.length; j++) {
+
+                // Check if we are at the required message type
+                if (ecosystemSettings[i].messages[j] == messageType) {
+
+                    // Get the mode
+                    return ecosystemSettings[i].mode;
+                }
+            }
+        }
+
+        return 'test';
+    },
+
+    /**
+     * Get the email account key to QXBAN association object
+     *
+     * @method getQxbanByEmailAddressAccount
+     * @param {Object} account Account for which association object is required
+     * @return {String} Email address account to QXBAN association object
+     */
+    getQxbanByEmailAddressAccount : function(account) {
+
+        var qxbanConfig = JSON.parse(this._smethPreferences.getCharPref("myqxbans"));
+
+        // Scan the array of email address account to QXBAN association objects
+        for (var i = 0; i < qxbanConfig.length; i++) {
+
+            // Current association object
+            var currentItem = qxbanConfig[i];
+
+            // Check if we have the required object
+            if (currentItem.account == account) {
+
+                // Check if QXBAN has been defined for the account
+                if (currentItem.qxban.trim().length > 0) {
+                    return currentItem;
+                } else {
+                    break;
+                }
+            }
+        }
+
+        return null;
     },
 
     /**
@@ -625,6 +951,34 @@ SMETHUtils.prototype = {
     },
 
     /**
+     * Get the XML template file name for a given message type
+     *
+     * @method getTemplateForMessageType
+     * @param {String} messageType Message type
+     * @return {String} XML template file name for given message type
+     */
+    getTemplateForMessageType : function(messageType) {
+
+        // Controller configuration
+        var config = JSON.parse(this._smethPreferences.getCharPref('controller.config'));
+
+        // Scan the list of settings
+        for (var i = 0; i < config.length; i++) {
+
+            // Check if we are at the required message type
+            if (config[i].type == messageType) {
+                if (config[i].settings.template.trim().length > 0) {
+                    return "chrome://{appname}/content/xml/" + config[i].settings.template.trim();
+                } else {
+                    return null;
+                }
+            }
+        }
+
+        return null;
+    },
+
+    /**
      * Check if the content of a body contains a valid acknowledgement missive message
      *
      * @method isAcknowledgementMissiveMessage
@@ -684,7 +1038,7 @@ SMETHUtils.prototype = {
                                            .createInstance(Components.interfaces.nsIDOMParser);
 
                     // Parse content to XML document object model
-                    var contentXmlDom = parser.parseFromString(content, "text/xml");
+                    var contentXmlDom = parser.parseFromString(content, "application/xml");
 
                     // Check if content is a valid XML
                     if (contentXmlDom.documentElement.nodeName != "parsererror") {
@@ -730,7 +1084,10 @@ SMETHUtils.prototype = {
 
         // Namespace prefix mapping object
         var ns = {
+            'p09' : 'urn:iso:std:iso:20022:tech:xsd:pain.009.001.01',
+            'p012' : 'urn:iso:std:iso:20022:tech:xsd:pain.012.001.01',
             'pain013' : 'urn:iso:std:iso:20022:tech:xsd:pain.013.001.01',
+            'pain014' : 'urn:iso:std:iso:20022:tech:xsd:pain.014.001.01',
             'sem' : 'http://www.sepamail.eu/xsd/bleedingEdge',
             'xsi' : 'http://www.w3.org/2001/XMLSchema-instance'
         };
@@ -746,8 +1103,9 @@ SMETHUtils.prototype = {
      * @param {String} aContent
      * @param {Object} account Account Object
      * @param {Object} aHeader Header object to reply to or null for a new mail
+     * @param {String} defaultSubject The default subject of a SEPAmail message
      */
-    openComposeWindow : function(aContent, account, aHeader) {
+    openComposeWindow : function(aContent, account, aHeader, defaultSubject) {
 
         try {
 
@@ -762,7 +1120,11 @@ SMETHUtils.prototype = {
             if (null != aHeader) {
                 composeFields.messageId = aHeader.messageId;
                 // REM MSO why not mime2DecodedSubject ?
-                composeFields.subject = aHeader.subject;
+                if (aHeader.subject == defaultSubject) {
+                    composeFields.subject = '';
+                } else {
+                    composeFields.subject = aHeader.subject;
+                }
                 // REM MSO explain mime2DecodedAuthor
                 composeFields.to = aHeader.mime2DecodedAuthor;
             }
@@ -827,12 +1189,12 @@ SMETHUtils.prototype = {
 
                 // Check if the SEPAmail account of the sender was obtained
                 if (myQXBAN == null) {
-                    this._smethMessageHandler.info("The SEPAmail account attributed to your current mail account is not defined in SMETH preferences.");
+                    this.showAlert('SMETH', this.messageBundle.getLocalisedMessage('qxban.sender.undefined'));
                     return false;
                 }
 
                 if (receiverQXBAN == null) {
-                    this._smethMessageHandler.info("The SEPAmail account of the receiver has not been defined in your address book.");
+                    this.showAlert('SMETH', this.messageBundle.getLocalisedMessage('qxban.receiver.undefined'));
                     return false;
                 }
 
@@ -1035,7 +1397,7 @@ SMETHUtils.prototype = {
 
         // Message expiry container
         var expiryContainerNode = xmlContent.evaluate("/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgHdr",
-            xmlContent, xmlContent.createNSResolver(xmlContent), 9, null);
+            xmlContent, this.nsResolver, 9, null);
 
         // Check if a message expiry tag exists within the current message
         var msgExpiryNode = xmlContent.getElementsByTagName("sem:MsgExpiry");
@@ -1083,14 +1445,10 @@ SMETHUtils.prototype = {
      */
     setMessageId : function (xmlContent) {
 
-        // UUID generator instance
-        var uuidGenerator = Components.classes["@mozilla.org/uuid-generator;1"]
-                                      .getService(Components.interfaces.nsIUUIDGenerator);
-
         // Set the "MsgId" value
         this.setNodeValue(xmlContent,
             "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgHdr/sem:MsgId",
-            (uuidGenerator.generateUUID().toString().replace(/-/g, "")).substring(1, 33).toUpperCase());
+            this.generateMessageId());
     },
 
     /**
@@ -1122,7 +1480,7 @@ SMETHUtils.prototype = {
     setNodeAttribute : function(anXMLDoc, anXpath, anAttribute, anAttributeValue) {
 
         // Get the specific node
-        var node = anXMLDoc.evaluate(anXpath, anXMLDoc, anXMLDoc.createNSResolver(anXMLDoc), 9, null);
+        var node = anXMLDoc.evaluate(anXpath, anXMLDoc, this.nsResolver, 9, null);
 
         node.singleNodeValue.setAttribute(anAttribute, anAttributeValue);
     },
@@ -1138,7 +1496,7 @@ SMETHUtils.prototype = {
     setNodeValue : function(anXMLDoc, anXpath, aValue) {
 
         // Get the specific node
-        var node = anXMLDoc.evaluate(anXpath, anXMLDoc, anXMLDoc.createNSResolver(anXMLDoc), 9, null);
+        var node = anXMLDoc.evaluate(anXpath, anXMLDoc, this.nsResolver, 9, null);
 
         node.singleNodeValue.textContent = aValue;
     },
@@ -1154,6 +1512,23 @@ SMETHUtils.prototype = {
         // Set the "SndDtTm" value
         this.setNodeValue(xmlContent, "/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:SndDtTm",
             this.formatDateForSEPAmail(new this._window.Date()));
+    },
+
+    /**
+     * Display an alert with the given title and message
+     *
+     * @method showAlert
+     * @param {String} title The title of the alert
+     * @param {String} message The message of the alert
+     */
+    showAlert : function(title, message) {
+
+        // Prompt service instance
+        var promptService = Components.classes["@mozilla.org/embedcomp/prompt-service;1"]
+                                      .getService(Components.interfaces.nsIPromptService);
+
+        // Display alert with given title and message
+        promptService.alert(null, title, message);
     },
 
     /**
@@ -1231,7 +1606,9 @@ SMETHUtils.prototype = {
                 switch (smethControls[i].tagName) {
 
                     case 'label':
-                        smethControls[i].setAttribute('value', localeText);
+                        if (isNaN(smethControls[i].getAttribute('value'))) {
+                            smethControls[i].setAttribute('value', localeText);
+                        }
                         break;
 
                     case 'button':

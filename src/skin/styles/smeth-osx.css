@@ -1,4 +1,4 @@
-/* 
+/*
     Document   : attachments
     Created on : Oct 25, 2012, 12:21:01 PM
     Author     : Bishan Kumar Madhoo <bishan.madhoo@idsoft.mu>
@@ -198,4 +198,23 @@ missiveattachmentlist:focus > missiveattachmentitem[selected="true"] .attachment
     margin-right:15px;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+/*
+    SMETH Message Type Styles
+*/
+.acknowledgement {
+    background-color: #dff2bf;
+}
+
+.report {
+    background-color: #bde5f8;
+}
+
+.request {
+    background-color: #ffeaa3;
+}
+
+.sepa-header {
+    background-color: white;
 }

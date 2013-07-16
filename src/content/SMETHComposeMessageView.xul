@@ -52,10 +52,9 @@
             // Translation for date today text
             dateTodayText: '&date.today.text;',
 
-           /**
-            * Translation for the SEPAmail Header View
-            *
-            */
+            /**
+             * Translation for the SEPAmail Header View
+             */
             // Translations for the summary view labels (All the keys matches a label id in a SEPAmail document)
             semHdrSummaryMessageTypeLabel: '&missive.activation.request.messageType.label;',
             semHdrSummarySenderLabel: '&missive.activation.request.sender.label;',
@@ -76,39 +75,39 @@
             /**
              * Translation for the SEPAmail Body View
              */
-             semBdyRequestDateLabel: '&missive.activation.request.requestDate.label;',
-             semBdyRequestAmountLabel: '&missive.activation.request.requestAmount.label;',
-             semBdyRequestPaymentMethodLabel: '&missive.activation.request.requestPaymentMethod.label;',
-             semBdyRequestPaymentMethodCheck: '&missive.activation.request.requestPaymentMethodCheck.label;',
-             semBdyRequestPaymentMethodTransfer: '&missive.activation.request.requestPaymentMethodTransfer.label;',
-             semBdyRequestPaymentMethodDirectDebit: '&missive.activation.request.requestPaymentMethodDirectDebit.label;',
-             semBdyRequestPaymentMethidPaymentCard: '&missive.activation.request.requestPaymentMethodPaymentCard.label;',
-             semBdyRequestSubjectLabel: '&missive.activation.request.requestSubject.label;',
-             semBdyRefuseRequestButton: '&missive.activation.request.refuseRequestButton.label;',
-             semBdyAcceptRequestButton: '&missive.activation.request.acceptRequestButton.label;',
+            semBdyRequestDateLabel: '&missive.activation.request.requestDate.label;',
+            semBdyRequestAmountLabel: '&missive.activation.request.requestAmount.label;',
+            semBdyRequestPaymentMethodLabel: '&missive.activation.request.requestPaymentMethod.label;',
+            semBdyRequestPaymentMethodCheck: '&missive.activation.request.requestPaymentMethodCheck.label;',
+            semBdyRequestPaymentMethodTransfer: '&missive.activation.request.requestPaymentMethodTransfer.label;',
+            semBdyRequestPaymentMethodDirectDebit: '&missive.activation.request.requestPaymentMethodDirectDebit.label;',
+            semBdyRequestPaymentMethidPaymentCard: '&missive.activation.request.requestPaymentMethodPaymentCard.label;',
+            semBdyRequestSubjectLabel: '&missive.activation.request.requestSubject.label;',
+            semBdyRefuseRequestButton: '&missive.activation.request.refuseRequestButton.label;',
+            semBdyAcceptRequestButton: '&missive.activation.request.acceptRequestButton.label;',
 
             /**
              * Translation for the SEPAmail Attachment View
              */
-             openAllMissiveAttachmentListContextMenu: '&missive.activation.request.openAllMissiveAttachmentListContextMenu.label;',
-             saveAllMissiveAttachmentListContextMenu: '&missive.activation.request.saveAllMissiveAttachmentListContextMenu.label;',
-             openMissiveAttachmentListItemContextMenu: '&missive.activation.request.openMissiveAttachmentListItemContextMenu.label;',
-             saveAsMissiveAttachmentListItemContextMenu: '&missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label;',
-             missiveAttachmentBarTooltip: '&missive.activation.request.missiveAttachmentBar.tooltip;',
-             missiveAttachmentBarShowTooltip: '&missive.activation.request.missiveAttachmentBarShow.tooltip;',
-             missiveAttachmentBarHideTooltip: '&missive.activation.request.missiveAttachmentBarHide.tooltip;',
-             missiveAttachmentCount: '&missive.activation.request.missiveAttachmentCount.label;',
-             missiveAttachmentNameTooltip: '&missive.activation.request.missiveAttachmentName.tooltip;',
-             missiveAttachmentSaveAll: '&missive.activation.request.missiveAttachmentSaveAll.label;',
-             missiveAttachmentSaveAllSingle: '&missive.activation.request.missiveAttachmentSaveAllSingle.label;',
-             missiveAttachmentSaveAllSingleTooltip: '&missive.activation.request.missiveAttachmentSaveAllSingle.tooltip;',
-             openMissiveAttachment: '&missive.activation.request.openMissiveAttachment.label;',
-             saveMissiveAttachment: '&missive.activation.request.saveMissiveAttachment.label;',
+            openAllMissiveAttachmentListContextMenu: '&missive.activation.request.openAllMissiveAttachmentListContextMenu.label;',
+            saveAllMissiveAttachmentListContextMenu: '&missive.activation.request.saveAllMissiveAttachmentListContextMenu.label;',
+            openMissiveAttachmentListItemContextMenu: '&missive.activation.request.openMissiveAttachmentListItemContextMenu.label;',
+            saveAsMissiveAttachmentListItemContextMenu: '&missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label;',
+            missiveAttachmentBarTooltip: '&missive.activation.request.missiveAttachmentBar.tooltip;',
+            missiveAttachmentBarShowTooltip: '&missive.activation.request.missiveAttachmentBarShow.tooltip;',
+            missiveAttachmentBarHideTooltip: '&missive.activation.request.missiveAttachmentBarHide.tooltip;',
+            missiveAttachmentCount: '&missive.activation.request.missiveAttachmentCount.label;',
+            missiveAttachmentNameTooltip: '&missive.activation.request.missiveAttachmentName.tooltip;',
+            missiveAttachmentSaveAll: '&missive.activation.request.missiveAttachmentSaveAll.label;',
+            missiveAttachmentSaveAllSingle: '&missive.activation.request.missiveAttachmentSaveAllSingle.label;',
+            missiveAttachmentSaveAllSingleTooltip: '&missive.activation.request.missiveAttachmentSaveAllSingle.tooltip;',
+            openMissiveAttachment: '&missive.activation.request.openMissiveAttachment.label;',
+            saveMissiveAttachment: '&missive.activation.request.saveMissiveAttachment.label;',
 
             /**
              * General translations
              */
-             noSuitableAccounts: '&general.noSuitableAccounts;'
+            noSuitableAccounts: '&general.noSuitableAccounts;'
         };
 
     </script>

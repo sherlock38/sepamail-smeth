@@ -118,6 +118,7 @@ var SMETHComposeMessageController = {
 
     /**
      * Initiation of the compose window
+     *
      * @method init
      * @param {Object} event Event parameters
      * @see https://developer.mozilla.org/en-US/docs/Extensions/Thunderbird/HowTos/Common_Thunderbird_Use_Cases/Compose_New_Message
@@ -268,7 +269,7 @@ var SMETHComposeMessageController = {
      * @method SendMailEventHandler
      * @param {Object} anEvent Event parameters
      */
-    SendMailEventHandler : function(anEvent){
+    SendMailEventHandler : function(anEvent) {
 
         // Call the appropriate SendMailEventHandler as per the compose message window content
         switch (SMETHComposeMessageController._smethMessageType) {
@@ -288,6 +289,7 @@ var SMETHComposeMessageController = {
                     SMETHComposeMessageController._smethMessageHandler.exception(e);
                 }
                 break;
+
             case 'SEPAMAIL_REQUEST':
                 try {
                     SMETHRequestController.SendMailEventHandler(anEvent);

@@ -35,7 +35,7 @@
 			<xsl:value-of select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationRequest/sem:ReqCompl/sem:Request/pain013:PmtInf/pain013:CdtTrfTx/pain013:Cdtr/pain013:Nm" disable-output-escaping="yes"/>
 		</xsl:variable>
 
-        <hbox id="missiveHeaderBox">
+        <hbox class="sepa-header" id="missiveHeaderBox">
             <vbox flex="1">
                 <data id="sendSndDtTm"><xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvHdr/sem:SndDtTm"/></data>
                 <data id="msgExpiry"><xsl:value-of disable-output-escaping="yes" select="/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgHdr/sem:MsgExpiry"/></data>

@@ -20,7 +20,7 @@
     <xsl:output method="xml" omit-xml-declaration="yes"/>
 
     <xsl:template match="/">
-        <vbox id="missiveBodyView" flex="1">
+        <vbox class="request rubis" id="missiveBodyView" flex="1">
             <label id="semTestRequestTitle" value="Payment activation request details"/>
             <separator class="thin" orient="horizontal"/>
             <hbox id="semBdy" flex="1">

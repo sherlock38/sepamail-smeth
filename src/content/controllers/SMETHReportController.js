@@ -147,11 +147,10 @@ var SMETHReportController = {
         // Initialise the preference object
         // @see https://developer.mozilla.org/en-US/docs/Code_snippets/Preferences#XPCOM_interfaces_for_preferences_system
         this._smethPreferences = Components.classes["@mozilla.org/preferences-service;1"]
-                                    .getService(Components.interfaces.nsIPrefService)
-                                    .getBranch("extensions.smeth.");
+                                           .getService(Components.interfaces.nsIPrefService)
+                                           .getBranch("extensions.smeth.");
 
         this._smethPreferences.QueryInterface(Components.interfaces.nsIPrefBranch2);
-
     },
 
     /**
@@ -195,15 +194,9 @@ var SMETHReportController = {
                     // Get the report status XPath
                     var reportStatusXpath = this._smethPreferences.getCharPref("missive.activation.report.statusXpath");
 
-                    // Create the SEPAmail namespace resolver object
-                    var sepamailNSResolver = this._contentXMLObject.createNSResolver(this._contentXMLObject);
-
                     // Get the SEPAmail message type using Xpath
-                    this._smethReportStatus = this._contentXMLObject.evaluate(reportStatusXpath, this._contentXMLObject, sepamailNSResolver, XPathResult.STRING_TYPE,null).stringValue;
+                    this._smethReportStatus = this._contentXMLObject.evaluate(reportStatusXpath, this._contentXMLObject, SMETHReportController._smethUtils.nsResolver, XPathResult.STRING_TYPE,null).stringValue;
 
-                    break;
-
-                case "simple.report@test":
                     break;
 
                 default:
@@ -211,13 +204,14 @@ var SMETHReportController = {
             }
 
             // Transform the SEPAmail XML document
-            var sepamailComposeBody = this.transformXMLDocument(this._contentXMLObject, this._getComposeWindowXSLPath());
+            var sepamailComposeBody = this.transformXMLDocument(this._contentXMLObject,
+                SMETHReportController._smethUtils.getCompositionTransformationForMessageType(SMETHReportController._smethMessageType));
 
             // Get the content window
             var smethComposeBodyFormContainer = document.getElementById("smethComposeBodyFormContainer");
 
             // Set translated labels for SMETH UI controls
-            sepamailComposeBody = this._smethUtils.translateSEPAmailDocument(sepamailComposeBody, SEMTHReportComposeWindowTranslations);
+            sepamailComposeBody = SMETHReportController._smethUtils.translateSEPAmailDocument(sepamailComposeBody, SEMTHReportComposeWindowTranslations);
 
             // Append the child to the content frame
             smethComposeBodyFormContainer.appendChild(sepamailComposeBody.firstChild);
@@ -239,6 +233,7 @@ var SMETHReportController = {
     SendMailEventHandler : function(anEvent) {
 
         try {
+
             // Get the message compose window
             var msgcomposeWindow = document.getElementById("msgcomposeWindow");
 
@@ -257,16 +252,49 @@ var SMETHReportController = {
             editor.beginTransaction();
 
             // Set the date and time at which message is being sent
-            this._smethUtils.setSendDateTime(this._contentXMLObject);
+            SMETHReportController._smethUtils.setSendDateTime(this._contentXMLObject);
 
             // Set the message expiry of the request
-            this._smethUtils.setMessageExpiry(this._contentXMLObject);
+            SMETHReportController._smethUtils.setMessageExpiry(this._contentXMLObject);
 
             // Polulate the values of the missive header
             this._populateMissiveHeader();
 
             // Populate the QXBANS
-            if (this._smethUtils.populateQXBAN(gMsgCompose, document, this._contentXMLObject)) {
+            if (SMETHReportController._smethUtils.populateQXBAN(gMsgCompose, document, this._contentXMLObject)) {
+
+                // Get the mode for the message type
+                var mode = SMETHReportController._smethUtils.getMessageTypeMode(SMETHReportController._smethMessageType);
+
+                // Get the encrypt checkbox menu item
+                var menuSecurityEncryptRequire = document.getElementById("menu_securityEncryptRequire2");
+
+                // Get the sign checkbox menu item
+                var menuSecuritySign = document.getElementById("menu_securitySign2");
+
+                // Check if we are in the production mode
+                if (mode == 'production') {
+
+                    // Check if the current email is signed and encrypted
+                    if (!(menuSecurityEncryptRequire.checked && menuSecuritySign.checked)) {
+
+                        // Show error message
+                        SMETHReportController._smethUtils.showAlert('SMETH',
+                            SMETHReportController._smethUtils.messageBundle.getLocalisedMessage('ecosystem.mode.error'));
+
+                        // Block message sending
+                        anEvent.preventDefault();
+                    }
+
+                } else {
+
+                    if (!(menuSecurityEncryptRequire.checked && menuSecuritySign.checked)) {
+
+                        // Display message about outgoing email being unsigned and unencrypted since we are in test mode
+                        SMETHReportController._smethUtils.showAlert('SMETH',
+                            SMETHReportController._smethUtils.messageBundle.getLocalisedMessage('ecosystem.mode.warning'));
+                    }
+                }
 
                 switch(SMETHReportController._smethMessageType) {
 
@@ -280,6 +308,12 @@ var SMETHReportController = {
 
                         // populate the XML object with the forms values
                         this._populateTestReportXMLWithFieldsValues();
+                        break;
+
+                    case "rapport@direct.debit":
+
+                        // populate the XML object with the forms values
+                        this._populateMandateReportXMLWithFieldsValues();
                         break;
 
                     default:
@@ -318,8 +352,7 @@ var SMETHReportController = {
 
                 var dataNodes = this._contentXMLObject.getElementsByTagName("sem:Data");
                 var container = this._contentXMLObject.evaluate("/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport",
-                    this._contentXMLObject, this._contentXMLObject.createNSResolver(this._contentXMLObject),
-                    XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+                    SMETHReportController._smethUtils.nsResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
 
                 try {
 
@@ -393,8 +426,7 @@ var SMETHReportController = {
 
                     // Get the container node
                     var containerNode = SMETHReportController._contentXMLObject.evaluate("/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport",
-                        SMETHReportController._contentXMLObject,
-                        SMETHReportController._contentXMLObject.createNSResolver(SMETHReportController._contentXMLObject),
+                        SMETHReportController._contentXMLObject, SMETHReportController._smethUtils.nsResolver,
                         XPathResult.FIRST_ORDERED_NODE_TYPE, null);
 
                     // Append the data node to the container node
@@ -443,18 +475,7 @@ var SMETHReportController = {
         try {
 
             // URL of XSL which transforms an XML document to its attachment UI
-            var attachmentXSLUrl;
-
-            // Generate attachments UI based on type of message being composed
-            switch (SMETHReportController._smethMessageType) {
-
-                case "simple.report@test":
-                    attachmentXSLUrl = SMETHReportController._smethPreferences.getCharPref("missive.simple.report.compose.attachmentXSLUrl");
-                    break;
-
-                default:
-                    attachmentXSLUrl = null;
-            }
+            var attachmentXSLUrl = SMETHReportController._smethUtils.getCompositionAttachmentTransformationForMessageType(SMETHReportController._smethMessageType);
 
             // Check if the XSL URL has been defined
             if (attachmentXSLUrl != null) {
@@ -469,7 +490,9 @@ var SMETHReportController = {
                 var smethComposeBodyFormContainer = document.getElementById("smethComposeBodyFormContainer");
 
                 // Appends the resulting transformation fragment first child to the sepamailUIContainer
-                smethComposeBodyFormContainer.appendChild(attachmentDocument.firstChild);
+                if (attachmentDocument.firstChild) {
+                    smethComposeBodyFormContainer.appendChild(attachmentDocument.firstChild);
+                }
 
                 // Show the attach button
                 document.getElementById("button-attach").hidden = false;
@@ -503,7 +526,7 @@ var SMETHReportController = {
         if (missiveIdTextbox == null) {
 
             // Automatically generated missive ID
-            this._smethUtils.setMissiveId(this._contentXMLObject);
+            SMETHReportController._smethUtils.setMissiveId(this._contentXMLObject);
 
         } else {
 
@@ -511,39 +534,39 @@ var SMETHReportController = {
             if (missiveIdTextbox.value.length > 0) {
 
                 // Set the user generated missive ID
-                this._smethUtils.setNodeValue(this._contentXMLObject, "/sem:Missive/sem:sepamail_missive_001/sem:MsvId",
-                    missiveIdTextbox.value);
+                SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvId", missiveIdTextbox.value);
 
             } else {
 
                 // Automatically generated missive ID
-                this._smethUtils.setMissiveId(this._contentXMLObject);
+                SMETHReportController._smethUtils.setMissiveId(this._contentXMLObject);
             }
         }
 
         // Set the missive type
         if (typeMissiveTextbox != null) {
-            this._smethUtils.setNodeValue(this._contentXMLObject, "/sem:Missive/sem:sepamail_missive_001/sem:MsvTyp",
-                typeMissiveTextbox.value);
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvTyp", typeMissiveTextbox.value);
         }
 
         // Set the missive order
         if (orderMissiveTextbox != null) {
-            this._smethUtils.setNodeValue(this._contentXMLObject, "/sem:Missive/sem:sepamail_missive_001/sem:MsvOrd",
-                orderMissiveTextbox.value);
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvOrd", orderMissiveTextbox.value);
         }
 
         // Set the missive priority
         if (priorityTextbox != null) {
-            this._smethUtils.setNodeValue(this._contentXMLObject, "/sem:Missive/sem:sepamail_missive_001/sem:MsvPri",
-                priorityTextbox.value);
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvPri", priorityTextbox.value);
         }
 
         // Check if the message ID textbox is defined
         if (messageIdTextbox == null) {
 
             // Automatically generated message ID
-            this._smethUtils.setMessageId(this._contentXMLObject);
+            SMETHReportController._smethUtils.setMessageId(this._contentXMLObject);
 
         } else {
 
@@ -551,14 +574,14 @@ var SMETHReportController = {
             if (messageIdTextbox.value.length > 0) {
 
                 // Set the user generated message ID
-                this._smethUtils.setNodeValue(this._contentXMLObject,
+                SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
                     "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgHdr/sem:MsgId",
                     messageIdTextbox.value);
 
             } else {
 
                 // Automatically generated message ID
-                this._smethUtils.setMessageId(this._contentXMLObject);
+                SMETHReportController._smethUtils.setMessageId(this._contentXMLObject);
             }
         }
     },
@@ -570,77 +593,174 @@ var SMETHReportController = {
      * @private
      */
     _populateReportXMLWithFieldsValues: function() {
+
         try {
-            // Check whether the xml is of type "activation.report@payment.activation"
-            if ("activation.report@payment.activation" ==  SMETHReportController._smethMessageType) {
 
-                var reportAmountTextbox = document.getElementById("semBdyReportAmount");
-                var reportPaymentTypeMenulist = document.getElementById("semBdyReportPaymentMethod");
-                var reportRequestDataDatepicker = document.getElementById("semBdyReportDataValue");
+            var reportAmountTextbox = document.getElementById("semBdyReportAmount");
+            var reportPaymentTypeMenulist = document.getElementById("semBdyReportPaymentMethod");
+            var reportRequestDataDatepicker = document.getElementById("semBdyReportDataValue");
 
-                switch (this._smethReportStatus) {
+            // Date and time value for pain attributes
+            var painAttributeDateTime = SMETHReportController._smethUtils.formatDateForSEPAmail(new Date());
 
-                    case "ACSP":
+            // Set the date and time for pain attributes
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:Header/sem:CreDtTm",
+                painAttributeDateTime);
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:GrpHdr/pain014:CreDtTm",
+                painAttributeDateTime);
 
-                        // Set the "InstdAmt" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:Amt/pain014:InstdAmt",
-                            reportAmountTextbox.value);
+            switch (this._smethReportStatus) {
 
-                        // Set the "PmtMtd" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:PmtMtd",
-                            reportPaymentTypeMenulist.value);
+                case "ACSP":
 
-                        // Set the "ReqdExctnDt" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt",
-                            reportRequestDataDatepicker.value);
+                    // Set the "InstdAmt" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:Amt/pain014:InstdAmt",
+                        reportAmountTextbox.value);
 
-                        break;
+                    // Set the "PmtMtd" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:PmtMtd",
+                        reportPaymentTypeMenulist.value);
 
-                    case "RJCT":
+                    // Set the "ReqdExctnDt" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt",
+                        reportRequestDataDatepicker.value);
 
-                        // Set the "InstdAmt" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:Amt/pain014:InstdAmt",
-                            reportAmountTextbox.value);
+                    break;
 
-                        // Set the "PmtMtd" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:PmtMtd",
-                            reportPaymentTypeMenulist.value);
+                case "RJCT":
 
-                        // Set the "ReqdExctnDt" value
-                        this._smethUtils.setNodeValue(this._contentXMLObject,
-                            "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt",
-                            reportRequestDataDatepicker.value);
+                    // Set the "InstdAmt" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:Amt/pain014:InstdAmt",
+                        reportAmountTextbox.value);
 
-                        break;
+                    // Set the "PmtMtd" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:PmtMtd",
+                        reportPaymentTypeMenulist.value);
 
-                    default:
+                    // Set the "ReqdExctnDt" value
+                    SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                        "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:ActivationReport/sem:RepCompl/sem:Report/pain014:OrgnlPmtInfAndSts/pain014:TxInfAndSts/pain014:OrgnlTxRef/pain014:ReqdExctnDt",
+                        reportRequestDataDatepicker.value);
 
-                        // Current report status has not yet been handled
-                        throw new Error("Report for the message status '" + this._smethReportStatus + "' has not been handled yet.");
+                    break;
 
-                }
+                default:
 
-            } else {
-
+                    // Current report status has not yet been handled
+                    throw new Error("Report for the message status '" + this._smethReportStatus + "' has not been handled yet.");
             }
-        } catch(ex) {
 
+        } catch(ex) {
             throw ex;
         }
     },
 
     /**
-     *_populateTestReportXMLWithFieldsValues function populates the XML Object with the form fields values
+     * _populateMandateReportXMLWithFieldsValues function populates the XML object with form fields' values
+     *
+     * @method _populateMandateReportXMLWithFieldsValues
+     * @private
+     * @todo BKM method implementation
+     */
+    _populateMandateReportXMLWithFieldsValues : function() {
+
+        try {
+
+            var messageId;
+            var messageIdTextbox = document.getElementById("messageIdTextbox");
+            var rejectionCodeTextbox = document.getElementById("semRejectionCodeTextbox");
+            var rejectionInfoTextbox = document.getElementById("semRejectionInfoTextbox");
+            var changeBankDetailsCheckbox = document.getElementById("changeBankDetailsCheckbox");
+            var newAgentTextbox = document.getElementById("semNewAgentTextbox");
+            var newIBANTextbox = document.getElementById("semNewIBANTextbox");
+
+            // Check if a message ID has been defined
+            if (messageIdTextbox.value.length > 0) {
+
+                // Get the user defined message ID
+                messageId = messageIdTextbox.value;
+
+            } else {
+
+                // Automatically generated message ID
+                messageId = SMETHReportController._smethUtils.generateMessageId();
+            }
+
+            // Set the message ID
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgHdr/sem:MsgId",
+                messageId);
+
+            // Set the message ID for the mandate group header
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:DirectDebitMandateAcceptance/sem:sepamail_message_direct_debit_mandate_acceptance_001/sem:Report/p012:GrpHdr/p012:MsgId",
+                messageId);
+
+            // Set the creation date and time
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:DirectDebitMandateAcceptance/sem:sepamail_message_direct_debit_mandate_acceptance_001/sem:Report/p012:GrpHdr/p012:CreDtTm",
+                SMETHRequestController._smethUtils.formatDateForSEPAmail(new Date()));
+
+            // Check if we have a rejected request
+            if (rejectionCodeTextbox != null) {
+
+                // Set the rejection code
+                SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:DirectDebitMandateAcceptance/sem:sepamail_message_direct_debit_mandate_acceptance_001/sem:Report/p012:UndrlygAccptncDtls/p012:AccptncRslt/p012:RjctRsn/p012:Cd",
+                    rejectionCodeTextbox.value.trim());
+
+                // Set the rejection info
+                SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
+                    "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:DirectDebitMandateAcceptance/sem:sepamail_message_direct_debit_mandate_acceptance_001/sem:Report/p012:UndrlygAccptncDtls/p012:AccptncRslt/p012:AddtlRjctRsnInf",
+                    rejectionInfoTextbox.value.trim());
+            }
+
+            // Check if user is changing bank details
+            if (changeBankDetailsCheckbox.checked) {
+
+                // New element for extension node
+                var extensionNode = this._contentXMLObject.createElement('sem:DSExt');
+
+                // Create node for new agent
+                var agentNode = this._contentXMLObject.createElement('sem:BIC');
+                agentNode.textContent = newAgentTextbox.value.trim();
+
+                // Create node for new IBAN
+                var ibanNode = this._contentXMLObject.createElement('sem:IBAN');
+                ibanNode.textContent = newIBANTextbox.value.trim();
+
+                // Append the agent and IBAN nodes to the extension node
+                extensionNode.appendChild(agentNode);
+                extensionNode.appendChild(ibanNode);
+
+                // Get the container node of the extension node
+                var exTContainerNode = this._contentXMLObject.evaluate("/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:DirectDebitMandateAcceptance/sem:sepamail_message_direct_debit_mandate_acceptance_001",
+                    this._contentXMLObject, SMETHReportController._smethUtils.nsResolver,
+                    XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+                // Add the extension node to the container
+                exTContainerNode.singleNodeValue.appendChild(extensionNode);
+            }
+
+        } catch(ex) {
+            throw ex;
+        }
+    },
+
+    /**
+     * _populateTestReportXMLWithFieldsValues function populates the XML Object with the form fields values
      *
      * @method _populateTestReportXMLWithFieldsValues
      * @private
      */
-    _populateTestReportXMLWithFieldsValues : function () {
+    _populateTestReportXMLWithFieldsValues : function() {
 
         try {
 
@@ -648,13 +768,13 @@ var SMETHReportController = {
             var listboxTestRequestText = document.getElementById("listboxTestRequestText");
 
             // Set the "TestId" value
-            this._smethUtils.setNodeValue(this._contentXMLObject,
+            SMETHReportController._smethUtils.setNodeValue(this._contentXMLObject,
                 "/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport/sem:TestId",
                 requestTestIdTextbox.value);
 
             // Get the specific node
             var node = this._contentXMLObject.evaluate("/sem:Missive/sem:sepamail_missive_001/sem:MsvBdy/sem:sepamail_message_001/sem:MsgBdy/sem:SimpleTestReport",
-                this._contentXMLObject, this._contentXMLObject.createNSResolver(this._contentXMLObject),
+                this._contentXMLObject, SMETHReportController._smethUtils.nsResolver,
                 XPathResult.FIRST_ORDERED_NODE_TYPE, null);
 
             // sem:Text nodes
@@ -678,35 +798,23 @@ var SMETHReportController = {
                 node.singleNodeValue.appendChild(textNode);
             }
 
-        } catch(ex) {
+            // Re-create data nodes so that they contain CDDATA elements
+            var dataNodes = this._contentXMLObject.getElementsByTagName("sem:Data");
 
-            throw ex;
-        }
-    },
+            var consoleService = Components.classes["@mozilla.org/consoleservice;1"]
+                                           .getService(Components.interfaces.nsIConsoleService);
 
-    /**
-     * getComposeWindowXSLPath compose window xsl path
-     *
-     * @method _getComposeWindowXSLPath
-     */
-    _getComposeWindowXSLPath: function() {
-
-        try {
-
-            switch(SMETHReportController._smethMessageType) {
-
-                case "activation.report@payment.activation":
-                    return this._smethPreferences.getCharPref("missive.activation.report.compose.bodyXSLUrl");
-
-                case "simple.report@test":
-                    return this._smethPreferences.getCharPref("missive.simple.report.testComposeBodyXSLUrl");
-
-                default:
-                    return '';
+            // Scan the list of data nodes and recreate data nodes with CDDATA elements
+            for (var j = 0; j < dataNodes.length; j++) {
+                consoleService.logStringMessage(dataNodes[j].textContent);
+                var currentData = dataNodes[j].textContent;
+                dataNodes[j].textContent = null;
+                dataNodes[j].appendChild(this._contentXMLObject.createCDATASection(currentData));
             }
 
         } catch(ex) {
-            SMETHReportController._smethMessageHandler.exception(ex);
+
+            throw ex;
         }
     },
 
@@ -716,6 +824,7 @@ var SMETHReportController = {
      * @method isSEPAmailReport
      * @param {String} aContent Mail body content
      * @return {Boolean} Wether the content is of type SEPAmail report
+     * @todo BKM - Refactorise with one unified method for determinig message type
      */
     isSEPAmailReport: function(aContent) {
 
@@ -730,24 +839,23 @@ var SMETHReportController = {
             this._contentXMLObject = new DOMParser().parseFromString(aContent, "text/xml");
 
             // Verify for any parse error
-            if("parsererror" !=  this._contentXMLObject.documentElement.nodeName) {
+            if ("parsererror" !=  this._contentXMLObject.documentElement.nodeName) {
 
-                // Ge the message type xpath
+                // List of request messages
+                var validMessages = new Array("activation.report@payment.activation", "simple.report@test",
+                    "rapport@direct.debit");
+
+                // Get the message type xpath
                 var smethPrefMissiveMsgTypXpath = this._smethPreferences.getCharPref("missive.prefMsgTypXpath");
 
-                // Create the SEPAmail namespace resolver object
-                var sepamailNSResolver = this._contentXMLObject.createNSResolver(this._contentXMLObject);
-
                 // Get the SEPAmail message type using Xpath
-                this._smethMessageType = this._contentXMLObject.evaluate(smethPrefMissiveMsgTypXpath, this._contentXMLObject, sepamailNSResolver, XPathResult.STRING_TYPE,null).stringValue;
+                this._smethMessageType = this._contentXMLObject.evaluate(smethPrefMissiveMsgTypXpath,
+                    this._contentXMLObject, SMETHReportController._smethUtils.nsResolver, XPathResult.STRING_TYPE,
+                    null).stringValue;
 
-                // Check whether the xml is of type "activation.report@payment.activation"
-                if("activation.report@payment.activation" ==  this._smethMessageType ||
-                   "simple.report@test" ==  this._smethMessageType) {
-                    return true;
-                } else {
-                    return false;
-                }
+                // Check whether the xml is of type report
+                return validMessages.indexOf(this._smethMessageType) > -1;
+
             } else {
                 return false;
             }
