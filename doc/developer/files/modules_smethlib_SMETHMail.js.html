@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>modules&#x2F;smethlib&#x2F;SMETHMail.js</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementController.html">SMETHAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementPreferencesController.html">SMETHAcknowledgementPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAddressBookController.html">SMETHAddressBookController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAdvancedPreferencesController.html">SMETHAdvancedPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAttachmentController.html">SMETHAttachmentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAutomaticAcknowledgementController.html">SMETHAutomaticAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHBankPreferencesController.html">SMETHBankPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHComposeMessageController.html">SMETHComposeMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHControlFactory.html">SMETHControlFactory</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHExportController.html">SMETHExportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHHeaderController.html">SMETHHeaderController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMail.html">SMETHMail</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMailPreferencesController.html">SMETHMailPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageHandler.html">SMETHMessageHandler</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageListController.html">SMETHMessageListController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHOptionController.html">SMETHOptionController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRawContentController.html">SMETHRawContentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReadMessageController.html">SMETHReadMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReportController.html">SMETHReportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRequestController.html">SMETHRequestController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHUtils.html">SMETHUtils</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/smeth.html">smeth</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: modules&#x2F;smethlib&#x2F;SMETHMail.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;* ***** BEGIN LICENSE BLOCK *****
+ * This file is part of smeth (https:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;sepamail-smeth&#x2F;)
+ *
+ * Version: MPL 2.0&#x2F;GPL 3.0&#x2F;LGPL 3.0
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http:&#x2F;&#x2F;www.mozilla.org&#x2F;MPL&#x2F;2.0&#x2F;
+ *
+ * Software distributed under the License is distributed on an &quot;AS IS&quot; basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initials Developers of the Original Code are :
+ *  Ammit Heeramun, idSoft
+ *  Bishan Kumar Madhoo, idSoft
+ *  Manfred Sherlock Olm, deciBI &amp; vizGet
+ * Portions created by the Initials Developers are Copyright (C) 2012
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *  Ammit Heeramun
+ *  Bishan Kumar Madhoo 
+ *  Manfred Sherlock Olm, smeth@decibi.fr
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 3 or later (the &quot;GPL&quot;), or
+ * the GNU Lesser General Public License Version 3.0 or later (the &quot;LGPL&quot;),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** *&#x2F;
+
+&#x2F;**
+ * @module smeth
+ * @file SMETHMail.js
+ * @mvc modele
+ * @version 1212
+ * @since 1210
+ * @author Ammit Heeramun
+ * @description object message for smeth
+ *&#x2F;
+
+&#x2F;**
+ * items exported from the module
+ * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;JavaScript_code_modules&#x2F;Using
+ *&#x2F;
+var EXPORTED_SYMBOLS = [&quot;SMETHMail&quot;];
+
+&#x2F;**
+ * Strict mode for scripts
+ * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;JavaScript&#x2F;Reference&#x2F;Functions_and_function_scope&#x2F;Strict_mode
+ *&#x2F;
+&quot;use strict&quot;;
+
+&#x2F;**
+ * SMETHMail class. Represents a message for smeth
+ * 
+ * @class SMETHMail
+ *&#x2F;
+SMETHMail = function(aHeader) {
+    this._header = aHeader;
+};
+ 
+&#x2F;**
+ * SMETHMail class methods.
+ * 
+ * @class SMETHMail
+ *&#x2F;
+SMETHMail.prototype = {
+    
+    &#x2F;**
+     * The header of the message.
+     * 
+     * @attribute _header
+     * @private
+     * @default null
+     *&#x2F;
+    _header : null,
+    
+    &#x2F;**
+     * The content of the message
+     * 
+     * @attribute _content
+     * @private
+     * @default null
+     *&#x2F;
+    _content : null,
+
+    &#x2F;**
+     * The body of the message
+     * 
+     * @attribute _body
+     * @private
+     * @default null
+     *&#x2F;
+    _body : null,
+
+    &#x2F;**
+     * Whether the mail is a SEPAmail
+     * 
+     * @attribute _isSEPAmail
+     * @private
+     * @default false
+     *&#x2F;
+    _isSEPAmail : false,
+    
+    &#x2F;**
+     * The type of SEPAmail
+     * 
+     * @attribute _sepamailType
+     * @private
+     * @default null
+     *&#x2F;
+    _sepamailType : null,
+    
+    &#x2F;**
+     * The XML Object of SEPAmail
+     * 
+     * @attribute _sepamailXMLObject
+     * @private
+     * @default null
+     *&#x2F;
+    _sepamailXMLObject : null,
+    
+    &#x2F;** 
+     * The type of SEPAmail message type
+     * 
+     * @attribute _sepamailMessageType
+     * @private
+     * @default null
+     *&#x2F;
+    _sepamailMessageType : null,
+    
+    
+ 
+   &#x2F;**
+    * Gets the message header
+    * 
+    * @return {Object} the message header
+    *&#x2F;
+    get header() {
+        return this._header;
+    },
+  
+   &#x2F;**
+    * Sets the message header
+    * 
+    * @param {Object} aHeader
+    *&#x2F;
+    set header(aHeader) 
+    { 
+        this._header = aHeader; 
+    },
+    
+   &#x2F;**
+    * Gets the message content object
+    * 
+    * @return {Object} the message content object
+    *&#x2F;
+    get content() {
+        return this._content;
+    },
+  
+   &#x2F;**
+    * Sets the content of the message
+    * 
+    * @param {Object} aContent
+    *&#x2F;
+    set content(aContent) 
+    { 
+        this._content = aContent; 
+    },
+ 
+    &#x2F;**
+    * Gets the message body
+    * 
+    * @return {String} the message body
+    *&#x2F;
+    get body() {
+        return this._body;
+    },
+    
+   &#x2F;**
+    * Sets the message body
+    * 
+    * @param {String} aBody
+    *&#x2F;
+    set body(aBody) 
+    { 
+        this._body = aBody; 
+    },
+    
+   &#x2F;**
+    * Gets if message is a SEPAmail
+    * 
+    * @return {Boolean} whether this message is a SEPAmail
+    *&#x2F;
+    get isSEPAmail() {
+        return this._isSEPAmail;
+    },
+    
+   &#x2F;**
+    * Sets whether this message is a SEPAmail
+    *
+    * @param {Boolean} isSEPAmail
+    *&#x2F;
+    set isSEPAmail(isSEPAmail) 
+    { 
+        this._isSEPAmail = isSEPAmail; 
+    },
+    
+   &#x2F;**
+    * Gets the SEPAmail type
+    * 
+    * @return {String} the SEPAmail type
+    *&#x2F;
+    get sepamailType() {
+        return this._sepamailType;
+    },
+    
+   &#x2F;**
+    * Sets the SEPAmail type
+    * 
+    * @param {String} aSEPAmailType
+    *&#x2F;
+    set sepamailType(aSEPAmailType) 
+    { 
+        this._sepamailType = aSEPAmailType; 
+    },
+    
+   &#x2F;**
+    * Gets the SEPAmail XML Object
+    * 
+    * @return {XML} the SEPAmail XML Object
+    *&#x2F;
+    get sepamailXMLObject() {
+        return this._sepamailXMLObject;
+    },
+    
+   &#x2F;**
+    * Sets the SEPAmail XML Object
+    * 
+    * @param {XML} aSEPAmailXMLObject
+    *&#x2F;
+    set sepamailXMLObject(aSEPAmailXMLObject) 
+    { 
+        this._sepamailXMLObject = aSEPAmailXMLObject; 
+    },
+    
+   &#x2F;**
+    * Gets the SEPAmail message type
+    * 
+    * @return {String} the SEPAmail message type
+    *&#x2F;
+    get sepamailMessageType() {
+        return this._sepamailMessageType;
+    },
+    
+   &#x2F;**
+    * Sets the SEPAmail message type
+    * 
+    * @param {String} aSEPAmailMessageType
+    *&#x2F;
+    set sepamailMessageType(aSEPAmailMessageType) 
+    { 
+        this._sepamailMessageType = aSEPAmailMessageType; 
+    }
+};
+
+
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>
