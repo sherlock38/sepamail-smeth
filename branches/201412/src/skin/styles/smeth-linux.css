@@ -1,0 +1,232 @@
+/*
+    Document   : attachments
+    Created on : Oct 25, 2012, 12:21:01 PM
+    Author     : Bishan Kumar Madhoo <bishan.madhoo@idsoft.mu>
+    Description: Attachments section styles
+*/
+
+/*
+    General styles
+*/
+.semModeToggleParentContainer {
+    width: 2em;
+}
+
+.semModeToggleContainer {
+    height: 2em;
+    width: 2em;
+}
+
+.link-image {
+    cursor: pointer;
+}
+
+.grid-row {
+    height: 2em;
+}
+
+/*
+    Missive header styles
+*/
+#semHdrSummary, #semHdrDetails {
+    border-bottom: 1px solid threedshadow;
+}
+
+.left-align {
+    text-align: end;
+}
+
+/*
+    Missive attachment styles
+*/
+#missiveAttachmentView {
+    border-top: 1px solid ThreeDShadow;
+}
+
+#missiveAttachmentToggle {
+    -moz-appearance: treetwisty;
+    -moz-user-focus: normal;
+}
+
+#missiveAttachmentToggle[checked=true] {
+    -moz-appearance: treetwistyopen;
+}
+
+#missiveAttachmentToggle:focus {
+  outline: 1px dotted Highlight;
+}
+
+#missiveAttachmentIcon {
+    list-style-image: url("chrome://messenger/skin/icons/filterbar.png");
+    -moz-image-region: rect(0px, 80px, 16px, 64px);
+    -moz-margin-start: 5px;
+}
+
+#missiveAttachmentCount {
+    margin: 0;
+    padding: 2px 0;
+    -moz-margin-start: 2px;
+    -moz-margin-end: 1px;
+}
+
+#missiveAttachmentName {
+    -moz-user-focus: normal;
+    margin: 0;
+    -moz-margin-end: -3px;
+    padding: 1px 2px;
+    border-radius: 2px;
+    border: 1px dotted transparent;
+}
+
+#missiveAttachmentName:hover, #missiveAttachmentName[selected="true"] {
+    cursor: pointer;
+    color: HighlightText;
+    background-color: Highlight;
+}
+
+#missiveAttachmentName:focus {
+    border-color: Highlight;
+}
+
+#missiveAttachmentSize {
+    margin: 0;
+    -moz-margin-start: 8px;
+    color: #888a85;;
+}
+
+#missiveAttachmentSaveAllSingle, #missiveAttachmentSaveAllMultiple {
+    list-style-image: url("moz-icon://stock/gtk-save?size=menu");
+}
+
+missiveattachmentlist {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#missiveattachmentlist");
+}
+
+missiveattachmentitem {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#missiveattachmentitem");
+}
+
+missiveattachmentlist[orient="horizontal"] > missiveattachmentitem {
+  pointer-events: none;
+}
+
+missiveattachmentlist[orient="horizontal"] .attachmentcell-icon, missiveattachmentlist[orient="horizontal"] .attachmentcell-nameselection {
+  pointer-events: auto;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"][current="true"] .attachmentcell-nameselection {
+  outline: 1px dotted #F3D982;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[current="true"] .attachmentcell-nameselection {
+  outline: 1px dotted;
+  outline-offset: -1px;
+}
+
+missiveattachmentitem[selected="true"] .attachmentcell-nameselection {
+  background-color: -moz-CellHighlight;
+  color: -moz-CellHighlightText;
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"] .attachmentcell-nameselection {
+  background-color: Highlight;
+  color: HighlightText;
+}
+
+missiveattachmentitem[selected="true"] .attachmentcell-icon {
+  filter: url("chrome://messenger/skin/imageFilters.svg#selected");
+}
+
+missiveattachmentlist:focus > missiveattachmentitem[selected="true"] .attachmentcell-icon {
+  filter: url("chrome://messenger/skin/imageFilters.svg#selected-focus");
+}
+
+#missiveAttachmentList {
+    -moz-appearance: listbox;
+    -moz-user-focus: normal;
+}
+
+/*
+    Body view styles
+*/
+
+.body-button {
+    margin-left: 2em;
+    margin-top: 0.5em;
+}
+
+#semBdyAcceptRequestButton {
+    width: 15em;
+}
+
+/*
+    SMETH compose message window styles
+*/
+#smethComposeBodyFormContainer {
+    padding: 0;
+}
+
+.multiline_field-label-container {
+    height: 33px;
+}
+
+/*
+    SMETH logobox style
+*/
+
+#sepamailLogoBox {
+    margin-right:15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*
+    SMETH Message Type Styles
+*/
+.acknowledgement {
+    background-color: #dff2bf;
+}
+
+.report {
+    background-color: #bde5f8;
+}
+
+.request {
+    background-color: #ffeaa3;
+}
+
+.sepa-header {
+    background-color: white;
+}
+
+.form-status {
+    font-weight: bold;
+}
+
+.agate {
+    background-image: url("chrome://smeth/skin/images/bandeau_agate.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.gemme {
+    background-image: url("chrome://smeth/skin/images/bandeau_gemme.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.rubis {
+    background-image: url("chrome://smeth/skin/images/bandeau_rubis.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}
+
+.test {
+    background-image: url("chrome://smeth/skin/images/bandeau_test.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    padding: 0 135px 0 0;
+}

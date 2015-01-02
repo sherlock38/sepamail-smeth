@@ -1,0 +1,37 @@
+1. Configure the development environment by following the link below :-
+
+https://developer.mozilla.org/en-US/docs/Setting_up_extension_development_environment
+
+2. NetBeans IDE will be used (current version 7.1.2) with the foxbeans plugin for the development
+
+http://netbeans.org/
+http://plugins.netbeans.org/plugin/4209/foxbeans-develop-firefox-addons-in-netbeans
+
+3. When creating a new project in netbeans you should specify 
+	- The "Supported Applications" as all application versions stops at 3.* you should create a new one 
+	- The application "GUID" for thunderbird is {3550f703-e582-4d05-9a08-453d09bdfdc6} and for other applications (Please follow the link below) 
+	- The application "Version Min" and "Version Max". (Please note the vesions are the version of application on which your plugin will be supported)
+
+https://addons.mozilla.org/en-us/firefox/pages/appversions/
+
+4. Refer below for interesting links for development:-
+
+https://developer.mozilla.org/en-US/docs/Extensions/Thunderbird/An_overview_of_the_Thunderbird_interface
+https://wiki.mozilla.org/User:Emre/tb/architecture/diagrams
+https://addons.mozilla.org/en-US/developers/docs/reference
+https://developer.mozilla.org/en-US/docs/XUL_School
+https://developer.mozilla.org/en-US/docs/Code_snippets
+https://developer.mozilla.org/en-US/docs/Extensions/Thunderbird/HowTos
+http://doxygen.db48x.net/mozilla/html/annotated.html
+http://www.xulforum.org/
+http://blog.xulforum.org/
+http://blog.donaldorgan.com/2009/02/thunderbird-extension-development.html
+http://adullact.net/plugins/mediawiki/wiki/milimail/index.php/Trustedbird
+http://www.youtube.com/watch?v=akgw4EwgOOs
+
+5. Enjoy ;-)
+
+
+
+
+

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY title.label "Options for {appname}">
+<!ENTITY title.tooltip "Defines the options for {appname}.">
+<!ENTITY groupBoxmailFiltering.caption "SMETH mail filtering parameters">
+<!ENTITY labelContentType.label "Attachments Content Type:">
+<!ENTITY textBoxContentType.tooltip "Specify the attachements content type to be filtered.">
+<!ENTITY buttonAdd.label "+">
+<!ENTITY buttonAdd.tooltip "Add the content type to the list of content type to be filtered.">
+<!ENTITY listBoxContentType.tooltip "List of content type to be filtered">
+<!ENTITY buttonRemove.label "-">
+<!ENTITY buttonRemove.tooltip "Remove the selected content type from the list of content type to be filtered.">
+<!ENTITY buttonClose.label "Close">
+<!ENTITY buttonClose.tooltip "Discard changes and close the options  window for {appname}.">
+<!ENTITY buttonOK.label "OK">
+<!ENTITY buttonOK.tooltip "Save changes and close the options  window for {appname}.">
+<!ENTITY checkBoxIsBodyXML.label "Mail body is of type XML">
+<!ENTITY checkBoxIsBodyXML.tooltip "Specifies whether the body of the mail should be of type XML.">
+
+<!ENTITY contentTypeIsAlreadyPresent.message "Content type is already present in list.">
+<!ENTITY pleaseTypeContentType.message "Please type a content type and then click add.">
+<!ENTITY contentTypeTextboxDoesNotExists.message "Content Type textbox does not exists.">
+
+<!-- Translations for preference pane -->
+<!ENTITY prefPane.label.mail "Mail">
+<!ENTITY prefPane.label.acknowledgement "Acknowledgements">
+<!ENTITY prefPane.label.bank "Bank details">
+<!ENTITY prefPane.label.qxbans "SEPAmail accounts">
+<!ENTITY prefPane.label.advanced "Advanced settings">
+
+<!-- Translations for mail configurations preference pane -->
+<!ENTITY prefPane.prefpaneMail.grouptitle "SEPAmail configuration settings">
+<!ENTITY prefPane.prefpaneMail.labelMessageExpiry "Include SEPAmail message expiry">
+<!ENTITY prefPane.prefpaneMail.labelMessageExpiryDuration "SEPAmail message expiry duration">
+
+<!-- Translations for acknowledgement configurations preference pane -->
+<!ENTITY prefPane.prefpaneAcknowledgement.grouptitle "Automatic acknowledgement configuration settings">
+<!ENTITY prefPane.prefpaneAcknowledgement.list.header.email "Email addresses">
+<!ENTITY prefPane.prefpaneAcknowledgement.button.save "Save">
+<!ENTITY prefPane.prefpaneAcknowledgement.noAccount "There are no email accounts for which automatic acknowledgement settings can be configured.">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.radiogroup.label "Automatic acknowledgement">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.radiogroup.off "Off">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.radiogroup.on "On">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.status.label "Status">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.status.ack "ACK">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.status.nak "NAK">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.class "Class">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.subject "Subject">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.detail "Detail">
+<!ENTITY prefPane.prefpaneAcknowledgement.settings.description "Description">
+
+<!-- Translations for bank details preference pane -->
+<!ENTITY prefPane.prefpaneBankDetails.grouptitle "My bank details">
+<!ENTITY prefPane.prefpaneBankDetails.list.header.email "My email address">
+<!ENTITY prefPane.prefpaneBankDetails.list.header.qxban "My associated SEPAmail account">
+<!ENTITY prefPane.prefpaneBankDetails.list.header.status "Status">
+<!ENTITY prefPane.prefpaneBankDetails.label.email "My email address">
+<!ENTITY prefPane.prefpaneBankDetails.textbox.email "My email address">
+<!ENTITY prefPane.prefpaneBankDetails.label.qxban "My SEPAmail account">
+<!ENTITY prefPane.prefpaneBankDetails.textbox.qxban "My associated SEPAmail account">
+<!ENTITY prefPane.prefpaneBankDetails.label.status "Email account status">
+<!ENTITY prefPane.prefpaneBankDetails.menulist.defaultactive "Active by default">
+<!ENTITY prefPane.prefpaneBankDetails.menulist.active "Active">
+<!ENTITY prefPane.prefpaneBankDetails.menulist.inactive "Inactive">
+<!ENTITY prefPane.prefpaneBankDetails.button.save "Save">
+
+<!-- Translations for Advanced settings pane -->
+<!ENTITY prefPane.prefpaneAdvanced.grouptitle "Advanced settings">
+<!ENTITY prefPane.prefpaneAdvanced.button.save "Save">
+<!ENTITY prefPane.prefpaneAdvanced.tab.general "General settings">
+<!ENTITY prefPane.prefpaneAdvanced.general.rootTab.label "Root tag">
+<!ENTITY prefPane.prefpaneAdvanced.general.rootTab.placeholder "Name of SEPAmail root tag">
+<!ENTITY prefPane.prefpaneAdvanced.general.xpath.label "Message type XPATH">
+<!ENTITY prefPane.prefpaneAdvanced.general.xpath.placeholder "XPATH for retrieving the SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.messagetypes.grouptitle "SEPAmail message types">
+<!ENTITY prefPane.prefpaneAdvanced.general.acknowledgement.grouptitle "Acknowledgement message types">
+<!ENTITY prefPane.prefpaneAdvanced.general.listbox.header "Message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.messageType.placeholder "Message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.messageType.add "Add message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.messageType.remove "Remove message type">
+<!ENTITY prefPane.prefpaneAdvanced.addAckMessageType.tooltip "Add message type to acknowledgement message types list">
+<!ENTITY prefPane.prefpaneAdvanced.general.ackMessageType.remove "Remove message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.removal_prompt.title "Delete SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.general.removal_prompt.prompt "Do you want to delete the SEPAmail message type?\n\nPlease note that all settings associated to the message type will also be deleted.">
+<!ENTITY prefPane.prefpaneAdvanced.tab.ecosystem "Ecosystem settings">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.list.header "Ecosystems">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.assigned.list.header "Assigned SEPAmail messages">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.unassigned.list.header "SEPAmail messages">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode "Ecosystem mode">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode.production "Production mode">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.mode.test "Test mode">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.button.add "Add new ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.add.title "Add new ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.add.label "New ecosystem name">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.button.modify "Modify">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.modify.title "Modify ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.prompt.modify.label "Ecosystem name">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.button.delete "Delete">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.removal_prompt.title "Delete SEPAmail ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.ecosystem.removal_prompt.prompt "Do you want to delete the SEPAmail ecosystem?\n\nPlease note that all settings associated to the ecosystem will also be deleted.">
+<!ENTITY prefPane.prefpaneAdvanced.tab.compose "Message composition settings">
+<!ENTITY prefPane.prefpaneAdvanced.compose.list.title "Message composition menus">
+<!ENTITY prefPane.prefpaneAdvanced.compose.list.header.ecosystem "Ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.compose.list.header.message "SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.compose.combobox.ecosystem "SEPAmail ecosystem">
+<!ENTITY prefPane.prefpaneAdvanced.compose.combobox.message "SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.compose.xml.label "XML template">
+<!ENTITY prefPane.prefpaneAdvanced.compose.xml.placeholder "XML template for SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.compose.xsl.label "XSL transformation">
+<!ENTITY prefPane.prefpaneAdvanced.compose.xsl.placeholder "XSL file which transform SEPAmail message to XUL UI">
+<!ENTITY prefPane.prefpaneAdvanced.compose.save "Save menu">
+<!ENTITY prefPane.prefpaneAdvanced.compose.delete "Remove menu">
+<!ENTITY prefPane.prefpaneAdvanced.compose.noecosystem "No ecosystems are defined in SMETH">
+<!ENTITY prefPane.prefpaneAdvanced.compose.nomessagetype "No SEPAmail message types are defined SMETH">
+<!ENTITY prefPane.prefpaneAdvanced.compose.noecosystemandmessagetype "No ecosystems and SEPAmail message types are defined in SMETH">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageTypeSettings "SEPAmail message settings">
+<!ENTITY prefPane.prefpaneAdvanced.messageTypeSettings.listbox.header "SEPAmail message types">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.body.label "Message body XSL file">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.body.placeholder "Name of XSL file which allows to display the SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.composition.label "Message composition XSL file">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.composition.placeholder "Name of XSL file which allows to compose the SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.template.label "Message XML template">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.template.placeholder "Name of the XML template file for the current SEPAmail message type">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.attachments.label "SEPAmail message type can contain attachments">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.label "Message composition attachment XSL file">
+<!ENTITY prefPane.prefpaneAdvanced.tab.messageType.compose.attachment.placeholder "Name of XSL file which allows to manage attachments when composing the SEPAmail message type">

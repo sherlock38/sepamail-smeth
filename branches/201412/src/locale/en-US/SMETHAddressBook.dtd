@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY addressbook.title "Title:">
+<!ENTITY addressbook.title.accesskey "T">
+<!ENTITY addressbook.account "SEPAmail account:">
+<!ENTITY addressbook.account.accesskey "m">
+<!ENTITY addressbook.ris2d.caption "RIS2D - Pick one of the following:">
+<!ENTITY addressbook.ris2d.none "None">
+<!ENTITY addressbook.ris2d.none.accesskey "N">
+<!ENTITY addressbook.ris2d.local "On this Computer">
+<!ENTITY addressbook.ris2d.local.accesskey "p">
+<!ENTITY addressbook.ris2d.local.button "Browse">
+<!ENTITY addressbook.ris2d.local.button.accesskey "r">
+<!ENTITY addressbook.ris2d.web "On the Web">
+<!ENTITY addressbook.ris2d.web.accesskey "b">
+<!ENTITY addressbook.ris2d.web.button "Update">
+<!ENTITY addressbook.ris2d.web.button.accesskey "U">
+<!ENTITY addressbook.ris2d.web.error "The RIS2D map at the given URL could not be fetched.">

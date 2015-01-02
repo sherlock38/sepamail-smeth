@@ -1,0 +1,4345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SMETHAdvancedPreferencesController</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementController.html">SMETHAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementPreferencesController.html">SMETHAcknowledgementPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAddressBookController.html">SMETHAddressBookController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAdvancedPreferencesController.html">SMETHAdvancedPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAttachmentController.html">SMETHAttachmentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAutomaticAcknowledgementController.html">SMETHAutomaticAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHBankPreferencesController.html">SMETHBankPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHComposeMessageController.html">SMETHComposeMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHControlFactory.html">SMETHControlFactory</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHExportController.html">SMETHExportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHHeaderController.html">SMETHHeaderController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMail.html">SMETHMail</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMailPreferencesController.html">SMETHMailPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageHandler.html">SMETHMessageHandler</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageListController.html">SMETHMessageListController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHOptionController.html">SMETHOptionController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRawContentController.html">SMETHRawContentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReadMessageController.html">SMETHReadMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReportController.html">SMETHReportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRequestController.html">SMETHRequestController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHUtils.html">SMETHUtils</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/smeth.html">smeth</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>SMETHAdvancedPreferencesController Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l66"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:66</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/smeth.html">smeth</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>SMETHAdvancedPreferencesController manages the SMETH advanced preferences pane</p>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method">
+                                <a href="#method__clearCombobox">_clearCombobox</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__clearListbox">_clearListbox</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__clearMessageTypeSettingsDeck">_clearMessageTypeSettingsDeck</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__createMessageTypeSettingsUi">_createMessageTypeSettingsUi</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__fillEcosystems">_fillEcosystems</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__fillMessageTypes">_fillMessageTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getAcknowledgementMessageTypeIndex">_getAcknowledgementMessageTypeIndex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getAcknowledgementMessageTypes">_getAcknowledgementMessageTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getCompositionSettingsIndex">_getCompositionSettingsIndex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getEcosystemIndex">_getEcosystemIndex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getMessageTypeIndex">_getMessageTypeIndex</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getMessageTypes">_getMessageTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getSettingsForMessageType">_getSettingsForMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__initSmethPreferences">_initSmethPreferences</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__populateAcknowledgementMessageTypes">_populateAcknowledgementMessageTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__populateCompositionSettings">_populateCompositionSettings</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__populateEcosystems">_populateEcosystems</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__populateMessageSettingTypes">_populateMessageSettingTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__populateMessageTypes">_populateMessageTypes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__removeCompositionSettingsByEcosystemId">_removeCompositionSettingsByEcosystemId</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__removeCompositionSettingsByMessageType">_removeCompositionSettingsByMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__showNoComposeMenuUi">_showNoComposeMenuUi</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_addAcknowledgementMessageType">addAcknowledgementMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_addEcoSepamailMessageType">addEcoSepamailMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_addEcosystem">addEcosystem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_addMessageType">addMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_fillEcosystemMessages">fillEcosystemMessages</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_fillUnassignedEcosystemMessages">fillUnassignedEcosystemMessages</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_modifyEcosystem">modifyEcosystem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onComposeMessageTabSelected">onComposeMessageTabSelected</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onCompositionSettingTextboxesInput">onCompositionSettingTextboxesInput</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onEcosystemMenuListCommand">onEcosystemMenuListCommand</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onEcosystemTabSelected">onEcosystemTabSelected</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onMessageTypeInput">onMessageTypeInput</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onMessageTypeSettingsTabSelected">onMessageTypeSettingsTabSelected</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onPaneLoad">onPaneLoad</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectAcknowledgementMessageTypeItem">onSelectAcknowledgementMessageTypeItem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectCompositionSetting">onSelectCompositionSetting</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectEcosystem">onSelectEcosystem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectEcosystemAssignedMessage">onSelectEcosystemAssignedMessage</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectEcosystemUnassignedMessage">onSelectEcosystemUnassignedMessage</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectMessageSettingType">onSelectMessageSettingType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_onSelectMessageTypeItem">onSelectMessageTypeItem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeAckMessage">removeAckMessage</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeEcoSepamailMessageType">removeEcoSepamailMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeEcosystem">removeEcosystem</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeMessageCompositionSetting">removeMessageCompositionSetting</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_removeMessageType">removeMessageType</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_saveAdvancedSettings">saveAdvancedSettings</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_saveMessageCompositionSetting">saveMessageCompositionSetting</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_setEcosystemMode">setEcosystemMode</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_showEcosystemMode">showEcosystemMode</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethAcknowledgementMessageTypes">_smethAcknowledgementMessageTypes</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethCompositionSettings">_smethCompositionSettings</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethControllerConfigSettings">_smethControllerConfigSettings</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethEcosystems">_smethEcosystems</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMessageHandler">_smethMessageHandler</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMessageTypes">_smethMessageTypes</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPreferences">_smethPreferences</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPreferencesHasBeenInitialised">_smethPreferencesHasBeenInitialised</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__clearCombobox" class="method item">
+    <h3 class="name"><code>_clearCombobox</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>comboboxId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1081"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1081</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Clear the items in a combobox</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">comboboxId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>ID of the combobox that needs to be cleared</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__clearListbox" class="method item">
+    <h3 class="name"><code>_clearListbox</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>listboxId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1106"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1106</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Clear the items in a listbox</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">listboxId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>ID of the listbox that needs to be cleared</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__clearMessageTypeSettingsDeck" class="method item">
+    <h3 class="name"><code>_clearMessageTypeSettingsDeck</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1131"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1131</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Clear the children of the message type settings deck</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__createMessageTypeSettingsUi" class="method item">
+    <h3 class="name"><code>_createMessageTypeSettingsUi</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1147"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1147</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Create settings UI for SEPAmail message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__fillEcosystems" class="method item">
+    <h3 class="name"><code>_fillEcosystems</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1185"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1185</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill the ecosystem combobox on the composition menu tab</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__fillMessageTypes" class="method item">
+    <h3 class="name"><code>_fillMessageTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1213"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1213</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill the SEPAmail message types combobox on the composition menu tab</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__getAcknowledgementMessageTypeIndex" class="method item">
+    <h3 class="name"><code>_getAcknowledgementMessageTypeIndex</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Integer</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1249"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1249</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the index of a given acknowledgement message type from the array of acknowledgement message types</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Acknowledgement message type</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Integer</span>:
+                    
+                    Index of the message type in the array of acknowledgement message type
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getAcknowledgementMessageTypes" class="method item">
+    <h3 class="name"><code>_getAcknowledgementMessageTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1273"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1273</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Build the array of SEPAmail message types for which acknowledgement missive documents are sent</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__getCompositionSettingsIndex" class="method item">
+    <h3 class="name"><code>_getCompositionSettingsIndex</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ecosystemId</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Integer</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1297"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1297</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the index of a message composition setting for a specific ecosystem and message type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ecosystemId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>ID of ecosystem</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail message type</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Integer</span>:
+                    
+                    Index of message composition setting
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getEcosystemIndex" class="method item">
+    <h3 class="name"><code>_getEcosystemIndex</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ecosystemId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Interger</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1323"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1323</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the index of an ecosystem from the ecosystem array by the given ecosystem ID</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ecosystemId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Ecosystem ID</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Interger</span>:
+                    
+                    Index of ecosystem with the given ID
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getMessageTypeIndex" class="method item">
+    <h3 class="name"><code>_getMessageTypeIndex</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Interger</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1344"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1344</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get the index of a given message type from the array of SEPAmail message types</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail message type</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Interger</span>:
+                    
+                    Index of the message type in the array of SEPAmail message types
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getMessageTypes" class="method item">
+    <h3 class="name"><code>_getMessageTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1368"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1368</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Build the array of SEPAmail message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__getSettingsForMessageType" class="method item">
+    <h3 class="name"><code>_getSettingsForMessageType</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1392"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1392</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get settings for a given message type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Message type for which settings need to be obtained</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    Settings for message type
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__initSmethPreferences" class="method item">
+    <h3 class="name"><code>_initSmethPreferences</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1413"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1413</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initialise SMETH preferences class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__populateAcknowledgementMessageTypes" class="method item">
+    <h3 class="name"><code>_populateAcknowledgementMessageTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1429"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1429</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill in the list of SEPAmail acknowledgement message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__populateCompositionSettings" class="method item">
+    <h3 class="name"><code>_populateCompositionSettings</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1445"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1445</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill in the list of message composition settings</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__populateEcosystems" class="method item">
+    <h3 class="name"><code>_populateEcosystems</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1485"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1485</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill in the list of ecosystems handled by SMETH</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__populateMessageSettingTypes" class="method item">
+    <h3 class="name"><code>_populateMessageSettingTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1520"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1520</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill in the list of SEPAmail message types for settings configuration</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__populateMessageTypes" class="method item">
+    <h3 class="name"><code>_populateMessageTypes</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1504"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1504</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill in the list of SEPAmail message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__removeCompositionSettingsByEcosystemId" class="method item">
+    <h3 class="name"><code>_removeCompositionSettingsByEcosystemId</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ecosystemId</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1536"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1536</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove message composition settings for a specific ecosystem</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ecosystemId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>ID of ecosystem for which message composition settings need to be removed</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__removeCompositionSettingsByMessageType" class="method item">
+    <h3 class="name"><code>_removeCompositionSettingsByMessageType</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1562"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1562</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove message composition settings for a specific type of message</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Type of SEPAmail message for which message composition settings need to be removed</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__showNoComposeMenuUi" class="method item">
+    <h3 class="name"><code>_showNoComposeMenuUi</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>message</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1588"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1588</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Show UI elements which indicate that message composition menus cannot be added to SMETH</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">message</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Message that needs to be displayed to the user</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_addAcknowledgementMessageType" class="method item">
+    <h3 class="name"><code>addAcknowledgementMessageType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l146"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:146</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add a SEPAmail message type to the list of acknowledgement message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_addEcoSepamailMessageType" class="method item">
+    <h3 class="name"><code>addEcoSepamailMessageType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l175"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:175</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add an unassigned SEPAmail message type to the list of assigned messages for the current ecosystem</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_addEcosystem" class="method item">
+    <h3 class="name"><code>addEcosystem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l197"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:197</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add a new ecosystem to SMETH</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_addMessageType" class="method item">
+    <h3 class="name"><code>addMessageType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l237"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:237</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Add a SEPAmail message type</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_fillEcosystemMessages" class="method item">
+    <h3 class="name"><code>fillEcosystemMessages</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l275"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:275</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Populate the list of SEPAmail messages assigned to the selected ecosystem</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_fillUnassignedEcosystemMessages" class="method item">
+    <h3 class="name"><code>fillUnassignedEcosystemMessages</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l298"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:298</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Fill the listbox of SEPAmail messages that have not been assigned to ecosystems</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_modifyEcosystem" class="method item">
+    <h3 class="name"><code>modifyEcosystem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l333"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:333</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Modify an existing ecosystem</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onComposeMessageTabSelected" class="method item">
+    <h3 class="name"><code>onComposeMessageTabSelected</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l380"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:380</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered message composition tab is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onCompositionSettingTextboxesInput" class="method item">
+    <h3 class="name"><code>onCompositionSettingTextboxesInput</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l394"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:394</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when a user changes the value in the message composition settings UI</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onEcosystemMenuListCommand" class="method item">
+    <h3 class="name"><code>onEcosystemMenuListCommand</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l413"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:413</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>onEcosystemMenuListCommand handles the command event of the ecosystem menu list</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onEcosystemTabSelected" class="method item">
+    <h3 class="name"><code>onEcosystemTabSelected</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l424"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:424</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when the ecosystem settings tab is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onMessageTypeInput" class="method item">
+    <h3 class="name"><code>onMessageTypeInput</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l456"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:456</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when user inputs text in the SEPAmail message type textbox</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onMessageTypeSettingsTabSelected" class="method item">
+    <h3 class="name"><code>onMessageTypeSettingsTabSelected</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l440"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:440</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event called when the SEPAmail message settings tab is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onPaneLoad" class="method item">
+    <h3 class="name"><code>onPaneLoad</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l491"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:491</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initialise the SMETH QXBAN preference pane</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectAcknowledgementMessageTypeItem" class="method item">
+    <h3 class="name"><code>onSelectAcknowledgementMessageTypeItem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l558"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:558</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when an item in the list of SEPAmail acknowledgement message types is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectCompositionSetting" class="method item">
+    <h3 class="name"><code>onSelectCompositionSetting</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l655"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:655</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when an item in the list of message composition settings is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectEcosystem" class="method item">
+    <h3 class="name"><code>onSelectEcosystem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l569"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:569</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when an item in the ecosystem listbox is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectEcosystemAssignedMessage" class="method item">
+    <h3 class="name"><code>onSelectEcosystemAssignedMessage</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l603"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:603</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>onSelectEcosystemAssignedMessage handles the onSelect event of the list of assigned SEPAmail messages</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectEcosystemUnassignedMessage" class="method item">
+    <h3 class="name"><code>onSelectEcosystemUnassignedMessage</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l629"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:629</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>onSelectEcosystemUnassignedMessage handles the onSelect event of the list of unassigned SEPAmail messages</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectMessageSettingType" class="method item">
+    <h3 class="name"><code>onSelectMessageSettingType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l688"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:688</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when a message type is selected in the message settings list</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_onSelectMessageTypeItem" class="method item">
+    <h3 class="name"><code>onSelectMessageTypeItem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l700"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:700</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Handle the event triggered when an item in the list of SEPAmail message types is selected</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeAckMessage" class="method item">
+    <h3 class="name"><code>removeAckMessage</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l739"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:739</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove the selected message type from the acknowledgement message type list</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeEcoSepamailMessageType" class="method item">
+    <h3 class="name"><code>removeEcoSepamailMessageType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l772"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:772</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove an assigned SEPAmail message type from the list of assigned messages</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeEcosystem" class="method item">
+    <h3 class="name"><code>removeEcosystem</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l804"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:804</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Delete an existing ecosystem and related compose message settings</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeMessageCompositionSetting" class="method item">
+    <h3 class="name"><code>removeMessageCompositionSetting</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l848"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:848</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove message composition setting</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_removeMessageType" class="method item">
+    <h3 class="name"><code>removeMessageType</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l871"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:871</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Remove the selected SEPAmail message type from the list of SEPAmail message types</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_saveAdvancedSettings" class="method item">
+    <h3 class="name"><code>saveAdvancedSettings</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l969"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:969</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Persist advanced settings</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_saveMessageCompositionSetting" class="method item">
+    <h3 class="name"><code>saveMessageCompositionSetting</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1016"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1016</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Save message composition settings</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_setEcosystemMode" class="method item">
+    <h3 class="name"><code>setEcosystemMode</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>mode</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1051"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1051</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the mode of the currently selected ecosystem</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">mode</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Ecosystem mode</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_showEcosystemMode" class="method item">
+    <h3 class="name"><code>showEcosystemMode</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l1066"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:1066</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Show the mode of the selected ecosystem</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr__smethAcknowledgementMessageTypes" class="attr item private">
+    <a name="config__smethAcknowledgementMessageTypes"></a> 
+    <h3 class="name"><code>_smethAcknowledgementMessageTypes</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l73"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:73</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Array of message types for which acknowledgement missive XML documents are sent</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethCompositionSettings" class="attr item private">
+    <a name="config__smethCompositionSettings"></a> 
+    <h3 class="name"><code>_smethCompositionSettings</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l82"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:82</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Message composition settings</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethControllerConfigSettings" class="attr item private">
+    <a name="config__smethControllerConfigSettings"></a> 
+    <h3 class="name"><code>_smethControllerConfigSettings</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l91"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:91</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Settings for SMETH controller</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethEcosystems" class="attr item private">
+    <a name="config__smethEcosystems"></a> 
+    <h3 class="name"><code>_smethEcosystems</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l100"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:100</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>List of ecosystems</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMessageHandler" class="attr item private">
+    <a name="config__smethMessageHandler"></a> 
+    <h3 class="name"><code>_smethMessageHandler</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l109"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:109</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the SMETHMessageHandler class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMessageTypes" class="attr item private">
+    <a name="config__smethMessageTypes"></a> 
+    <h3 class="name"><code>_smethMessageTypes</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l117"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:117</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Array of SEPAmail message types</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPreferences" class="attr item private">
+    <a name="config__smethPreferences"></a> 
+    <h3 class="name"><code>_smethPreferences</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l135"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:135</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the smeth preferences class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPreferencesHasBeenInitialised" class="attr item private">
+    <a name="config__smethPreferencesHasBeenInitialised"></a> 
+    <h3 class="name"><code>_smethPreferencesHasBeenInitialised</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_preferences_controllers_SMETHAdvancedPreferencesController.js.html#l126"><code>content&#x2F;preferences&#x2F;controllers&#x2F;SMETHAdvancedPreferencesController.js:126</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>SMETH preferences initialisation flag</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

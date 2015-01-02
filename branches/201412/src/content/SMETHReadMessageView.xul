@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHReadMessage.dtd">
+<overlay id="{appname}-SEMTHReadMessageView"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+       /**
+        * SMETHTranslations class defines all the translations to be used in "SMETHReadMessageController.js"
+        */
+        var SMETHTranslations = {
+
+            // Translation for date today text
+            dateTodayText: '&date.today.text;',
+
+           /**
+            * Translation for the SEPAmail Header View
+            *
+            */
+            // Translations for the summary view labels (All the keys matches a label id in a SEPAmail document)
+            semHdrSummaryMessageTypeLabel: '&missive.activation.request.messageType.label;',
+            semHdrSummarySenderLabel: '&missive.activation.request.sender.label;',
+            semHdrSummarySentLabel:'&missive.activation.request.sentDate.label;',
+
+            // Translations for the detail view labels (All the keys matches a label id in a SEPAmail document)
+            semHdrDetailsMessageTypeLabel: '&missive.activation.request.messageType.label;',
+            semHdrDetailsSenderLabel: '&missive.activation.request.sender.label;',
+            semHdrDetailsReceiverLabel: '&missive.activation.request.receiver.label;',
+            semHdrDetailsPriorityLabel: '&missive.activation.request.priority.label;',
+            semHdrDetailsSentLabel: '&missive.activation.request.sentDate.label;',
+            semHdrDetailsDistributedLabel:'&missive.activation.request.receivedDate.label;',
+
+            // Translation for Acknowledgement button
+            semHdrSummaryAck: '&missive.activation.request.semHdrSummaryAck.label;',
+            semHdrDetailsAck: '&missive.activation.request.semHdrSummaryAck.label;',
+
+            /**
+             * Translation for the SEPAmail Body View
+             */
+             semBdyRequestDateLabel: '&missive.activation.request.requestDate.label;',
+             semBdyRequestAmountLabel: '&missive.activation.request.requestAmount.label;',
+             semBdyRequestPaymentMethodLabel: '&missive.activation.request.requestPaymentMethod.label;',
+             semBdyRequestPaymentMethodCheck: '&missive.activation.request.requestPaymentMethodCheck.label;',
+             semBdyRequestPaymentMethodTransfer: '&missive.activation.request.requestPaymentMethodTransfer.label;',
+             semBdyRequestPaymentMethodDirectDebit: '&missive.activation.request.requestPaymentMethodDirectDebit.label;',
+             semBdyRequestPaymentMethidPaymentCard: '&missive.activation.request.requestPaymentMethodPaymentCard.label;',
+             semBdyRequestSubjectLabel: '&missive.activation.request.requestSubject.label;',
+             semBdyRefuseRequestButton: '&missive.activation.request.refuseRequestButton.label;',
+             semBdyAcceptRequestButton: '&missive.activation.request.acceptRequestButton.label;',
+
+            /**
+             * Translation for the SEPAmail Attachment View
+             */
+             openAllMissiveAttachmentListContextMenu: '&missive.activation.request.openAllMissiveAttachmentListContextMenu.label;',
+             saveAllMissiveAttachmentListContextMenu: '&missive.activation.request.saveAllMissiveAttachmentListContextMenu.label;',
+             openMissiveAttachmentListItemContextMenu: '&missive.activation.request.openMissiveAttachmentListItemContextMenu.label;',
+             saveAsMissiveAttachmentListItemContextMenu: '&missive.activation.request.saveAsMissiveAttachmentListItemContextMenu.label;',
+             missiveAttachmentBarTooltip: '&missive.activation.request.missiveAttachmentBar.tooltip;',
+             missiveAttachmentBarShowTooltip: '&missive.activation.request.missiveAttachmentBarShow.tooltip;',
+             missiveAttachmentBarHideTooltip: '&missive.activation.request.missiveAttachmentBarHide.tooltip;',
+             missiveAttachmentCount: '&missive.activation.request.missiveAttachmentCount.label;',
+             missiveAttachmentNameTooltip: '&missive.activation.request.missiveAttachmentName.tooltip;',
+             missiveAttachmentSaveAll: '&missive.activation.request.missiveAttachmentSaveAll.label;',
+             missiveAttachmentSaveAllSingle: '&missive.activation.request.missiveAttachmentSaveAllSingle.label;',
+             missiveAttachmentSaveAllSingleTooltip: '&missive.activation.request.missiveAttachmentSaveAllSingle.tooltip;',
+             openMissiveAttachment: '&missive.activation.request.openMissiveAttachment.label;',
+             saveMissiveAttachment: '&missive.activation.request.saveMissiveAttachment.label;',
+
+            /**
+             * General translations
+             */
+             noSuitableAccounts: '&general.noSuitableAccounts;',
+             mailSubject: '&mail.subject;'
+        };
+    </script>
+    <script src="./controllers/SMETHHeaderController.js"/>
+    <script src="./controllers/SMETHAcknowledgementController.js"/>
+    <script src="./controllers/SMETHReportController.js"/>
+    <script src="./controllers/SMETHRequestController.js"/>
+    <script src="./controllers/SMETHReadMessageController.js"/>
+    <script src="./controllers/SMETHAttachmentController.js"/>
+    <script src="./controllers/SMETHExportController.js"/>
+    <script src="./controllers/SMETHMessageListController.js"/>
+    <script src="./controllers/SMETHAutomaticAcknowledgementController.js"/>
+    <script src="./controllers/SMETHRawContentController.js"/>
+
+    <!-- The popup id must follow the covention of the
+    get new mail popup id "button-getMsgPopup" and thus
+    "button-newMsgPopup". -->
+    <toolbarbutton id="button-newmsg" type="menu-button">
+        <menupopup id="button-newMsgPopup">
+            <menu id="menu-writeAgate" label="generic" tooltiptext="generic">
+                <menupopup>
+                    <menuitem id="button-writeGeneric" label="send.request" oncommand="SMETHReadMessageController.composeGenericButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
+            <menu id="menu-writeDirectDebit" label="direct.debit" tooltiptext="direct.debit">
+                <menupopup>
+                    <menuitem id="button-writeMandateInitiationRequest" label="mandat" oncommand="SMETHReadMessageController.composeMandateInitiationRequestButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writePrenotification" label="notification" oncommand="SMETHReadMessageController.composePrenotificationButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writeRequestForCopy" label="request.copy" oncommand="SMETHReadMessageController.composeRequestForCopyButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
+            <menu id="menu-writePaymentActivation" label='&mailtoolbox.paymentactivationmenu.label;' tooltiptext='&mailtoolbox.paymentactivationmenu.tooltip;'>
+                <menupopup>
+                    <menuitem id="button-writeActRequest" label='&mailtoolbox.actrequestbutton.label;' tooltiptext='&mailtoolbox.actrequestbutton.tooltip;' oncommand="SMETHReadMessageController.composeRequestButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writeActEnroll" disabled="true" label='&mailtoolbox.actenrollbutton.label;' tooltiptext='&mailtoolbox.actenrollbutton.tooltip;' oncommand="SMETHReadMessageController.composeEnrollButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
+            <menu id="menu-writeTest" label='&mailtoolbox.testmenu.label;' tooltiptext='&mailtoolbox.testmenu.tooltip;'>
+                <menupopup>
+                    <menuitem id="button-writeActTestRequest" label='&mailtoolbox.acttestrequestbutton.label;' tooltiptext='&mailtoolbox.acttestrequestbutton.tooltip;' oncommand="SMETHReadMessageController.composeTestRequestButtonClick(); event.stopPropagation();"/>
+                    <menuitem id="button-writeActTestReport" disabled="true" label='&mailtoolbox.acttestreportbutton.label;' tooltiptext='&mailtoolbox.acttestreportbutton.tooltip;' oncommand="SMETHReadMessageController.composeTestReportButtonClick(); event.stopPropagation();"/>
+                </menupopup>
+            </menu>
+        </menupopup>
+    </toolbarbutton>
+    <menupopup id="taskPopup">
+        <menuseparator/>
+        <menuitem id="mnu_{appname}" label="&mainmenu.preference;" oncommand="window.open('chrome://{appname}/content/SMETHOptionView.xul', '', 'chrome,titlebar,toolbar,centerscreen');"/>
+    </menupopup>
+    <menupopup id="menu_FilePopup">
+        <menu id="menu_Export" position="7" label='&mainmenu.export;' accesskey="E" disabled="true">
+            <menupopup id="menu_ExportPopup">
+                <menuitem id="menu_ExportSEPAmailEnv" label='&mainmenu.export.sepamail.envelope;' oncommand="SMETHExportController.doExport('envelope');"/>
+                <menuitem id="menu_ExportSEPAmailMsg" label='&mainmenu.export.sepamail.message;' oncommand="SMETHExportController.doExport('message');"/>
+                <menuitem id="menu_ExportSEPAmailMsv" label='&mainmenu.export.sepamail.missive;' oncommand="SMETHExportController.doExport('missive');"/>
+            </menupopup>
+        </menu>
+    </menupopup>
+</overlay>

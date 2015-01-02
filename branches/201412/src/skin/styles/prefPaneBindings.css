@@ -1,0 +1,22 @@
+/*
+    Document   : prefPaneBindings
+    Created on : Nov 27, 2012, 09:55:08 AM
+    Author     : Bishan Kumar Madhoo <bishan.madhoo@idsoft.mu>
+    Description: Preference pane component bindings
+*/
+
+/*
+    SMETH acknowledgement settings component
+*/
+acknowledgementsettings {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#acknowledgementsettings");
+}
+
+sepamailmessagetypesettings {
+    -moz-binding: url("chrome://Smeth/content/smethWidgets.xml#sepamailmessagetypesettings");
+}
+
+.image-button {
+    min-height: 0;
+    min-width: 0;
+}

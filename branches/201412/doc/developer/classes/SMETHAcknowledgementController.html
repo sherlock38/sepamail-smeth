@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>SMETHAcknowledgementController</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementController.html">SMETHAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementPreferencesController.html">SMETHAcknowledgementPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAddressBookController.html">SMETHAddressBookController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAdvancedPreferencesController.html">SMETHAdvancedPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAttachmentController.html">SMETHAttachmentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAutomaticAcknowledgementController.html">SMETHAutomaticAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHBankPreferencesController.html">SMETHBankPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHComposeMessageController.html">SMETHComposeMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHControlFactory.html">SMETHControlFactory</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHExportController.html">SMETHExportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHHeaderController.html">SMETHHeaderController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMail.html">SMETHMail</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMailPreferencesController.html">SMETHMailPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageHandler.html">SMETHMessageHandler</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageListController.html">SMETHMessageListController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHOptionController.html">SMETHOptionController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRawContentController.html">SMETHRawContentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReadMessageController.html">SMETHReadMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReportController.html">SMETHReportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRequestController.html">SMETHRequestController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHUtils.html">SMETHUtils</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/smeth.html">smeth</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>SMETHAcknowledgementController Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l74"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:74</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/smeth.html">smeth</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>SMETHAcknowledgementController class sends acknowledgement responses for nominal missive requests</p>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+            <li class="api-class-tab attrs"><a href="#attrs">Attributes</a></li>
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method">
+                                <a href="#method__getAccountDefaults">_getAccountDefaults</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getAckMissiveXml">_getAckMissiveXml</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__getDefaults">_getDefaults</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__handleAutomaticAcknowledgement">_handleAutomaticAcknowledgement</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__initSmethPreferences">_initSmethPreferences</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method__setNodeInContainer">_setNodeInContainer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_ComposeProcessDone
+
+REM MSO 20121210 Why empty function ?">ComposeProcessDone
+
+REM MSO 20121210 Why empty function ?</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_generateAcknowledgementMissive">generateAcknowledgementMissive</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_handleManualAcknowledgement">handleManualAcknowledgement</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_isAcknowledgementMissiveMessage">isAcknowledgementMissiveMessage</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_NotifyComposeBodyReady">NotifyComposeBodyReady</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_NotifyComposeFieldsReady
+
+REM MSO 20121210 Why empty function ?">NotifyComposeFieldsReady
+
+REM MSO 20121210 Why empty function ?</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_SaveInFolderDone
+
+REM MSO 20121210 Why empty function ?">SaveInFolderDone
+
+REM MSO 20121210 Why empty function ?</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_sendAutomaticAcknowledgement">sendAutomaticAcknowledgement</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_SendMailEventHandler">SendMailEventHandler</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section attrs">
+                    <h3>Attributes</h3>
+
+                    <ul class="index-list attrs">
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__ackContainerPath">_ackContainerPath</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__ackMissiveXmlDom">_ackMissiveXmlDom</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__content">_content</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__header">_header</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethMessageHandler">_smethMessageHandler</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPreferences">_smethPreferences</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethPreferencesHasBeenInitialised">_smethPreferencesHasBeenInitialised</a>
+                            </li>
+                        
+                            <li class="index-item attr private">
+                                <a href="#attr__smethUtils">_smethUtils</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_missiveMailObject">missiveMailObject</a>
+                            </li>
+                        
+                            <li class="index-item attr">
+                                <a href="#attr_missiveMessageType">missiveMessageType</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__getAccountDefaults" class="method item">
+    <h3 class="name"><code>_getAccountDefaults</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>accountKey</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>messageType</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l383"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:383</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get default settings for the given account key and message type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">accountKey</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Key associated to the account by which the acknowledgement missive will be sent</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">messageType</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail message type</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    Acknowledgement default settings object
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getAckMissiveXml" class="method item">
+    <h3 class="name"><code>_getAckMissiveXml</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>transformerUrl</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>defaults</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>missiveXmlDom</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">XML</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l427"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:427</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Generate the acknowledgement missive XML</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">transformerUrl</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>URL of the XSL file that converts a nominal missive to an acknowledgement missive</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">defaults</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Default values of an acknowledgement missive</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">missiveXmlDom</code>
+                        <span class="type">XML</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail missive XML document object model</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">XML</span>:
+                    
+                    Acknowledgement missive XML
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__getDefaults" class="method item">
+    <h3 class="name"><code>_getDefaults</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ecosystem</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Object</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l513"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:513</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Get default settings for acknowlegement missive XML as per specified ecosystem</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ecosystem</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail eco-system name</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Object</span>:
+                    
+                    Default acknowlegement settings object
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method__handleAutomaticAcknowledgement" class="method item">
+    <h3 class="name"><code>_handleAutomaticAcknowledgement</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ackTransformerUrl</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>defaults</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>sepaMailXmlDom</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>aMsgHdr</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>account</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l550"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:550</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Send missive message receipt acknowledgement automatically</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ackTransformerUrl</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>URL of XSL file that will transform the SEPAmail message to the required acknowledgement message</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">defaults</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Acknowlegement details default settings</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">sepaMailXmlDom</code>
+                        <span class="type">XML</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>SEPAmail message document object model</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">aMsgHdr</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Header of message for which an automatic acknowledgement is being sent</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">account</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Account that will be used to send the acknowledgement missive XML</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__initSmethPreferences" class="method item">
+    <h3 class="name"><code>_initSmethPreferences</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l675"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:675</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Initialise SMETH preferences class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method__setNodeInContainer" class="method item">
+    <h3 class="name"><code>_setNodeInContainer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>ackDocument</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>container</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>localName</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>nodeValue</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l691"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:691</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Set the text value of a node in a given container</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">ackDocument</code>
+                        <span class="type">XML</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Acknowledgement missive document object model</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">container</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Acknowledgement details container</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">localName</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Acknowledgement node local name</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">nodeValue</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Value of the acknowledgement node</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_ComposeProcessDone
+
+REM MSO 20121210 Why empty function ?" class="method item">
+    <h3 class="name"><code>ComposeProcessDone
+
+REM MSO 20121210 Why empty function ?</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l813"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:813</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>ComposeProcessDone event notifies when the compose process has been completed</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_generateAcknowledgementMissive" class="method item">
+    <h3 class="name"><code>generateAcknowledgementMissive</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>account</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">XML</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l169"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:169</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Generate the acknowledgement missive as per the message type</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">account</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Account by which the acknowledgement missive XML will be sent</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">XML</span>:
+                    
+                    Acknowledgement missive XML
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_handleManualAcknowledgement" class="method item">
+    <h3 class="name"><code>handleManualAcknowledgement</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l195"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:195</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Send missive message receipt acknowledgement</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_isAcknowledgementMissiveMessage" class="method item">
+    <h3 class="name"><code>isAcknowledgementMissiveMessage</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>content</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l260"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:260</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Check if the content of a body contains a valid acknowledgement missive message</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">content</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Message content</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type">Boolean</span>:
+                    
+                    Whether the message is a valid acknowledgement missive message
+                
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="method_NotifyComposeBodyReady" class="method item">
+    <h3 class="name"><code>NotifyComposeBodyReady</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l744"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:744</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Event raised when compose window is loaded and compose body is ready</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_NotifyComposeFieldsReady
+
+REM MSO 20121210 Why empty function ?" class="method item">
+    <h3 class="name"><code>NotifyComposeFieldsReady
+
+REM MSO 20121210 Why empty function ?</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l733"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:733</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Event raised when compose window is loaded and fields are ready</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_SaveInFolderDone
+
+REM MSO 20121210 Why empty function ?" class="method item">
+    <h3 class="name"><code>SaveInFolderDone
+
+REM MSO 20121210 Why empty function ?</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l823"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:823</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>SaveInFolderDone event notifies when the save in folder has been completed</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_sendAutomaticAcknowledgement" class="method item">
+    <h3 class="name"><code>sendAutomaticAcknowledgement</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>aMailHeader</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>content</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l311"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:311</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Send automatic acknowledgement for a given mail header and content</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">aMailHeader</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Mail header object</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">content</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Mail content</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_SendMailEventHandler" class="method item">
+    <h3 class="name"><code>SendMailEventHandler</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l833"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:833</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>SendMailEventHandler event handles the send event of an email</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Event parameters</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="attrs" class="api-class-tabpanel">
+                <h2 class="off-left">Attributes</h2>
+
+                
+                    <div id="attr__ackContainerPath" class="attr item private">
+    <a name="config__ackContainerPath"></a> 
+    <h3 class="name"><code>_ackContainerPath</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l81"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:81</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the XPath for acknowledgement container</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__ackMissiveXmlDom" class="attr item private">
+    <a name="config__ackMissiveXmlDom"></a> 
+    <h3 class="name"><code>_ackMissiveXmlDom</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l89"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:89</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the acknowledgement missive XML document object model</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__content" class="attr item private">
+    <a name="config__content"></a> 
+    <h3 class="name"><code>_content</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l98"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:98</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the mail content string</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__header" class="attr item private">
+    <a name="config__header"></a> 
+    <h3 class="name"><code>_header</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l107"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:107</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the mail header object</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethMessageHandler" class="attr item private">
+    <a name="config__smethMessageHandler"></a> 
+    <h3 class="name"><code>_smethMessageHandler</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l116"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:116</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the SMETHMessageHandler class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPreferences" class="attr item private">
+    <a name="config__smethPreferences"></a> 
+    <h3 class="name"><code>_smethPreferences</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l142"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:142</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the smeth preferences class</p>
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethPreferencesHasBeenInitialised" class="attr item private">
+    <a name="config__smethPreferencesHasBeenInitialised"></a> 
+    <h3 class="name"><code>_smethPreferencesHasBeenInitialised</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l124"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:124</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the flag that indicates whether the smeth preferences have been loaded to "false"</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> false</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr__smethUtils" class="attr item private">
+    <a name="config__smethUtils"></a> 
+    <h3 class="name"><code>_smethUtils</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l133"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:133</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the utils class</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_missiveMailObject" class="attr item">
+    <a name="config_missiveMailObject"></a> 
+    <h3 class="name"><code>missiveMailObject</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l153"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:153</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the missive mail object</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="attr_missiveMessageType" class="attr item">
+    <a name="config_missiveMessageType"></a> 
+    <h3 class="name"><code>missiveMessageType</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="..&#x2F;files&#x2F;content_controllers_SMETHAcknowledgementController.js.html#l161"><code>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js:161</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Declare the missive message type</p>
+    </div>
+
+    
+        <p><strong>Default:</strong> null</p>
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

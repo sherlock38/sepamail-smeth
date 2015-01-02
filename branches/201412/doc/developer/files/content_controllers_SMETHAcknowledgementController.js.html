@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.8.0pr2&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.8.0pr2&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="..&#x2F;assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementController.html">SMETHAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAcknowledgementPreferencesController.html">SMETHAcknowledgementPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAddressBookController.html">SMETHAddressBookController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAdvancedPreferencesController.html">SMETHAdvancedPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAttachmentController.html">SMETHAttachmentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHAutomaticAcknowledgementController.html">SMETHAutomaticAcknowledgementController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHBankPreferencesController.html">SMETHBankPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHComposeMessageController.html">SMETHComposeMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHControlFactory.html">SMETHControlFactory</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHExportController.html">SMETHExportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHHeaderController.html">SMETHHeaderController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMail.html">SMETHMail</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMailPreferencesController.html">SMETHMailPreferencesController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageHandler.html">SMETHMessageHandler</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHMessageListController.html">SMETHMessageListController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHOptionController.html">SMETHOptionController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRawContentController.html">SMETHRawContentController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReadMessageController.html">SMETHReadMessageController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHReportController.html">SMETHReportController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHRequestController.html">SMETHRequestController</a></li>
+            
+                <li><a href="..&#x2F;classes/SMETHUtils.html">SMETHUtils</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="..&#x2F;modules/smeth.html">smeth</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: content&#x2F;controllers&#x2F;SMETHAcknowledgementController.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;* ***** BEGIN LICENSE BLOCK *****
+ * This file is part of smeth (https:&#x2F;&#x2F;code.google.com&#x2F;p&#x2F;sepamail-smeth&#x2F;)
+ *
+ * Version: MPL 2.0&#x2F;GPL 3.0&#x2F;LGPL 3.0
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 2.0 (the &quot;License&quot;); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http:&#x2F;&#x2F;www.mozilla.org&#x2F;MPL&#x2F;2.0&#x2F;
+ *
+ * Software distributed under the License is distributed on an &quot;AS IS&quot; basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Initials Developers of the Original Code are :
+ *  Ammit Heeramun, idSoft
+ *  Bishan Kumar Madhoo, idSoft
+ *  Manfred Sherlock Olm, deciBI &amp; vizGet
+ * Portions created by the Initials Developers are Copyright (C) 2012
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *  Ammit Heeramun
+ *  Bishan Kumar Madhoo
+ *  Manfred Sherlock Olm, smeth@decibi.fr
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 3 or later (the &quot;GPL&quot;), or
+ * the GNU Lesser General Public License Version 3.0 or later (the &quot;LGPL&quot;),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** *&#x2F;
+
+&#x2F;**
+ * @module smeth
+ * @file SMETHAcknowledgmentControler.js
+ * @mvc controller
+ * @version 1212
+ * @since 1210
+ * @author Bishan Kumar Madhoo
+ * @description SMETHAcknowledgementController class sends acknowledgement responses for nominal missive requests
+ *&#x2F;
+
+&#x2F;**
+ * SMETHMessageHandler class contain functions to handle info, error, warning and exceptions messages
+ *
+ * @include SMETHMessageHandler.js
+ * @type Object
+ *&#x2F;
+Components.utils.import(&quot;resource:&#x2F;&#x2F;smeth&#x2F;smethlib&#x2F;SMETHMessageHandler.js&quot;);
+
+&#x2F;**
+ * SMETHUtils class contains all the useful functions that will be used in SMETH
+ *
+ * @include SMETHUtils.js
+ * @type Object
+ *&#x2F;
+Components.utils.import(&quot;resource:&#x2F;&#x2F;smeth&#x2F;smethlib&#x2F;SMETHUtils.js&quot;);
+
+&#x2F;**
+ * @description Strict mode for scripts
+ * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;JavaScript&#x2F;Reference&#x2F;Functions_and_function_scope&#x2F;Strict_mode
+ *&#x2F;
+&quot;use strict&quot;;
+
+&#x2F;**
+ * SMETHAcknowledgementController class sends acknowledgement responses for nominal missive requests
+ *
+ * @class SMETHAcknowledgementController
+ *&#x2F;
+var SMETHAcknowledgementController = {
+
+    &#x2F;**
+     * Declare the XPath for acknowledgement container
+     *
+     * @attribute _ackContainerPath
+     * @private
+     *&#x2F;
+    _ackContainerPath : &#x27;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvAcq&#x27;,
+
+    &#x2F;**
+     * Declare the acknowledgement missive XML document object model
+     *
+     * @attribute _ackMissiveXmlDom
+     * @private
+     * @default null
+     *&#x2F;
+    _ackMissiveXmlDom : null,
+
+    &#x2F;**
+     * Declare the mail content string
+     *
+     * @attribute _content
+     * @private
+     * @default null
+     *&#x2F;
+    _content : null,
+
+    &#x2F;**
+     * Declare the mail header object
+     *
+     * @attribute _header
+     * @private
+     * @default null
+     *&#x2F;
+    _header : null,
+
+    &#x2F;**
+     * Declare the SMETHMessageHandler class
+     *
+     * @attribute _smethMessageHandler
+     * @private
+     *&#x2F;
+    _smethMessageHandler : new SMETHMessageHandler(window),
+
+    &#x2F;**
+     * Declare the flag that indicates whether the smeth preferences have been loaded to &quot;false&quot;
+     *
+     * @attribute _smethPreferencesHasBeenInitialised
+     * @private
+     * @default false
+     *&#x2F;
+    _smethPreferencesHasBeenInitialised : false,
+
+    &#x2F;**
+     * Declare the utils class
+     *
+     * @attribute _smethUtils
+     * @private
+     * @default null
+     *&#x2F;
+    _smethUtils : new SMETHUtils(window),
+
+    &#x2F;**
+     * Declare the smeth preferences class
+     *
+     * @attribute _smethPreferences
+     * @private
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Code_snippets&#x2F;Preferences#XPCOM_interfaces_for_preferences_system
+     *&#x2F;
+    _smethPreferences : Components.classes[&quot;@mozilla.org&#x2F;preferences-service;1&quot;]
+                                  .getService(Components.interfaces.nsIPrefService)
+                                  .getBranch(&quot;extensions.smeth.&quot;),
+
+    &#x2F;**
+     * Declare the missive mail object
+     *
+     * @attribute missiveMailObject
+     * @default null
+     *&#x2F;
+    missiveMailObject : null,
+
+    &#x2F;**
+     * Declare the missive message type
+     *
+     * @attribute missiveMessageType
+     * @default null
+     *&#x2F;
+    missiveMessageType : null,
+
+    &#x2F;**
+     * Generate the acknowledgement missive as per the message type
+     *
+     * @method generateAcknowledgementMissive
+     * @param {Object} account Account by which the acknowledgement missive XML will be sent
+     * @return {XML} Acknowledgement missive XML
+     *&#x2F;
+    generateAcknowledgementMissive : function(account) {
+
+        &#x2F;&#x2F; Initialise SMETH preferences
+        this._initSmethPreferences();
+
+        &#x2F;&#x2F; Get default settings for the account and message type
+        var acknowledgementSettings = this._getAccountDefaults(account.key, this.missiveMessageType);
+
+        &#x2F;&#x2F; Check if default values setting was obtained
+        if (acknowledgementSettings != null) {
+            return this._getAckMissiveXml(this._smethPreferences.getCharPref(&quot;acknowledgement.XSLUrl&quot;),
+                acknowledgementSettings.defaults, this.missiveMailObject.sepamailXMLObject);
+        } else {
+            return this._getAckMissiveXml(this._smethPreferences.getCharPref(&quot;acknowledgement.XSLUrl&quot;),
+                {&#x27;status&#x27;:&#x27;ACK&#x27;,&#x27;retClass&#x27;:&#x27;&#x27;,&#x27;subject&#x27;:&#x27;&#x27;,&#x27;detail&#x27;:&#x27;&#x27;,&#x27;description&#x27;:&#x27;&#x27;},
+                this.missiveMailObject.sepamailXMLObject);
+        }
+    },
+
+    &#x2F;**
+     * Send missive message receipt acknowledgement
+     *
+     * @method handleManualAcknowledgement
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;XPCOM_Interface_Reference&#x2F;NsIMsgCompFields
+     * @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla-full&#x2F;html&#x2F;da&#x2F;d05&#x2F;interfacensIMsgComposeParams.html
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Extensions&#x2F;Thunderbird&#x2F;HowTos&#x2F;Common_Thunderbird_Use_Cases&#x2F;Compose_New_Message
+     *&#x2F;
+    handleManualAcknowledgement : function() {
+
+        &#x2F;&#x2F; Initialise SMETH preferences
+        this._initSmethPreferences();
+
+        try {
+
+            &#x2F;&#x2F; Get the account that will be used to send the acknowledgement missive XML
+            var account = SMETHAcknowledgementController._smethUtils.getAccountByMsgHeader(this.missiveMailObject.header);
+
+            &#x2F;&#x2F; Compose service fields instance
+            &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;XPCOM_Interface_Reference&#x2F;NsIMsgCompFields
+            var composeFields = Components.classes[&quot;@mozilla.org&#x2F;messengercompose&#x2F;composefields;1&quot;]
+                                          .createInstance(Components.interfaces.nsIMsgCompFields);
+
+            composeFields.body = (new XMLSerializer()).serializeToString(this.generateAcknowledgementMissive(account));
+            composeFields.characterSet = &quot;UTF-8&quot;;
+            composeFields.from = account.defaultIdentity.email;
+            composeFields.messageId = this.missiveMailObject.header.messageId;
+            composeFields.replyTo = account.defaultIdentity.replyTo;
+
+            &#x2F;&#x2F; Check if the subject is the default SEPAmail subject
+            if (this.missiveMailObject.header.subject == SMETHTranslations.mailSubject) {
+                composeFields.subject = &#x27;&#x27;;
+            } else {
+                composeFields.subject = this.missiveMailObject.header.subject;
+            }
+
+            composeFields.to = this.missiveMailObject.header.mime2DecodedAuthor;
+
+            &#x2F;&#x2F; Message compose parameters instance
+            &#x2F;&#x2F; @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla-full&#x2F;html&#x2F;da&#x2F;d05&#x2F;interfacensIMsgComposeParams.html
+            var msgComposeParams = Components.classes[&quot;@mozilla.org&#x2F;messengercompose&#x2F;composeparams;1&quot;]
+                                             .createInstance(Components.interfaces.nsIMsgComposeParams);
+
+            &#x2F;&#x2F; Define the message composition parameters
+            msgComposeParams.composeFields = composeFields;
+            msgComposeParams.identity = account.defaultIdentity;
+            msgComposeParams.format = Components.interfaces.nsIMsgCompFormat.PlainText
+            msgComposeParams.type = Components.interfaces.nsIMsgCompType.New;
+
+            &#x2F;&#x2F; Message compose service
+            &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Extensions&#x2F;Thunderbird&#x2F;HowTos&#x2F;Common_Thunderbird_Use_Cases&#x2F;Compose_New_Message
+            var msgComposeService = Components.classes[&quot;@mozilla.org&#x2F;messengercompose;1&quot;]
+                                              .getService(Components.interfaces.nsIMsgComposeService);
+
+            &#x2F;&#x2F; Remove vCards and signatures from missive email
+            this._smethUtils.removeEmailExtras(msgComposeService);
+
+            &#x2F;&#x2F; Open the acknowledgement message
+            msgComposeService.OpenComposeWindowWithParams(null, msgComposeParams);
+
+        } catch (e) {
+            this._smethMessageHandler.exception(e);
+        }
+    },
+
+    &#x2F;**
+     * Check if the content of a body contains a valid acknowledgement missive message
+     *
+     * @method isAcknowledgementMissiveMessage
+     * @param {String} content Message content
+     * @return {Boolean} Whether the message is a valid acknowledgement missive message
+     *&#x2F;
+    isAcknowledgementMissiveMessage : function(content) {
+
+        &#x2F;&#x2F; Initialise SMETH preferences
+        this._initSmethPreferences();
+
+        try {
+
+            &#x2F;&#x2F; Parse content to XML document object model
+            var contentXmlDom = new DOMParser().parseFromString(content, &quot;text&#x2F;xml&quot;);
+
+            &#x2F;&#x2F; Check if content is a valid XML
+            if (contentXmlDom.documentElement.nodeName == &quot;parsererror&quot;) {
+
+                &#x2F;&#x2F; Content is not a valid XML
+                return false;
+
+            } else {
+
+                &#x2F;&#x2F; Content is valid XML, so we check for message type
+                var msgTypeNodeResult = contentXmlDom.evaluate(&quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvTyp&quot;,
+                    contentXmlDom, this._smethUtils.nsResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+                &#x2F;&#x2F; Check if result for message type query was obtained
+                if (msgTypeNodeResult != null) {
+
+                    &#x2F;&#x2F; Check the message type
+                    if (msgTypeNodeResult.singleNodeValue.textContent == &#x27;Acquittement&#x27;) {
+                        this._ackMissiveXmlDom = contentXmlDom;
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    return false;
+                }
+            }
+
+        } catch (e) {
+            this._smethMessageHandler.exception(e);
+        }
+
+        return false;
+    },
+
+    &#x2F;**
+     * Send automatic acknowledgement for a given mail header and content
+     *
+     * @method sendAutomaticAcknowledgement
+     * @param {Object} aMailHeader Mail header object
+     * @param {String} content Mail content
+     *&#x2F;
+    sendAutomaticAcknowledgement : function(aMailHeader, content) {
+
+        try {
+
+            &#x2F;&#x2F; Get message body
+            SMETHAcknowledgementController._content = content;
+
+            &#x2F;&#x2F; Message header
+            SMETHAcknowledgementController._header = aMailHeader;
+
+            &#x2F;&#x2F; Get the account that will be used to send the acknowledgement missive XML
+            var account = SMETHAcknowledgementController._smethUtils.getAccountByMsgHeader(aMailHeader);
+
+            &#x2F;&#x2F; Check if new email is a SEPAmail email
+            if (SMETHAcknowledgementController._smethUtils.isSEPAmail(SMETHAcknowledgementController._content)) {
+
+                &#x2F;&#x2F; Parse content to XML document object model
+                var sepaMailXmlDom = new DOMParser().parseFromString(SMETHAcknowledgementController._content,
+                    &quot;text&#x2F;xml&quot;);
+
+                &#x2F;&#x2F; SEPAmail message type
+                var sepaMailMessageType = SMETHAcknowledgementController._smethUtils.getSEPAmailMessageType(sepaMailXmlDom);
+
+                &#x2F;&#x2F; Message types string
+                var rawMessageTypes = this._smethPreferences.getCharPref(&#x27;acknowledgement.types&#x27;).split(&#x27;,&#x27;);
+
+                &#x2F;&#x2F; Array of message types for which acknowledgements are sent
+                var messageTypes = new Array();
+
+                &#x2F;&#x2F; Fill in the values for message types
+                for (var i = 0; i &lt; rawMessageTypes.length; i++) {
+                    messageTypes.push(rawMessageTypes[i].trim());
+                }
+
+                &#x2F;&#x2F; Check if acknowledgements are sent for the current message type
+                if (messageTypes.indexOf(sepaMailMessageType) &gt; -1) {
+
+                    &#x2F;&#x2F; Get settings for the account and message type
+                    var acknowledgementSettings = this._getAccountDefaults(account.key, sepaMailMessageType);
+
+                    &#x2F;&#x2F; Check if settings were obtained
+                    if (acknowledgementSettings != null) {
+
+                        &#x2F;&#x2F; Check if we are sending acknowledgements automatically
+                        if (acknowledgementSettings.automatic == &#x27;1&#x27;) {
+
+                            &#x2F;&#x2F; Send acknowledgement missive XML
+                            SMETHAcknowledgementController._handleAutomaticAcknowledgement(
+                                SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.XSLUrl&quot;),
+                                acknowledgementSettings.defaults, sepaMailXmlDom, aMailHeader, account);
+
+                        }
+                    }
+                }
+
+            } else {
+
+                &#x2F;&#x2F; We do not handle any other kinds of emails
+            }
+
+        } catch (e) {
+            SMETHAcknowledgementController._smethMessageHandler.exception(e);
+        }
+    },
+
+    &#x2F;**
+     * Get default settings for the given account key and message type
+     *
+     * @method _getAccountDefaults
+     * @param {String} accountKey Key associated to the account by which the acknowledgement missive will be sent
+     * @param {String} messageType SEPAmail message type
+     * @return {Object} Acknowledgement default settings object
+     *&#x2F;
+    _getAccountDefaults : function(accountKey, messageType) {
+
+        &#x2F;&#x2F; Acknowledgement settings object
+        var smethAcknowledgementSettings = JSON.parse(this._smethPreferences.getCharPref(&#x27;acknowledgement.settings&#x27;));
+
+        &#x2F;&#x2F; Scan the array of settings that have already been configured
+        for (var i = 0; i &lt; smethAcknowledgementSettings.length; i++) {
+
+            &#x2F;&#x2F; Current account settings
+            var currentAccountSettings = smethAcknowledgementSettings[i];
+
+            &#x2F;&#x2F; Check if we are at the required account settings
+            if (currentAccountSettings.account == accountKey) {
+
+                &#x2F;&#x2F; Scan the list of message type settings for the current account
+                for (var j = 0; j &lt; currentAccountSettings.settings.length; j++) {
+
+                    &#x2F;&#x2F; Current message type settings
+                    var currentMessageTypeSettings = currentAccountSettings.settings[j];
+
+                    &#x2F;&#x2F; Check if we are the required message type
+                    if (currentMessageTypeSettings.type == messageType) {
+
+                        &#x2F;&#x2F; We have the required acknowledgement settings
+                        return currentMessageTypeSettings;
+                    }
+                }
+
+                &#x2F;&#x2F; Break scanning loop since we have found the required account
+                break;
+            }
+        }
+
+        return null;
+    },
+
+    &#x2F;**
+     * Generate the acknowledgement missive XML
+     *
+     * @method _getAckMissiveXml
+     * @param {String} transformerUrl URL of the XSL file that converts a nominal missive to an acknowledgement missive
+     * @param {Object} defaults Default values of an acknowledgement missive
+     * @param {XML} missiveXmlDom SEPAmail missive XML document object model
+     * @return {XML} Acknowledgement missive XML
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Using_the_Mozilla_JavaScript_interface_to_XSL_Transformations#Using_XSLTProcessor_from_XPCOM_components
+     *&#x2F;
+    _getAckMissiveXml : function(transformerUrl, defaults, missiveXmlDom) {
+
+        try {
+
+            &#x2F;&#x2F; XMLHttpRequest instance which loads the XSL transformer
+            var xmlHttpRequest = new XMLHttpRequest();
+
+            &#x2F;&#x2F; Load the XSL transformer
+            xmlHttpRequest.open(&#x27;GET&#x27;, transformerUrl, false);
+            xmlHttpRequest.send();
+
+            &#x2F;&#x2F; XSL document object
+            var xslDocument = xmlHttpRequest.responseXML;
+
+            &#x2F;&#x2F; Instatiate the XSLT Processor
+            &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Using_the_Mozilla_JavaScript_interface_to_XSL_Transformations#Using_XSLTProcessor_from_XPCOM_components
+            var xsltProcessor= Components.classes[&quot;@mozilla.org&#x2F;document-transformer;1?type=xslt&quot;]
+                                         .createInstance(Components.interfaces.nsIXSLTProcessor);
+            xsltProcessor.importStylesheet(xslDocument);
+
+            &#x2F;&#x2F; Acknowledgement document
+            var acknowledgementDoc = document.implementation.createDocument(null, &quot;&quot;, null);
+
+            &#x2F;&#x2F; Get acknowledgement missive fragment
+            var acknowledgementFragment = xsltProcessor.transformToFragment(missiveXmlDom, acknowledgementDoc);
+
+            &#x2F;&#x2F; Append the acknowledgement fragment to acknowledgement document owner
+            acknowledgementDoc.appendChild(acknowledgementFragment);
+
+            &#x2F;&#x2F; Get the container for acknowledgement missive details elements
+            var ackDetailsContainer = acknowledgementDoc.evaluate(SMETHAcknowledgementController._ackContainerPath,
+                acknowledgementDoc, SMETHAcknowledgementController._smethUtils.nsResolver,
+                XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+            &#x2F;&#x2F; Check if the container was found
+            if (ackDetailsContainer != null) {
+
+                &#x2F;&#x2F; Set the date and time at which the message is being sent
+                SMETHAcknowledgementController._smethUtils.setSendDateTime(acknowledgementDoc);
+
+                &#x2F;&#x2F; Set the default status of the acknowledgement missive document
+                SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqSta&quot;, defaults.status);
+
+                &#x2F;&#x2F; Set the default code of the acknowledgement missive document
+                SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqCla&quot;, defaults.retClass);
+
+                &#x2F;&#x2F; Set the default subject of the acknowledgement missive document
+                SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqSub&quot;, defaults.subject);
+
+                &#x2F;&#x2F; Set the default detail of the acknowledgement missive document
+                SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqDet&quot;, defaults.detail);
+
+                &#x2F;&#x2F; Set the default description of the acknowledgement missive document
+                if (defaults.description.trim().length &gt; 0) {
+                    SMETHAcknowledgementController._setNodeInContainer(acknowledgementDoc,
+                        ackDetailsContainer.singleNodeValue, &quot;AcqDes&quot;, defaults.description.trim());
+                }
+
+            } else {
+
+                &#x2F;&#x2F; Current message type has not yet been handled
+                throw new Error(&quot;Acknowledgement details container element could not be found.&quot;);
+            }
+
+            &#x2F;&#x2F; Acknowledgement missive XML
+            return acknowledgementDoc;
+
+        } catch (e) {
+            throw e;
+        }
+    },
+
+    &#x2F;**
+     * Get default settings for acknowlegement missive XML as per specified ecosystem
+     *
+     * @method _getDefaults
+     * @param {String} ecosystem SEPAmail eco-system name
+     * @return {Object} Default acknowlegement settings object
+     *&#x2F;
+    _getDefaults : function(ecosystem) {
+
+        var defaults;
+
+        switch (ecosystem) {
+
+            case &quot;activation.request@payment.activation&quot;:
+
+                &#x2F;&#x2F; Acknowledgement missive defaults
+                defaults = {
+                    code : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.payment.defaults.code&quot;),
+                    detail : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.payment.defaults.detail&quot;),
+                    status : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.payment.defaults.status&quot;),
+                    subject : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.payment.defaults.subject&quot;)
+                };
+
+            case &quot;simple.request@test&quot;:
+
+                &#x2F;&#x2F; Acknowledgement missive defaults
+                defaults = {
+                    code : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.test.defaults.code&quot;),
+                    detail : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.test.defaults.detail&quot;),
+                    status : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.test.defaults.status&quot;),
+                    subject : SMETHAcknowledgementController._smethPreferences.getCharPref(&quot;acknowledgement.test.defaults.subject&quot;)
+                };
+        }
+
+        return defaults;
+    },
+
+    &#x2F;**
+     * Send missive message receipt acknowledgement automatically
+     *
+     * @method _handleAutomaticAcknowledgement
+     * @param {String} ackTransformerUrl URL of XSL file that will transform the SEPAmail message to the required acknowledgement message
+     * @param {Object} defaults Acknowlegement details default settings
+     * @param {XML} sepaMailXmlDom SEPAmail message document object model
+     * @param {Object} aMsgHdr Header of message for which an automatic acknowledgement is being sent
+     * @param {Object} account Account that will be used to send the acknowledgement missive XML
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;XPCOM_Interface_Reference&#x2F;NsIMsgCompFields
+     * @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla-full&#x2F;html&#x2F;da&#x2F;d05&#x2F;interfacensIMsgComposeParams.html
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Extensions&#x2F;Thunderbird&#x2F;HowTos&#x2F;Common_Thunderbird_Use_Cases&#x2F;Compose_New_Message
+     * @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla&#x2F;html&#x2F;interfacensIMsgSend.html
+     *
+     *&#x2F;
+    _handleAutomaticAcknowledgement : function(ackTransformerUrl, defaults, sepaMailXmlDom, aMsgHdr, account) {
+
+        try {
+
+            &#x2F;&#x2F; Get SEPAmail missive acknowledgement document object model
+            var ackMissiveXmlDom = SMETHAcknowledgementController._getAckMissiveXml(ackTransformerUrl, defaults,
+                sepaMailXmlDom);
+
+            &#x2F;&#x2F; Get the SEPAmail IDs of the sender and receiver of the acknowledgement
+            var myQXBAN = SMETHAcknowledgementController._smethUtils.getQxbanByEmailAddressAccount(account.key);
+            var receiverAccount = SMETHAcknowledgementController._smethUtils.getMailAccountByAlias(aMsgHdr.author);
+            var receiverQXBAN = receiverAccount == null ?
+                SMETHAcknowledgementController._smethUtils.getReceiverQxbanByEmailAddress(aMsgHdr.author) :
+                SMETHAcknowledgementController._smethUtils.getQxbanByEmailAddressAccount(receiverAccount.key);
+
+            &#x2F;&#x2F; Check that the SEPAmail IDs have been obtained
+            if ((myQXBAN != null) &amp;&amp; (receiverQXBAN != null)) {
+
+                &#x2F;&#x2F; Automatically generated and set missive ID
+                SMETHAcknowledgementController._smethUtils.setMissiveId(ackMissiveXmlDom);
+
+                &#x2F;&#x2F; Set the sender IBAN value
+                SMETHAcknowledgementController._smethUtils.setNodeValue(ackMissiveXmlDom,
+                    &quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvHdr&#x2F;sem:Snd&#x2F;sem:IBAN&quot;, myQXBAN.qxban);
+
+                &#x2F;&#x2F; Set the receiver IBAN value
+                SMETHAcknowledgementController._smethUtils.setNodeValue(ackMissiveXmlDom,
+                    &quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvHdr&#x2F;sem:Rcv&#x2F;sem:IBAN&quot;, receiverQXBAN.qxban);
+
+                &#x2F;&#x2F; Serialized SEPAmail missive acknowledgement
+                var serializedAckMissiveXml = &#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27; +
+                        (new XMLSerializer()).serializeToString(ackMissiveXmlDom);
+
+                &#x2F;&#x2F; Compose service fields instance
+                &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;XPCOM_Interface_Reference&#x2F;NsIMsgCompFields
+                var composeFields = Components.classes[&quot;@mozilla.org&#x2F;messengercompose&#x2F;composefields;1&quot;]
+                                              .createInstance(Components.interfaces.nsIMsgCompFields);
+
+                &#x2F;&#x2F; Define the properties of the compose service fields
+                composeFields.body = serializedAckMissiveXml + &quot;\n&quot;;
+                composeFields.characterSet = &quot;UTF-8&quot;;
+                composeFields.defaultCharacterSet = &quot;UTF-8&quot;;
+                composeFields.from = account.defaultIdentity.email;
+                composeFields.messageId = aMsgHdr.messageId;
+                composeFields.to = aMsgHdr.author;
+
+                &#x2F;&#x2F; Set the mail subject
+                if (aMsgHdr.subject == SMETHTranslations.mailSubject) {
+                    composeFields.subject = &#x27;&#x27;;
+                } else {
+                    composeFields.subject = aMsgHdr.subject;
+                }
+
+                &#x2F;&#x2F; Check if we have a certificate for encryption and signing
+                if (account.defaultIdentity.getUnicharAttribute(&quot;encryption_cert_name&quot;) &amp;&amp;
+                        account.defaultIdentity.getUnicharAttribute(&quot;signing_cert_name&quot;)) {
+
+                    &#x2F;&#x2F; SMIME message compose fields
+                    var smimeCompFields = Components.classes[&quot;@mozilla.org&#x2F;messenger-smime&#x2F;composefields;1&quot;]
+                                                    .createInstance(Components.interfaces.nsIMsgSMIMECompFields);
+
+                    &#x2F;&#x2F; Sign and encrypt message
+                    smimeCompFields.requireEncryptMessage = true;
+                    smimeCompFields.signMessage = true;
+
+                    &#x2F;&#x2F; Set the security info of the message
+                    composeFields.securityInfo = smimeCompFields;
+                }
+
+                &#x2F;&#x2F; Message compose parameters instance
+                &#x2F;&#x2F; @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla-full&#x2F;html&#x2F;da&#x2F;d05&#x2F;interfacensIMsgComposeParams.html
+                var msgComposeParams = Components.classes[&quot;@mozilla.org&#x2F;messengercompose&#x2F;composeparams;1&quot;]
+                                                 .createInstance(Components.interfaces.nsIMsgComposeParams);
+
+                &#x2F;&#x2F; Define the message composition parameters
+                msgComposeParams.composeFields = composeFields;
+                msgComposeParams.identity = account.defaultIdentity;
+                msgComposeParams.format = Components.interfaces.nsIMsgCompFormat.PlainText
+                msgComposeParams.type = Components.interfaces.nsIMsgCompType.New;
+
+                &#x2F;&#x2F; Compose service instance
+                &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Extensions&#x2F;Thunderbird&#x2F;HowTos&#x2F;Common_Thunderbird_Use_Cases&#x2F;Compose_New_Message
+                var composeService = Components.classes[&quot;@mozilla.org&#x2F;messengercompose;1&quot;]
+                                               .getService(Components.interfaces.nsIMsgComposeService);
+
+                &#x2F;&#x2F; Message compose instance using message composition parameters
+                var msgCompose = composeService.initCompose(msgComposeParams);
+
+                &#x2F;&#x2F; Remove vCards and signatures from missive email
+                SMETHAcknowledgementController._smethUtils.removeEmailExtras(msgCompose);
+
+                &#x2F;&#x2F; Message send interface instance
+                &#x2F;&#x2F; @see http:&#x2F;&#x2F;doxygen.db48x.net&#x2F;mozilla&#x2F;html&#x2F;interfacensIMsgSend.html
+                var msgSend = Components.classes[&quot;@mozilla.org&#x2F;messengercompose&#x2F;send;1&quot;]
+                                        .createInstance(Components.interfaces.nsIMsgSend);
+
+                &#x2F;&#x2F; Send the acknowledgement missive XML
+                msgCompose.SendMsg(msgSend.nsMsgDeliverNow, account.defaultIdentity, account, null, null);
+
+            } else {
+
+                &#x2F;&#x2F; Required SEPAmail IDs could not be found
+                throw new Error(&quot;The required SEPAmail IDs could not be found.&quot;);
+            }
+
+        } catch (e) {
+            throw e;
+        }
+    },
+
+    &#x2F;**
+     * Initialise SMETH preferences class
+     *
+     * @method _initSmethPreferences
+     *&#x2F;
+    _initSmethPreferences : function() {
+
+        &#x2F;&#x2F; Check if SMETH preferences has been initialised
+        if (!this._smethPreferencesHasBeenInitialised) {
+
+            &#x2F;&#x2F; Initialise SMETH preferences
+            this._smethPreferences.QueryInterface(Components.interfaces.nsIPrefBranch2);
+            this._smethPreferencesHasBeenInitialised = true;
+        }
+    },
+
+    &#x2F;**
+     * Set the text value of a node in a given container
+     *
+     * @method _setNodeInContainer
+     * @param {XML} ackDocument Acknowledgement missive document object model
+     * @param {Object} container Acknowledgement details container
+     * @param {String} localName Acknowledgement node local name
+     * @param {String} nodeValue Value of the acknowledgement node
+     *&#x2F;
+    _setNodeInContainer : function(ackDocument, container, localName, nodeValue) {
+
+        &#x2F;&#x2F; Check if container has child nodes
+        if (container.hasChildNodes()) {
+
+            &#x2F;&#x2F; Child nodes
+            var children = container.childNodes;
+
+            &#x2F;&#x2F; Scan the child nodes and check if we have the required node
+            for (var i = 0; i &lt; children.length; i++) {
+
+                &#x2F;&#x2F; Check the current node name
+                if (children[i].localName == localName) {
+
+                    &#x2F;&#x2F; Set the value of the node
+                    children[i].textContent = nodeValue;
+
+                    &#x2F;&#x2F; Exit child nodes scanning
+                    return;
+                }
+            }
+        }
+
+        &#x2F;&#x2F; New element for details node
+        var detailNode = ackDocument.createElement(&#x27;sem:&#x27; + localName);
+
+        &#x2F;&#x2F; Set the value of the node
+        detailNode.textContent = nodeValue;
+
+        &#x2F;&#x2F; Add the details node to the container
+        container.appendChild(detailNode);
+    },
+
+    &#x2F;**
+     * Event raised when compose window is loaded and fields are ready
+     *
+     * @method NotifyComposeFieldsReady
+     *
+     * REM MSO 20121210 Why empty function ?
+     *&#x2F;
+    NotifyComposeFieldsReady: function() {
+
+    },
+
+    &#x2F;**
+     * Event raised when compose window is loaded and compose body is ready
+     *
+     * @method NotifyComposeBodyReady
+     * @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Using_the_Mozilla_JavaScript_interface_to_XSL_Transformations#Using_XSLTProcessor_from_XPCOM_components
+     *&#x2F;
+    NotifyComposeBodyReady: function() {
+
+        try {
+
+            &#x2F;&#x2F; Get XSL to transform missive to acknowledgement form
+            var ackFormTransformerUrl = this._smethPreferences.getCharPref(&quot;acknowledgement.form.XSLUrl&quot;);
+
+            &#x2F;&#x2F; XMLHttpRequest instance which loads the XSL transformer
+            var xmlHttpRequest = new XMLHttpRequest();
+
+            &#x2F;&#x2F; Load the XSL transformer
+            xmlHttpRequest.open(&#x27;GET&#x27;, ackFormTransformerUrl, false);
+            xmlHttpRequest.send();
+
+            &#x2F;&#x2F; XSL document object
+            var xslDocument = xmlHttpRequest.responseXML;
+
+            &#x2F;&#x2F; Instatiate the XSLT Processor
+            &#x2F;&#x2F; @see https:&#x2F;&#x2F;developer.mozilla.org&#x2F;en-US&#x2F;docs&#x2F;Using_the_Mozilla_JavaScript_interface_to_XSL_Transformations#Using_XSLTProcessor_from_XPCOM_components
+            var xsltProcessor= Components.classes[&quot;@mozilla.org&#x2F;document-transformer;1?type=xslt&quot;]
+                                         .createInstance(Components.interfaces.nsIXSLTProcessor);
+            xsltProcessor.importStylesheet(xslDocument);
+
+            &#x2F;&#x2F; Remove the attach file button
+            document.getElementById(&quot;button-attach&quot;).hidden = true;
+
+            &#x2F;&#x2F; Acknowledgement form document
+            var acknowledgementFormDoc = document.implementation.createDocument(
+                &quot;http:&#x2F;&#x2F;www.mozilla.org&#x2F;keymaster&#x2F;gatekeeper&#x2F;there.is.only.xul&quot;, &quot;&quot;, null);
+
+            &#x2F;&#x2F; Get acknowledgement XUL form fragment
+            var acknowledgementFormFragment = xsltProcessor.transformToFragment(this._ackMissiveXmlDom,
+                acknowledgementFormDoc);
+
+            &#x2F;&#x2F; Append the acknowledgement form fragment to acknowledgement form document owner
+            acknowledgementFormDoc.appendChild(acknowledgementFormFragment);
+
+            &#x2F;&#x2F; Get all the labels in the acknowledgement UI
+            var ackUiLabels = acknowledgementFormDoc.firstChild.getElementsByTagNameNS(
+                &quot;http:&#x2F;&#x2F;www.mozilla.org&#x2F;keymaster&#x2F;gatekeeper&#x2F;there.is.only.xul&quot;, &quot;label&quot;);
+
+            &#x2F;&#x2F; Loop the array of labels and set their appropriate text
+            for (var i = 0; i &lt; ackUiLabels.length; i++) {
+
+                &#x2F;&#x2F; Get a translated text for the current control
+                var localeText = SMETHAcknowledgementTranslations[ackUiLabels[i].id];
+
+                &#x2F;&#x2F; Check if we have a translation the current control
+                if (localeText != null) {
+
+                    &#x2F;&#x2F; Set the text of the label
+                    ackUiLabels[i].setAttribute(&#x27;value&#x27;, localeText);
+                }
+            }
+
+            &#x2F;&#x2F; Add the acknowledgement form to the message compose window
+            document.getElementById(&quot;smethComposeBodyFormContainer&quot;).appendChild(acknowledgementFormDoc.firstChild);
+
+        } catch (e) {
+            this._smethMessageHandler.exception(e);
+        }
+    },
+
+    &#x2F;**
+     * ComposeProcessDone event notifies when the compose process has been completed
+     *
+     * @method ComposeProcessDone
+     *
+     * REM MSO 20121210 Why empty function ?
+     *&#x2F;
+    ComposeProcessDone: function(aResult) {
+    },
+
+    &#x2F;**
+     * SaveInFolderDone event notifies when the save in folder has been completed
+     *
+     * @method SaveInFolderDone
+     *
+     * REM MSO 20121210 Why empty function ?
+     *&#x2F;
+    SaveInFolderDone: function(folderURI) {
+    },
+
+    &#x2F;**
+     * SendMailEventHandler event handles the send event of an email
+     *
+     * @method SendMailEventHandler
+     * @param {Object} event Event parameters
+     *&#x2F;
+    SendMailEventHandler : function(event) {
+
+        var msgcomposeWindow = document.getElementById( &quot;msgcomposeWindow&quot; );
+        var msg_type = msgcomposeWindow.getAttribute( &quot;msgtype&quot; );
+
+        &#x2F;&#x2F; Do not continue unless this is an actual send event
+        if (!(msg_type == nsIMsgCompDeliverMode.Now || msg_type == nsIMsgCompDeliverMode.Later))
+            return;
+
+        &#x2F;&#x2F; Alter the body of the acknowledgement to reflect the options chosen by the user
+        try {
+
+            &#x2F;&#x2F; Get acknowledgement header details
+            var missiveId = document.getElementById(&quot;missiveIdTextbox&quot;).value;
+            var missiveOrd = document.getElementById(&quot;orderMissiveTextbox&quot;).value;
+            var missivePriority = document.getElementById(&quot;priorityTextbox&quot;).value;
+
+            &#x2F;&#x2F; Get user selected values
+            var userStatus = document.getElementById(&quot;semAcknowledgementStatusValueList&quot;).value;
+            var userClass = document.getElementById(&quot;semAcknowledgementClassValue&quot;).value;
+            var userSubject = document.getElementById(&quot;semAcknowledgementSubValue&quot;).value;
+            var userDetail = document.getElementById(&quot;semAcknowledgementDetValue&quot;).value;
+            var userDescription = document.getElementById(&quot;semAcknowledgementDescriptionValue&quot;).value;
+
+            &#x2F;&#x2F; Populate sender and receiver SEPAmail IDs
+            if (SMETHAcknowledgementController._smethUtils.populateQXBAN(gMsgCompose, document,
+                SMETHAcknowledgementController._ackMissiveXmlDom)) {
+
+                &#x2F;&#x2F; Current editor
+                var editor = GetCurrentEditor();
+
+                &#x2F;&#x2F; Set the date and time at which the acknowledgement is being sent
+                SMETHAcknowledgementController._smethUtils.setSendDateTime(SMETHAcknowledgementController._ackMissiveXmlDom);
+
+                &#x2F;&#x2F; Get the container for acknowledgement missive details elements
+                var ackDetailsContainer = SMETHAcknowledgementController._ackMissiveXmlDom.evaluate(
+                    SMETHAcknowledgementController._ackContainerPath, SMETHAcknowledgementController._ackMissiveXmlDom,
+                    SMETHAcknowledgementController._smethUtils.nsResolver, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+
+                &#x2F;&#x2F; Set the missive ID
+                if (missiveId.length &gt; 0) {
+
+                    &#x2F;&#x2F; Set the user generated missive ID
+                    SMETHAcknowledgementController._smethUtils.setNodeValue(
+                        SMETHAcknowledgementController._ackMissiveXmlDom,
+                        &quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvId&quot;, missiveId);
+
+                } else {
+
+                    &#x2F;&#x2F; Automatically generated and set missive ID
+                    SMETHAcknowledgementController._smethUtils.setMissiveId(SMETHAcknowledgementController._ackMissiveXmlDom);
+                }
+
+                &#x2F;&#x2F; Set the missive order and priority
+                SMETHAcknowledgementController._smethUtils.setNodeValue(
+                    SMETHAcknowledgementController._ackMissiveXmlDom,
+                    &quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvOrd&quot;, missiveOrd);
+                SMETHAcknowledgementController._smethUtils.setNodeValue(
+                    SMETHAcknowledgementController._ackMissiveXmlDom,
+                    &quot;&#x2F;sem:Missive&#x2F;sem:sepamail_missive_001&#x2F;sem:MsvPri&quot;, missivePriority);
+
+                &#x2F;&#x2F; Replace user values in acknowledgement missive
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqSta&quot;, userStatus);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqCla&quot;, userClass);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqSub&quot;, userSubject);
+                SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                    ackDetailsContainer.singleNodeValue, &quot;AcqDet&quot;, userDetail);
+
+                &#x2F;&#x2F; Check if user has specified details for acknowledgement
+                if (userDescription.trim().length &gt; 0) {
+                    SMETHAcknowledgementController._setNodeInContainer(SMETHAcknowledgementController._ackMissiveXmlDom,
+                        ackDetailsContainer.singleNodeValue, &quot;AcqDes&quot;, userDescription);
+                }
+
+                &#x2F;&#x2F; Start changing editor content
+                editor.beginTransaction();
+
+                &#x2F;&#x2F; Set the editor content
+                editor.document.body.textContent = &#x27;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x27; +
+                    (new XMLSerializer()).serializeToString(SMETHAcknowledgementController._ackMissiveXmlDom);
+
+                &#x2F;&#x2F; End changing editor content
+                editor.endTransaction();
+
+            } else {
+                event.preventDefault();
+            }
+
+        } catch (e) {
+            SMETHAcknowledgementController._smethMessageHandler.exception(e);
+        }
+    }
+};
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

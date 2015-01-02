@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY sepmailInfo.title "Message Security">
+<!ENTITY signature.label "Content SEPAmail">
+<!ENTITY sepamailInfo.desc "This message includes content SEPAmail, standard security and structuring your exchanges.">
+<!ENTITY sendBy.label "Send by :">
+<!ENTITY qxban.label "QXBAN :">
+

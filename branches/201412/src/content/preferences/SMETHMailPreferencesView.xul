@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHOption.dtd">
+
+<overlay id="{appname}-mail_preferences"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script src="./controllers/SMETHMailPreferencesController.js"/>
+
+    <prefpane id="prefpaneMailDetails" flex="1" label="&prefPane.label.mail;">
+        <preferences id="prefMail">
+            <preference id="prefCurrency" name="extensions.smeth.defaultCurrency" type="string" instantApply="true"/>
+            <preference id="prefHasExpiry" name="extensions.smeth.hasExpiry" type="bool" instantApply="true"/>
+            <preference id="prefExpiryDuration" name="extensions.smeth.expiryDuration" type="string" instantApply="true"/>
+        </preferences>
+        <groupbox flex="1" id="groupboxMail">
+            <caption label="&prefPane.prefpaneMail.grouptitle;"/>
+            <vbox flex="1">
+                <separator class="thin" orient="horizontal"/>
+                <grid flex="1">
+                    <columns>
+                        <column/>
+                        <column flex="1"/>
+                    </columns>
+                    <rows>
+                        <row align="center">
+                            <label id="labelCurrency" value="Currency"/>
+                            <textbox id="textboxCurrency" flex="1" preference="prefCurrency"/>
+                        </row>
+                        <row align="center">
+                            <checkbox label="&prefPane.prefpaneMail.labelMessageExpiry;" preference="prefHasExpiry"/>
+                        </row>
+                        <row align="center">
+                            <label id="labelMessageExpiryDuration" value="&prefPane.prefpaneMail.labelMessageExpiryDuration;"/>
+                            <textbox id="textboxMessageExpiryDuration" flex="1" preference="prefExpiryDuration"/>
+                        </row>
+                    </rows>
+                </grid>
+            </vbox>
+        </groupbox>
+    </prefpane>
+
+</overlay>

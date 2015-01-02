@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY addressbook.title "Civilité:">
+<!ENTITY addressbook.title.accesskey "t">
+<!ENTITY addressbook.account "Compte SEPAmail:">
+<!ENTITY addressbook.account.accesskey "m">
+<!ENTITY addressbook.ris2d.caption "RIS2D - Choisissez une des options suivantes:">
+<!ENTITY addressbook.ris2d.none "Aucun">
+<!ENTITY addressbook.ris2d.none.accesskey "n">
+<!ENTITY addressbook.ris2d.local "Sur ce PC">
+<!ENTITY addressbook.ris2d.local.accesskey "P">
+<!ENTITY addressbook.ris2d.local.button "Parcourir">
+<!ENTITY addressbook.ris2d.local.button.accesskey "r">
+<!ENTITY addressbook.ris2d.web "Sur le Web">
+<!ENTITY addressbook.ris2d.web.accesskey "b">
+<!ENTITY addressbook.ris2d.web.button "Mettre à jour">
+<!ENTITY addressbook.ris2d.web.button.accesskey "u">
+<!ENTITY addressbook.ris2d.web.error "La carte RIS2D à l\'URL indiqué n\'a pu être obtenue.">

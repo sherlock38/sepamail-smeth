@@ -1,0 +1,24 @@
+From: smoc.test.orange@decibi.fr 
+MIME-Version: 1.0
+To: smoc.test.vert@decibi.fr
+Content-Type: multipart/mixed;
+ boundary="------------080808050507090009040407"
+
+This is a multi-part message in MIME format.
+--------------080808050507090009040407
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+
+
+--------------080808050507090009040407
+Content-Type: application/xml;
+ name="test001.xml"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment;
+ filename="test001.xml"
+
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHRlc3Q+Cgk8aGVhZGVy
+PgoJCTxrZXkxPnZhbHVlMTwva2V5MT4KCQk8a2V5Mj52YWx1ZTI8L2tleTI+Cgk8L2hlYWRl
+cj4KCTxib2R5PgoJCTxtZXNzYWdlPgoJCU1lc3NhZ2Ugw6AgYWZmaWNoZXIuCgkJPC9tZXNz
+YWdlPgoJPC9ib2R5Pgo8L3Rlc3Q+
+--------------080808050507090009040407--

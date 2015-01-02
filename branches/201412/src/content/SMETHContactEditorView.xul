@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE overlay SYSTEM "chrome://{appname}/locale/SMETHAddressBook.dtd">
+<overlay id="smeth-contact-editor-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <script type="application/x-javascript">
+       /**
+        * SMETHAddressBookTranslations class defines all the translations used in the address book UI
+        */
+        var SMETHAddressBookTranslations = {
+            semUrlUpdateError: '&addressbook.ris2d.web.error;'
+        };
+    </script>
+    <script type="application/x-javascript" src="./controllers/SMETHAddressBookController.js"/>
+    <vbox id="namesAndEmailAddresses">
+        <hbox align="center" id="titleContainer" insertbefore="NameField1Container">
+            <spacer flex="1"/>
+            <label accesskey="&addressbook.title.accesskey;" control="SMETHTitle" value="&addressbook.title;"/>
+            <hbox align="center" class="CardEditWidth">
+                <textbox flex="1" id="SMETHTitle"/>
+            </hbox>
+        </hbox>
+    </vbox>
+
+    <tabs id="abTabs">
+        <tab accesskey="S" id="smethTabButton" insertafter="workTabButton" label="SEPAmail"/>
+    </tabs>
+
+    <tabpanels id="abTabPanels" flex="1">
+        <vbox id="abSmethTab" insertafter="abBusinessTab">
+            <hbox align="center" id="sepamailAccountContainer">
+                <spacer flex="1"/>
+                <label accesskey="&addressbook.account.accesskey;" control="SMETHSEPAmailAccount" value="&addressbook.account;"/>
+                <hbox align="center" class="AddressCardEditWidth">
+                    <textbox flex="1" id="SMETHSEPAmailAccount"/>
+                </hbox>
+            </hbox>
+            <hbox align="center" id="ris2dContainer">
+                <vbox align="center" flex="1" id="ris2dContainer">
+                    <image height="275" id="sepamailRis2d" src="chrome://smeth/skin/images/blank-ris2d.png" width="297"/>
+                </vbox>
+                <groupbox flex="1" orient="horizontal">
+                    <caption label="&addressbook.ris2d.caption;"/>
+                    <radiogroup id="SMETHRis2DMapType" value="none">
+                        <vbox>
+                            <radio accesskey="&addressbook.ris2d.none.accesskey;" id="noRis2dMapType" label="&addressbook.ris2d.none;" oncommand="SMETHAddressBookController.resetMap();" selected="true" value="none"/>
+                        </vbox>
+                        <vbox>
+                            <radio accesskey="&addressbook.ris2d.local.accesskey;" id="localRis2dMapType" label="&addressbook.ris2d.local;" value="file"/>
+                            <hbox class="indent">
+                                <filefield flex="1" id="ris2dFile" maxlength="255"/>
+                                <button accesskey="&addressbook.ris2d.local.button.accesskey;" id="BrowseRis2d" label="&addressbook.ris2d.local.button;" oncommand="SMETHAddressBookController.getLocalRISD2Map();"/>
+                            </hbox>
+                        </vbox>
+                        <vbox>
+                            <radio accesskey="&addressbook.ris2d.web.accesskey;" id="webRis2dMapType" label="&addressbook.ris2d.web;" value="web"/>
+                            <hbox class="indent">
+                                <textbox flex="1" id="ris2dURI" maxlength="255"/>
+                                <button accesskey="&addressbook.ris2d.web.button.accesskey;" id="UpdateRis2d" label="&addressbook.ris2d.web.button;" oncommand="SMETHAddressBookController.getRemoteRISD2Map();"/>
+                            </hbox>
+                        </vbox>
+                        <hbox>
+                        </hbox>
+                    </radiogroup>
+                </groupbox>
+            </hbox>
+        </vbox>
+    </tabpanels>
+</overlay>
