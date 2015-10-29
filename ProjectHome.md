@@ -1,0 +1,1 @@
+SMETH (SepaMail extension THunderbird) is an extension for thunderbird to read and compose SEPAmail message and missive
